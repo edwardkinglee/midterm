@@ -6,5 +6,6 @@ CREATE TABLE messages (
   lister_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   buyer_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   timestamp TIMESTAMP NOT NULL,
-  message TEXT NOT NULL
+  message TEXT NOT NULL,
+  reply BOOLEAN NOT NULL DEFAULT FALSE
 );

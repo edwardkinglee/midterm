@@ -6,6 +6,7 @@ CREATE TABLE cars (
   year SMALLINT NOT NULL,
   make VARCHAR(255) NOT NULL,
   model VARCHAR(255) NOT NULL,
+  color VARCHAR(255) NOT NULL,
   description TEXT NOT NULL,
   price INTEGER NOT NULL,
   photo VARCHAR(255) NOT NULL,
