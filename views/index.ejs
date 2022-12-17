@@ -7,6 +7,9 @@
 
   <%- include('partials/_head.ejs') %>
 
+  <!-- Homepage specific script -->
+  <script defer src="/scripts/index.js"></script>
+
 </head>
 
 <body>
@@ -19,9 +22,7 @@
 
     <h1>Featured Cars</h1>
     <div class="container">
-      <h2>Image Gallery</h2>
-      <p>Click on the images to enlarge them.</p>
-      <div class="row">
+      <div class="row" id="featured-cars">
         <div class="col-md-4">
           <div class="thumbnail">
             <a href="/images/benz.jpg" target="_blank">

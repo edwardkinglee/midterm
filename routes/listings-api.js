@@ -35,6 +35,20 @@ router.get('/user/:id', (req, res) => {
     });
 });
 
+// Display top 3 favs
+router.get('/featured', (req, res) => {
+  const carId = req.params.id;
+  listingQueries.getMostPopular()
+    .then(listings => {
+      res.json({ listings });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
 // Display specific listing as JSON
 router.get('/:id', (req, res) => {
   const carId = req.params.id;
