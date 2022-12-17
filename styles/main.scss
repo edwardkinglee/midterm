@@ -12,8 +12,8 @@ body {
 .pre-header {
   background: #000;
   color: #fff;
-  height: 20px;
-  font-size: 0.75em;
+  height: 50px;
+  font-size: 1.75em;
   padding: 0 1em;
 }
 
@@ -27,4 +27,8 @@ header {
   position: fixed;
   top: 0;
   width: 100vw;
+}
+
+.nav-item{
+  font-size: 20px;
 }
