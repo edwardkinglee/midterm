@@ -9,6 +9,19 @@ body {
 
 }
 
+.pre-header {
+  background: #000;
+  color: #fff;
+  height: 20px;
+  font-size: 0.75em;
+  padding: 0 1em;
+}
+
+.pre-header a {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+}
 
 header {
   position: fixed;
