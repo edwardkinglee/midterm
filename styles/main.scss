@@ -4,22 +4,20 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-
   background: rgb(255, 255, 255);
 
 }
-
 .pre-header {
   background: #000;
   color: #fff;
-  height: 50px;
-  font-size: 1.75em;
-  padding: 0 1em;
+  height: 25px;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  padding: 0 3em;
 }
 
 .pre-header a {
   color: #fff;
-  text-transform: uppercase;
   text-decoration: none;
 }
 
@@ -29,19 +27,27 @@ header {
   width: 100vw;
 }
 
-.nav-item{
+.nav-item {
   font-size: 20px;
 }
 
-.post-new-car{
-  padding: 15px;
-  font-size: 1.2em;
+.post-car-button {
+  padding: 5px 10px;
+  width: 175px;
+  border: 1px solid black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1em;
+  color: #555;
 }
 
-.nav-item{
-  padding-left: 10px;
+.navbar-nav {
+  gap: 20px;
 }
 
-#main-logo{
-  width: 15em;
+#main-logo {
+  top: 1em;
+  padding-left: 3em;
+  width: 10em;
+  position: absolute;
 }

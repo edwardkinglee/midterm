@@ -3,7 +3,7 @@
 
 <head>
 
-  <title>Users</title>
+  <title>Midterm app - Users</title>
 
   <%- include('partials/_head.ejs') %>
 
@@ -12,10 +12,12 @@
 <body>
 
   <%- include('partials/_nav.ejs') %>
+    <div class="container">
+      <h1>Users</h1>
+      <button id="fetch-users">Fetch Users via AJAX</button>
+      <ul id="users"></ul>
+    </div>
 
-  <h1>Users</h1>
-  <button id="fetch-users">Fetch Users via AJAX</button>
-  <ul id="users"></ul>
 
 </body>
 
