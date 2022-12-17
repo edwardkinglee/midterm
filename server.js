@@ -30,21 +30,16 @@ app.use(express.static('public'));
 
 // Separated Routes for each Resource
 const listingApiRoutes = require('./routes/listings-api');
-const userApiRoutes = require('./routes/users-api');
-
 const listingsRoutes = require('./routes/listings');
-const usersRoutes = require('./routes/users');
+    // >>>> will need additional ApiRoutes and Routes for messages and favourites
 
 // Mount all resource routes
 // Note: Endpoints that return data (eg. JSON) start with `/api`
 app.use('/api/listings', listingApiRoutes);
-app.use('/api/users', userApiRoutes);
-
 app.use('/listings', listingsRoutes);
-app.use('/users', usersRoutes);
+    // >>>> will need additional ApiRoutes and Routes for messages and favourites
 
 // Home page
-
 app.get('/', (req, res) => {
   res.render('index');
 });

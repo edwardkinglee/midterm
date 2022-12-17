@@ -1,3 +1,4 @@
+// Load All or My listings depending on the H1 title of the page (determined at time of rendering based on routes)
 $().ready(function() {
   if ($('#listing-title')[0].innerHTML.includes('All')) {
     $.ajax({
@@ -34,6 +35,8 @@ $().ready(function() {
         }
       });
   } else {
+    // Display only 'My listings' based on the logged in user
+    // userId cannot be reached via cookie here, so it is being stored on the page in a hidden div instead
     const userId = $('#user-id')[0].innerHTML;
     $.ajax({
       method: 'GET',

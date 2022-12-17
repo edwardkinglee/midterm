@@ -1,4 +1,4 @@
-// Load most favourited
+// Load most favourited to the homepage
 $().ready(function() {
     $.ajax({
       method: 'GET',
