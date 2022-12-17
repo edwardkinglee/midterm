@@ -1,18 +1,18 @@
 <header>
   <div class="container">
     <div class="pre-header container-fluid d-flex justify-content-between align-items-center">
-      <h2>Company Name</h2>
+      <span>Company Name</span>
       <span>GIVE US A CALL: (780)999-1234</span>
       <div class="d-inline d-flex align-items-center">
-        <a class="mx-1" href="#" role="button">Login</a> |
-        <a class="mx-1" href="#" role="button">Register</a>
+        <a class="mx-1" href="/login" role="button">Login</a> |
+        <a class="mx-1" href="/register" role="button">Register</a>
       </div>
     </div>
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
 
-        <a class="navbar-brand" href="#">
-          <div><img src="/images/PremiumCarsSmall.png" alt="logo" id="main-logo"></div>
+        <a class="navbar-brand d-none d-xl-block">
+          <img src="/images/PremiumCarsSmall.png" alt="logo" id="main-logo">
         </a>
 
         <!-- Collapsed navbar toggle -->
@@ -23,23 +23,30 @@
 
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="d-none d-xl-block" style="width: 175px;">&nbsp;</div>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Home</a>
+              <a class="nav-link active" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Favourites</a>
+              <a class="nav-link" href="/search">Search</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Listings</a>
+              <a class="nav-link" href="/listings">View All</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Messages</a>
+              <a class="nav-link" href="/listings/mine">My Listings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/favourites">Favourites</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/messages">Messages</a>
             </li>
           </ul>
-            <button class="post-car-button">
-            <span class="post-new-car">POST NEW CAR</span>
-            </button>
+          <a class="post-car-button" href="/listings/new">
+            <span>POST NEW CAR</span>
+          </a>
         </div>
       </div>
     </nav>

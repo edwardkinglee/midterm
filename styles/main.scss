@@ -1,25 +1,26 @@
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
-
   background: rgb(255, 255, 255);
-
+  font-family: 'Raleway', sans-serif;
 }
 
 .pre-header {
   background: #000;
   color: #fff;
-  height: 50px;
-  font-size: 1.75em;
-  padding: 0 1em;
+  height: 25px;
+  font-size: 0.75em;
+  font-weight: 300;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  padding: 0 3em;
 }
 
 .pre-header a {
   color: #fff;
-  text-transform: uppercase;
   text-decoration: none;
 }
 
@@ -27,21 +28,44 @@ header {
   position: fixed;
   top: 0;
   width: 100vw;
+  z-index: 99;
+  text-transform: uppercase;
 }
 
-.nav-item{
-  font-size: 20px;
+.nav-item {
+  font-size: 1em;
+  font-weight: 500;
 }
 
-.post-new-car{
-  padding: 15px;
-  font-size: 1.2em;
+.post-car-button {
+  padding: 5px 10px;
+  width: 175px;
+  border: 1px solid black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1em;
+  color: #555;
 }
 
-.nav-item{
-  padding-left: 10px;
+.navbar-nav {
+  gap: 20px;
 }
 
-#main-logo{
-  width: 15em;
+#main-logo {
+  top: 0.5em;
+  padding-left: 4em;
+  width: 10em;
+  position: absolute;
+}
+
+// This ensures any content 'below' the nav/header gets pushed down and is not blocked
+header+* {
+  margin-top: 75px;
+  text-align: center;
+}
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-weight: 200;
 }
