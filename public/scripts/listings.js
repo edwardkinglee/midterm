@@ -22,7 +22,7 @@ $().ready(function() {
               <a href="/listings/${listing.id}" class="btn btn-primary">View listing</a>
             </div>
             <div class="card-footer text-muted">
-              Posted: 2022-12-17 09:45:55:00
+              Posted: ${listing.timestamp}
             </div>
           </div>
         </div>

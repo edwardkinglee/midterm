@@ -3,7 +3,6 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
 
-  // get all listings, add to templateVars (can further filter on the page for 'My listings'?)
   const templateVars = {};
 
   res.render('listings', templateVars);
