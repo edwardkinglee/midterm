@@ -21,10 +21,10 @@ router.get('/', (req, res) => {
     });
 });
 
-// Display specific listing as JSON
-router.get('/:id', (req, res) => {
-  const carId = req.params.id;
-  listingQueries.getListing(carId)
+// Display a specific user's listings as JSON
+router.get('/user/:id', (req, res) => {
+  const userId = req.params.id;
+  listingQueries.getUserListings(userId)
     .then(listings => {
       res.json({ listings });
     })
@@ -35,10 +35,10 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// Display a specific user's listings as JSON
-router.get('/user/:id', (req, res) => {
-  const userId = req.params.id;
-  listingQueries.getUserListings(userId)
+// Display specific listing as JSON
+router.get('/:id', (req, res) => {
+  const carId = req.params.id;
+  listingQueries.getListing(carId)
     .then(listings => {
       res.json({ listings });
     })

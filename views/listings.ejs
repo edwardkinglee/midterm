@@ -3,9 +3,12 @@
 
 <head>
 
-  <title>Midterm app - Users</title>
+  <title>Midterm app - <%= display %> Listings</title>
 
   <%- include('partials/_head.ejs') %>
+
+    <!-- Listings specific script -->
+    <script defer src="/scripts/listings.js"></script>
 
 </head>
 
@@ -14,107 +17,14 @@
   <%- include('partials/_nav.ejs') %>
 
     <div class="container">
-      <h1>Listings page</h1>
+
+      <h1 id="listing-title">
+        <%= display %> listings <span id="user-id" style="display: none;"><%= userId %></span>
+      </h1>
+
       <div class="row row-cols-1 row-cols-md-3 g-4" id="listings">
 
-
-        <!-- <div class="col">
-          <div class="card">
-            <img src="/images/car5.jpg" class="card-img-top" alt="...">
-            <h5 class="card-header">2010 Make Model</h5>
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">This is the description of the car that was put into the database when the seller
-                created the listing!</p>
-              <a href="#" class="btn btn-primary">View listing</a>
-            </div>
-            <div class="card-footer text-muted">
-              Posted: 2022-12-17 09:45:55:00
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card">
-            <img src="/images/car5.jpg" class="card-img-top" alt="...">
-            <h5 class="card-header">2010 Make Model</h5>
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">This is the description of the car that was put into the database when the seller
-                created the listing!</p>
-              <a href="#" class="btn btn-primary">View listing</a>
-            </div>
-            <div class="card-footer text-muted">
-              Posted: 2022-12-17 09:45:55:00
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card">
-            <img src="/images/car5.jpg" class="card-img-top" alt="...">
-            <h5 class="card-header">2010 Make Model</h5>
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">This is the description of the car that was put into the database when the seller
-                created the listing!</p>
-              <a href="#" class="btn btn-primary">View listing</a>
-            </div>
-            <div class="card-footer text-muted">
-              Posted: 2022-12-17 09:45:55:00
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card">
-            <img src="/images/car5.jpg" class="card-img-top" alt="...">
-            <h5 class="card-header">2010 Make Model</h5>
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">This is the description of the car that was put into the database when the seller
-                created the listing!</p>
-              <a href="#" class="btn btn-primary">View listing</a>
-            </div>
-            <div class="card-footer text-muted">
-              Posted: 2022-12-17 09:45:55:00
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card">
-            <img src="/images/car5.jpg" class="card-img-top" alt="...">
-            <h5 class="card-header">2010 Make Model</h5>
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">This is the description of the car that was put into the database when the seller
-                created the listing!</p>
-              <a href="#" class="btn btn-primary">View listing</a>
-            </div>
-            <div class="card-footer text-muted">
-              Posted: 2022-12-17 09:45:55:00
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card">
-            <img src="/images/car5.jpg" class="card-img-top" alt="...">
-            <h5 class="card-header">2010 Make Model</h5>
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">This is the description of the car that was put into the database when the seller
-                created the listing!</p>
-              <a href="#" class="btn btn-primary">View listing</a>
-            </div>
-            <div class="card-footer text-muted">
-              Posted: 2022-12-17 09:45:55:00
-            </div>
-          </div>
-        </div> -->
-
-
+        <!-- This is where AJAX loads in the listings -->
 
       </div>
 

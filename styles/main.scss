@@ -1,17 +1,20 @@
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
   background: rgb(255, 255, 255);
-
+  font-family: 'Raleway', sans-serif;
 }
+
 .pre-header {
   background: #000;
   color: #fff;
   height: 25px;
   font-size: 0.75em;
+  font-weight: 300;
+  font-family: sans-serif;
   text-transform: uppercase;
   padding: 0 3em;
 }
@@ -26,10 +29,12 @@ header {
   top: 0;
   width: 100vw;
   z-index: 99;
+  text-transform: uppercase;
 }
 
 .nav-item {
-  font-size: 20px;
+  font-size: 1em;
+  font-weight: 500;
 }
 
 .post-car-button {
@@ -51,4 +56,16 @@ header {
   padding-left: 3em;
   width: 10em;
   position: absolute;
+}
+
+// This ensures any content 'below' the nav/header gets pushed down and is not blocked
+header+* {
+  margin-top: 75px;
+  text-align: center;
+}
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-weight: 200;
 }

@@ -5,6 +5,7 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const cookieParser = require("cookie-parser");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -16,6 +17,7 @@ app.set('view engine', 'ejs');
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(
   '/styles',
   sassMiddleware({
@@ -46,6 +48,23 @@ app.use('/users', usersRoutes);
 app.get('/', (req, res) => {
   res.render('index');
 });
+
+// Login to a specific user
+app.get('/login/:id', (req, res) => {
+  const userId = req.params.id;
+  console.log('creating cookie for user id', userId)
+  res.cookie('user_id', userId);
+  res.redirect('/');
+});
+
+// Logout & clear cookie
+app.get('/logout', (req, res) => {
+  const userId = req.params.id;
+  console.log('clearing cookie for user id', userId)
+  res.clearCookie('user_id');
+  res.redirect('/');
+});
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
