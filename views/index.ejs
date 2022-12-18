@@ -24,12 +24,12 @@
     <h2 class="text-center">Search</h2>
     <div class="" style="margin:0px;">
       <div class="row" style="padding-top: 15px;">
-       <div class="col-md-1 col-home-srch-1"></div>
         <div class="col-md-3 col-home-srch-2">
          <form role="search" method="get" class="form-search" action="">
           <input type="hidden" name="s">
            <input type="hidden" name="sold" value="0">
             <div class="form-group">
+              <h4>Make</h4>
               <select name="make" id="make" class="form-control">
                 <option value="">Any Make</option>
                 <option value="BMW">BMW</option>
@@ -59,15 +59,14 @@
     </div>
       <div class="col-md-3 col-home-srch-3">
         <div class="form-group">
+          <h4>Model</h4>
           <select name="model" id="model" class="form-control">
             <option value="">Any Model</option>
           </select>
         </div>
       </div>
-    <div class="col-md-2 col-home-srch-4">
-      <div class="form-group">
-        <div class="row">
-          <div class="col-xs-6 col-home-srch-4-1">
+          <div class="col-md-3 col-home-srch-4-1">
+            <h4>Min Year</h4>
             <select name="min_year" id="min_year" class="form-control">
               <option value="">Min Year</option>
               <option value="1963">1963</option>
@@ -133,7 +132,8 @@
               <option value="2022">2023</option>
             </select>
           </div>
-          <div class="col-xs-6 col-home-srch-4-2">
+          <div class="col-md-3 col-home-srch-4-2">
+            <h4>Max Year</h4>
             <select name="max_year" id="max_year" class="form-control">
               <option value="">Max Year</option>
               <option value="1963">1963</option>
@@ -197,14 +197,10 @@
               <option value="2022">2022</option>
               <option value="2022">2023</option>
             </select>
+              <h4 style="visibility: hidden">Search</h4>
+              <button type="submit" class="btn btn-outline-dark" name="submit" id="searchsubmit" value="Search">
+               <span class="glyphicon glyphicon-search"></span> Search</button>
           </div>
-        </div>
-      </div>
-     </div>
-      <div class="col-md-2 col-home-srch-5">
-       <button type="submit" class="btn btn-outline-dark" name="submit" id="searchsubmit" value="Search">
-        <span class="glyphicon glyphicon-search"></span> Search</button>
-      </div>
     </div>
    </div>
   </div>
