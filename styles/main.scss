@@ -86,7 +86,19 @@ h2 {
   margin-top: 0.5em;
 }
 
-#search-submit{
+#search-submit {
   padding-left: 40px;
   padding-right: 40px;
+}
+
+#search-container {
+  padding: 0.5em 2em 2em;
+  position: relative;
+  top: -75px;
+  margin-bottom: -75px;
+  background: rgba(rgb(255, 191, 117), 0.5);
+}
+
+#search-container h2 {
+  color: #fff;
 }
