@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>Midterm app - Register</title>
+
+  <%- include('partials/_head.ejs') %>
+
+</head>
+
+<body>
+
+  <%- include('partials/_nav.ejs') %>
+
+    <div class="container">
+
+      <div class="card" style="margin: 3em auto; max-width: 36rem;">
+        <div class="card-header">
+          <h1>Register</h1>
+        </div>
+        <div class="card-body form-group">
+          <form> <!-- action="/login" method="POST" -->
+            <div class="alert alert-warning" role="alert">
+              <small id="passwordHelpBlock" class="d-block form-text text-muted">
+                <b>This app was created for learning purposes.</b>
+                <br />Do not submit real email addresses or passwords used for other services.
+              </small>
+            </div>
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="email" style="user-select: none; max-width: 8rem;"
+                data-toggle="tooltip" data-placement="top" title="Email address"><svg xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M1.75 2A1.75 1.75 0 000 3.75v.736a.75.75 0 000 .027v7.737C0 13.216.784 14 1.75 14h12.5A1.75 1.75 0 0016 12.25v-8.5A1.75 1.75 0 0014.25 2H1.75zM14.5 4.07v-.32a.25.25 0 00-.25-.25H1.75a.25.25 0 00-.25.25v.32L8 7.88l6.5-3.81zm-13 1.74v6.441c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V5.809L8.38 9.397a.75.75 0 01-.76 0L1.5 5.809z">
+                  </path>
+                </svg><span class="d-none d-md-inline-block" style="min-width: 5.25rem;">Email</span></label>
+              <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp"
+                placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-row">
+              <div class="col">
+                <div class="form-group input-group mb-3">
+                    <label class="input-group-text" class="input-group-text" for="username" style="user-select: none; max-width: 8rem;" title="Username (max. 10 char)"><svg
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="16"
+                        height="16">
+                        <path fill-rule="evenodd"
+                          d="M4.75 2.37a6.5 6.5 0 006.5 11.26.75.75 0 01.75 1.298 8 8 0 113.994-7.273.754.754 0 01.006.095v1.5a2.75 2.75 0 01-5.072 1.475A4 4 0 1112 8v1.25a1.25 1.25 0 002.5 0V7.867a6.5 6.5 0 00-9.75-5.496V2.37zM10.5 8a2.5 2.5 0 10-5 0 2.5 2.5 0 005 0z">
+                        </path>
+                      </svg><span class="d-none d-md-inline-block text-left"
+                        style="min-width: 5.25rem;">&ensp;Username</label>
+
+                  <input type="text" class="form-control" name="username" id="username" maxlength="10"
+                    placeholder="Choose a display name" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col">
+                <div class="form-group input-group mb-3">
+                  <label class="input-group-text" for="password" style="user-select: none; max-width: 8rem;" title="Password"><svg xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+                      <path fill-rule="evenodd"
+                        d="M6.5 5.5a4 4 0 112.731 3.795.75.75 0 00-.768.18L7.44 10.5H6.25a.75.75 0 00-.75.75v1.19l-.06.06H4.25a.75.75 0 00-.75.75v1.19l-.06.06H1.75a.25.25 0 01-.25-.25v-1.69l5.024-5.023a.75.75 0 00.181-.768A3.995 3.995 0 016.5 5.5zm4-5.5a5.5 5.5 0 00-5.348 6.788L.22 11.72a.75.75 0 00-.22.53v2C0 15.216.784 16 1.75 16h2a.75.75 0 00.53-.22l.5-.5a.75.75 0 00.22-.53V14h.75a.75.75 0 00.53-.22l.5-.5a.75.75 0 00.22-.53V12h.75a.75.75 0 00.53-.22l.932-.932A5.5 5.5 0 1010.5 0zm.5 6a1 1 0 100-2 1 1 0 000 2z">
+                      </path>
+                    </svg><span class="d-none d-md-inline-block"
+                      style="min-width: 5.25rem;">&nbsp;Password</span></label>
+                  <input type="password" name="password" class="form-control" id="password" placeholder="Password"
+                    required>
+                  <button class="input-group-text" type="button" id="togglePassword" onclick="togglePassword()"><svg
+                      id="eye-closed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                      width="16" height="16">
+                      <path fill-rule="evenodd"
+                        d="M.143 2.31a.75.75 0 011.047-.167l14.5 10.5a.75.75 0 11-.88 1.214l-2.248-1.628C11.346 13.19 9.792 14 8 14c-1.981 0-3.67-.992-4.933-2.078C1.797 10.832.88 9.577.43 8.9a1.618 1.618 0 010-1.797c.353-.533.995-1.42 1.868-2.305L.31 3.357A.75.75 0 01.143 2.31zm3.386 3.378a14.21 14.21 0 00-1.85 2.244.12.12 0 00-.022.068c0 .021.006.045.022.068.412.621 1.242 1.75 2.366 2.717C5.175 11.758 6.527 12.5 8 12.5c1.195 0 2.31-.488 3.29-1.191L9.063 9.695A2 2 0 016.058 7.52l-2.53-1.832zM8 3.5c-.516 0-1.017.09-1.499.251a.75.75 0 11-.473-1.423A6.23 6.23 0 018 2c1.981 0 3.67.992 4.933 2.078 1.27 1.091 2.187 2.345 2.637 3.023a1.619 1.619 0 010 1.798c-.11.166-.248.365-.41.587a.75.75 0 11-1.21-.887c.148-.201.272-.382.371-.53a.119.119 0 000-.137c-.412-.621-1.242-1.75-2.366-2.717C10.825 4.242 9.473 3.5 8 3.5z">
+                      </path>
+                    </svg>
+                    <svg class="d-none" id="eye-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
+                      fill="currentColor" width="16" height="16">
+                      <path fill-rule="evenodd"
+                        d="M1.679 7.932c.412-.621 1.242-1.75 2.366-2.717C5.175 4.242 6.527 3.5 8 3.5c1.473 0 2.824.742 3.955 1.715 1.124.967 1.954 2.096 2.366 2.717a.119.119 0 010 .136c-.412.621-1.242 1.75-2.366 2.717C10.825 11.758 9.473 12.5 8 12.5c-1.473 0-2.824-.742-3.955-1.715C2.92 9.818 2.09 8.69 1.679 8.068a.119.119 0 010-.136zM8 2c-1.981 0-3.67.992-4.933 2.078C1.797 5.169.88 6.423.43 7.1a1.619 1.619 0 000 1.798c.45.678 1.367 1.932 2.637 3.024C4.329 13.008 6.019 14 8 14c1.981 0 3.67-.992 4.933-2.078 1.27-1.091 2.187-2.345 2.637-3.023a1.619 1.619 0 000-1.798c-.45-.678-1.367-1.932-2.637-3.023C11.671 2.992 9.981 2 8 2zm0 8a2 2 0 100-4 2 2 0 000 4z">
+                      </path>
+                    </svg></button>
+                </div>
+              </div>
+            </div>
+            <div class="form-row  justify-content-between align-items-center" style="width: 100%">
+              <div class="col justify-content-between col-md-auto">
+                <button id="submitButton" type="submit" class="btn btn-primary" onclick="showWaiting()">Submit</button>
+                <input type="reset" class="btn btn-success" value="Reset" />
+              </div>
+              <div class="col ">
+                <div class="text-center small text-muted">
+                  <span class="d-none d-sm-inline-block">Already have an account?</span>
+                  <span class="d-sm-none">Have an account?</span>
+                  <a class="text-muted" href="/login"><u>Login here</u></a>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+
+      function showWaiting() {
+        document.getElementById('submitButton').setAttribute('class', 'btn btn-secondary');
+        document.getElementById('submitButton').innerHTML = "Waiting...";
+      }
+
+      const togglePassword = document.querySelector('#togglePassword');
+      const password = document.querySelector('#password');
+      const eyeOpen = document.querySelector('#eye-open');
+      const eyeClosed = document.querySelector('#eye-closed');
+
+      togglePassword.addEventListener('click', function(e) {
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        if (type === 'password') {
+          eyeOpen.classList.add('d-none');
+          eyeClosed.classList.remove('d-none');
+        } else {
+          eyeOpen.classList.remove('d-none');
+          eyeClosed.classList.add('d-none');
+        }
+      });
+
+    </script>
+
+</body>
+
+</html>
