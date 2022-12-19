@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>Midterm app - <%= status %> Error</title>
+
+  <%- include('partials/_head.ejs') %>
+
+</head>
+
+<body>
+
+  <%- include('partials/_nav.ejs') %>
+
+    <div class="container" style="padding-top: 3em;">
+
+      <h1>
+        <%= status %> - <%= message %>
+      </h1>
+
+      <!-- call to action DIV, rendered if a cta key was passed through the template -->
+      <% if (typeof cta !== "undefined") { %>
+        <p class="lead" style="padding-left: 20px;"><a href="<%= cta.url %>"><%= cta.display %></a></p>
+      <% } %>
+
+    </div>
+
+</body>
+
+</html>

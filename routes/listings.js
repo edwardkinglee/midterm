@@ -4,23 +4,28 @@ const router = express.Router();
 // All listings
 router.get('/', (req, res) => {
   const userId = req.cookies.user_id;
-  console.log(userId);
-  if (!userId) {
-    userId = 0;
-  }
 
   const templateVars = { display: 'All', userId };
 
   res.render('listings', templateVars);
-
 
 });
 
 // View my listings page
 router.get('/mine', (req, res) => {
   const userId = req.cookies.user_id;
+
   if (!userId) {
-    userId = 0;
+    const errorVars = {
+      status: 401,
+      message: 'Unauthorized.',
+      cta: {
+        url: '/login/3',
+        display: 'Click here to login as user 3.'
+      }
+    };
+
+    res.render('error_template', errorVars);
   }
 
   // query the carId, get the info needed for the car listing page, add to templateVars

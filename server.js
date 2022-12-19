@@ -28,36 +28,95 @@ app.use(
 );
 app.use(express.static('public'));
 
+// Authorization function
+
+const authorizeUser = (req, res, next) => {
+  const userId = req.cookies.user_id;
+
+  if (userId === undefined) {
+    const errorVars = {
+      status: 401,
+      message: 'Unauthorized.',
+      cta: {
+        url: '/login/3',
+        display: 'Click here to login as user 3.'
+      }
+    };
+    return res.render('error_template', errorVars);
+  }
+
+  next();
+};
+
 // Separated Routes for each Resource
 const listingApiRoutes = require('./routes/listings-api');
 const listingsRoutes = require('./routes/listings');
-    // >>>> will need additional ApiRoutes and Routes for messages and favourites
+// >>>> will need additional ApiRoutes and Routes for messages and favourites
 
 // Mount all resource routes
 // Note: Endpoints that return data (eg. JSON) start with `/api`
 app.use('/api/listings', listingApiRoutes);
 app.use('/listings', listingsRoutes);
-    // >>>> will need additional ApiRoutes and Routes for messages and favourites
+// >>>> will need additional ApiRoutes and Routes for messages and favourites
+
+// REGULAR ROUTES BEGIN HERE (home, login, register, logout, error page)
 
 // Home page
 app.get('/', (req, res) => {
-  res.render('index');
+  const userId = req.cookies.user_id;
+  const templateVars = { userId };
+  res.render('index', templateVars);
+});
+
+// Registration
+app.get('/register', (req, res) => {
+  const userId = req.params.id;
+  if (userId) {
+    res.redirect('/');
+  }
+
+  res.render('register');
+});
+
+// Login page
+app.get('/login', (req, res) => {
+  const userId = req.params.id;
+  if (userId) {
+    res.redirect('/');
+  }
+
+  res.render('login');
 });
 
 // Login to a specific user
 app.get('/login/:id', (req, res) => {
   const userId = req.params.id;
-  console.log('creating cookie for user id', userId)
   res.cookie('user_id', userId);
   res.redirect('/');
 });
 
 // Logout & clear cookie
-app.get('/logout', (req, res) => {
+app.get('/logout', authorizeUser, (req, res) => {
   const userId = req.params.id;
-  console.log('clearing cookie for user id', userId)
   res.clearCookie('user_id');
   res.redirect('/');
+});
+
+// Error rendering for all non-existent routes/pages
+app.get('/*', authorizeUser, (req, res) => {
+  const userId = req.cookies.user_id;
+
+  const errorVars = {
+    status: 404,
+    message: 'Page not found.',
+    cta: {
+      url: 'javascript:history.back()',
+      display: 'Click here to go back.'
+    },
+    userId
+  };
+
+  res.render('error_template', errorVars);
 });
 
 
