@@ -73,10 +73,33 @@ header+* {
   text-align: center;
 }
 
-h1 {
+h1.lined {
+  position: relative;
   text-transform: uppercase;
   letter-spacing: 0.25em;
   font-weight: 200;
+  max-width: 100%;
+}
+
+h1.lined:before,
+h1.lined:after {
+  display: block;
+  position: absolute;
+  content: " ";
+  height: 1px;
+  width: 40%;
+}
+
+h1.lined:before {
+  top: 50%;
+  left: -50%;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 1));
+}
+
+h1.lined:after {
+  top: 50%;
+  right: -50%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1), transparent);
 }
 
 h2 {
