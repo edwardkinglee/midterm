@@ -51,12 +51,16 @@ const authorizeUser = (req, res, next) => {
 // Separated Routes for each Resource
 const listingApiRoutes = require('./routes/listings-api');
 const listingsRoutes = require('./routes/listings');
+const favouritesApiRoutes = require('./routes/favourites-api');
+const favouritesRoutes = require('./routes/favourites');
 // >>>> will need additional ApiRoutes and Routes for messages and favourites
 
 // Mount all resource routes
 // Note: Endpoints that return data (eg. JSON) start with `/api`
 app.use('/api/listings', listingApiRoutes);
 app.use('/listings', listingsRoutes);
+app.use('/api/favourites', favouritesApiRoutes);
+app.use('/favourites', favouritesRoutes);
 // >>>> will need additional ApiRoutes and Routes for messages and favourites
 
 // REGULAR ROUTES BEGIN HERE (home, login, register, logout, error page)
