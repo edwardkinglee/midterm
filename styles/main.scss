@@ -137,7 +137,16 @@ h2 {
   height: 550px;
 }
 
-#search-container{
+#search-container2 h2 {
+  color: #fff;
+}
+
+#search-container2{
   width: 100%; 
   margin-top:100px;
+  padding: 0.5em 2em 2em;
+  position: relative;
+  top: -75px;
+  margin-bottom: -75px;
+  background: rgba(rgb(255, 191, 117), 0.5);
 }
