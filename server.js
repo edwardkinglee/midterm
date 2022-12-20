@@ -53,6 +53,8 @@ const listingApiRoutes = require('./routes/listings-api');
 const listingsRoutes = require('./routes/listings');
 const favouritesApiRoutes = require('./routes/favourites-api');
 const favouritesRoutes = require('./routes/favourites');
+const searchApiRoutes = require('./routes/search-api');
+const searchRoutes = require('./routes/search');
 // >>>> will need additional ApiRoutes and Routes for messages and favourites
 
 // Mount all resource routes
@@ -61,6 +63,8 @@ app.use('/api/listings', listingApiRoutes);
 app.use('/listings', listingsRoutes);
 app.use('/api/favourites', favouritesApiRoutes);
 app.use('/favourites', favouritesRoutes);
+app.use('/api/search', searchApiRoutes);
+app.use('/search', searchRoutes);
 // >>>> will need additional ApiRoutes and Routes for messages and favourites
 
 // REGULAR ROUTES BEGIN HERE (home, login, register, logout, error page)
