@@ -1,18 +1,19 @@
+/* eslint-disable no-undef */
 // Load most favourited to the homepage
 $().ready(function() {
-    $.ajax({
-      method: 'GET',
-      url: '/api/listings/featured'
-    })
-      .done((response) => {
+  $.ajax({
+    method: 'GET',
+    url: '/api/listings/featured'
+  })
+    .done((response) => {
 
-        const $featuredContainer = $('#featured-cars');
+      const $featuredContainer = $('#featured-cars');
 
-        $featuredContainer.empty();
+      $featuredContainer.empty();
 
-        for (const listing of response.listings) {
+      for (const listing of response.listings) {
 
-          let $listing = `
+        let $listing = `
           <div class="col">
           <div class="card">
             <img src="${listing.photo}" class="card-img-top" alt="...">
@@ -28,9 +29,9 @@ $().ready(function() {
           </div>
         </div>`;
 
-          $($listing).appendTo($featuredContainer);
+        $($listing).appendTo($featuredContainer);
 
-        }
-      });
+      }
+    });
 
 });

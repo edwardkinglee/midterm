@@ -27,10 +27,10 @@ const getUserListings = (userId) => {
 // Get top 3 favourited (not sold/not deleted) cars
 const getMostPopular = () => {
   return db.query('SELECT * FROM cars WHERE id IN (SELECT cars.id FROM cars JOIN user_favs ON user_favs.car_id = cars.id WHERE cars.sold = FALSE AND cars.is_deleted = FALSE GROUP BY cars.id ORDER BY COUNT(*) DESC FETCH FIRST 3 ROWS ONLY);')
-   .then(data => {
+    .then(data => {
       return data.rows;
     });
-}
+};
 
 module.exports = {
   getListings,
