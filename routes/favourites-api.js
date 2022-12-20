@@ -8,11 +8,12 @@ const express = require('express');
 const router  = express.Router();
 const favoriteQueries = require('../db/queries/favourites');
 
-// Display all listings as JSON
-router.get('/', (req, res) => {
-  favoriteQueries.getFavourites()
-    .then(favourites => {
-      res.json({ favourites });
+// Display specific listing as JSON
+router.get('/user/:id', (req, res) => {
+  const carId = req.params.id;
+  favoriteQueries.getUserFavourites(carId)
+    .then(Favourites => {
+      res.json({ Favourites });
     })
     .catch(err => {
       res
@@ -21,12 +22,11 @@ router.get('/', (req, res) => {
     });
 });
 
-// Display specific listing as JSON
-router.get('/user/:id', (req, res) => {
-  const carId = req.params.id;
-  favoriteQueries.getFavourites(carId)
-    .then(Favourites => {
-      res.json({ Favourites });
+// Display all listings as JSON
+router.get('/', (req, res) => {
+  favoriteQueries.getFavourites()
+    .then(favourites => {
+      res.json({ favourites });
     })
     .catch(err => {
       res

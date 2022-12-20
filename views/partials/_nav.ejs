@@ -38,6 +38,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/listings">View All</a>
             </li>
+            <% if (typeof userId !== "undefined") { %>
             <li class="nav-item">
               <a class="nav-link" href="/listings/mine">My Listings</a>
             </li>
@@ -46,7 +47,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/messages">Messages</a>
-            </li>
+            </li><% } %>
           </ul>
           <a class="post-car-button" href="/listings/new">
             <span>POST NEW CAR</span>
