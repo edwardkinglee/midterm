@@ -6,6 +6,7 @@ body {
   min-height: 100vh;
   background: rgb(255, 255, 255);
   font-family: 'Raleway', sans-serif;
+  padding-bottom: 2em;
 }
 
 a {
@@ -73,6 +74,7 @@ header+* {
   text-align: center;
 }
 
+h1,
 h1.lined {
   position: relative;
   text-transform: uppercase;
@@ -124,4 +126,13 @@ h2 {
 
 #search-container h2 {
   color: #fff;
+}
+
+.card-img-top {
+  object-fit: cover;
+  height: 300px;
+}
+
+.card {
+  height: 550px;
 }

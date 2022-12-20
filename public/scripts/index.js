@@ -21,7 +21,7 @@ $().ready(function() {
             <div class="card-body">
               <h5 class="card-title">${listing.price} ${listing.color}</h5>
               <p class="card-text">${listing.description}</p>
-              <a href="/listings/${listing.id}" class="btn btn-primary">View listing</a>
+              <a href="/listings/${listing.id}" class="btn btn-primary stretched-link">View listing</a>
             </div>
             <div class="card-footer text-muted">
               Posted: ${listing.timestamp}
