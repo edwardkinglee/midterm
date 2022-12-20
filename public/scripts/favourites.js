@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
-// Load All or My listings depending on the H1 title of the page (determined at time of rendering based on routes)
+// Load favourites
 $().ready(function() {
-  if ($('#favourites')[0].innerHTML.includes('All')) {
+  if ($('#favourites-title')[0].innerHTML.includes('All')) {
     $.ajax({
       method: 'GET',
       url: '/api/favourites'
@@ -13,7 +13,7 @@ $().ready(function() {
         $favouritesContainer.empty();
 
         for (const favourite of response.favourites) {
-
+          
           let $favourite = `
         <div class="col">
           <div class="card">
@@ -36,7 +36,7 @@ $().ready(function() {
         }
       });
   } else {
-    // Display only 'My listings' based on the logged in user
+    // Display only 'My favourites' based on the logged in user
     // userId cannot be reached via cookie here, so it is being stored on the page in a hidden div instead
     const userId = $('#user-id')[0].innerHTML;
     $.ajax({

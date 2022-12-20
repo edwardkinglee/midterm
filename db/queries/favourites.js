@@ -8,9 +8,9 @@ const getFavourites = () => {
     });
 };
 
-// Get all cars for a user
+// Get all favourite cars for a user
 const getUserFavourites = (userId) => {
-  return db.query('SELECT * FROM user_favs WHERE user_id = $1;', [userId])
+  return db.query('SELECT * FROM user_favs JOIN cars ON user_favs.car_id = cars.id WHERE user_id = $1;', [userId])
     .then(data => {
       return data.rows;
     });
