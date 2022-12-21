@@ -1,10 +1,10 @@
 const express = require('express');
 const router  = express.Router();
-const listingQueries = require('../db/queries/search');
+const searchQuery = require('../db/queries/search');
 
 // Display all listings as JSON
 router.get('/', (req, res) => {
-  listingQueries.getListings()
+  searchQuery.getSearch()
     .then(search => {
       res.json({ search });
     })
