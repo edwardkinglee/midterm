@@ -9,8 +9,6 @@ $().ready(function() {
 
       $searchContainer.empty();
 
-      console.log('search response', response);
-
       for (const car of response.search) {
 
         let $search = `
