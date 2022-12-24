@@ -34,4 +34,27 @@ $().ready(function() {
       }
     });
 
+
+  // $('#search-form').on('submit', function(event) {
+  //   event.preventDefault();
+    
+  //   /* serialize will get data with this format make=BMW&model=&min_year=&max_year= */
+  //   // const formData = $(this).serialize();
+  //   //will get the make
+  //   const searchMake = $("#make").val();
+
+  //   $.ajax('/search', {
+  //     method: 'POST',
+  //     data: searchMake
+  //   })
+  //     .then(function() {
+  //       // console.log('searchMake', searchMake);
+  //       // console.log('search',search);
+
+  //     });
+  
+  //   return false;
+    
+  // });
+
 });
