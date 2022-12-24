@@ -7,6 +7,7 @@ const getSearch = (searchOptions) => {
   const model = searchOptions.model;
   const minYear = searchOptions.min_year;
   const maxYear = searchOptions.max_year;
+  const bodyType = searchOptions.body_type;
 
   let searchQuery = 'SELECT * FROM cars ';
   let queryParams = [];
@@ -19,13 +20,13 @@ const getSearch = (searchOptions) => {
   }
 
   //add 'WHERE' only if these values are not ''
-  if (make || model || minYear || maxYear) {
+  if (make || model || minYear || maxYear || bodyType) {
     searchQuery += `WHERE`;
   }
 
-  //loop to add 'AND' only if there is more then 0 parameters
+  //loop to add 'AND' only if there is more then 1 parameters
   for (const key in searchOptions) {
-    if (queryParams.length > 0 && searchOptions[key] !== '') {
+    if (queryParams.length > 0 && searchOptions[key]) {
       searchQuery += `AND`;
     }
 
@@ -48,6 +49,12 @@ const getSearch = (searchOptions) => {
       queryParams.push(`${maxYear}`);
       searchQuery += ` year <= $${queryParams.length} `;
     }
+
+    if (key === 'body_type' && bodyType) {
+      queryParams.push(`${bodyType}`);
+      searchQuery += ` body_type = $${queryParams.length} `;
+    }
+
   }
 
   if (queryParams.length > 0) {
