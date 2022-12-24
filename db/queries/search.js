@@ -15,7 +15,7 @@ const getSearch = (searchOptions) => {
   //check if search values are empty ''
   const valuesEmpty = searchValues.every(value => value === '');
   if (valuesEmpty) {
-    searchQuery += ';';
+    searchQuery += 'ORDER BY make;';
   }
 
   //add 'WHERE' only if these values are not ''
@@ -51,7 +51,7 @@ const getSearch = (searchOptions) => {
   }
 
   if (queryParams.length > 0) {
-    searchQuery += ';';
+    searchQuery += 'ORDER BY make;';
   }
   console.log(searchQuery);
   console.log('queryparams', queryParams);
