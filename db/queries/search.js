@@ -8,19 +8,14 @@ const getSearch = (searchOptions) => {
   const minYear = searchOptions.min_year;
   const maxYear = searchOptions.max_year;
   const bodyType = searchOptions.body_type;
+  const minPrice = searchOptions.min_price;
+  const maxPrice = searchOptions.max_price;
 
   let searchQuery = 'SELECT * FROM cars ';
   let queryParams = [];
   
-  const searchValues = Object.values(searchOptions);
-  //check if search values are empty ''
-  const valuesEmpty = searchValues.every(value => value === '');
-  if (valuesEmpty) {
-    searchQuery += 'ORDER BY make;';
-  }
-
   //add 'WHERE' only if these values are not ''
-  if (make || model || minYear || maxYear || bodyType) {
+  if (make || model || minYear || maxYear || bodyType || minPrice || maxPrice) {
     searchQuery += `WHERE`;
   }
 
@@ -50,6 +45,16 @@ const getSearch = (searchOptions) => {
       searchQuery += ` year <= $${queryParams.length} `;
     }
 
+    if (key === 'min_price' && minPrice) {
+      queryParams.push(`${minPrice}`);
+      searchQuery += ` price >= $${queryParams.length} `;
+    }
+
+    if (key === 'max_price' && maxPrice) {
+      queryParams.push(`${maxPrice}`);
+      searchQuery += ` price <= $${queryParams.length} `;
+    }
+
     if (key === 'body_type' && bodyType) {
       queryParams.push(`${bodyType}`);
       searchQuery += ` body_type = $${queryParams.length} `;
@@ -57,9 +62,8 @@ const getSearch = (searchOptions) => {
 
   }
 
-  if (queryParams.length > 0) {
-    searchQuery += 'ORDER BY make;';
-  }
+  searchQuery += 'ORDER BY make;';
+  
   console.log(searchQuery);
   console.log('queryparams', queryParams);
   return db.query(searchQuery, queryParams)

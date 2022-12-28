@@ -30,9 +30,24 @@ $().ready(function() {
         `;
 
         $($search).appendTo($searchContainer);
-
       }
+      
     });
+
+  //   $("#search-from").submit(function() {
+  //     $('html, body').animate({
+  //          scrollTop: $("#search").offset().top
+  //     }, 2000);
+  //     return false;
+  // });
+
+  // $('#search-submit').on('click', function(event) {
+  //   $('html, body').animate({
+  //     scrollTop: $("#search").offset().top
+  //   }, 2000);
+  //   return false;
+
+  // });
 
 
   // $('#search-form').on('submit', function(event) {

@@ -26,9 +26,9 @@
         <div id="search-container2">
           <h2 class="text-center"></h2>
           <div class="" style="margin-top:0px;">
-            <div class="row" style="">
+            <div class="row">
               <div class="col-md-3 col-home-srch-2">
-                <form role="search" method="get" class="form-search" action="/search" id="search-form">
+                <form role="search" method="get" class="form-search" action="/search#search" id="search-form">
                   <div class="form-group">
                     <h4>Make</h4>
                     <select name="make" id="make" class="form-control">
@@ -38,7 +38,6 @@
                       <option value="Aston Martin">Aston Martin</option>
                       <option value="Audi">Audi</option>
                       <option value="Bugatti">Bugatti</option>
-                      <option value="Buick">Buick</option>
                       <option value="Cadillac">Cadillac</option>
                       <option value="Chevrolet">Chevrolet</option>
                       <option value="Chrysler">Chrysler</option>
@@ -57,7 +56,6 @@
                       <option value="Mitsubishi">Mitsubishi</option>
                       <option value="Pontiac">Pontiac</option>
                       <option value="Porsche">Porsche</option>
-                      <option value="Ram">Ram</option>
                       <option value="Rolls-Royce">Rolls-Royce</option>
                       <option value="Subaru">Subaru</option>
                       <option value="Tesla">Tesla</option>
@@ -142,7 +140,7 @@
                 </select>
 
                 <h4>Min Price</h4>
-                <input type="number" id="min_price" class="form-control" name="min_price" min="0" />
+                <input type="number" id="min_price" class="form-control" name="min_price" min="0" placeholder="0"/>
               </div>
               <div class="col-md-2 col-home-srch-4-2">
                 <h4>Max Year</h4>
@@ -211,7 +209,7 @@
                 </select>
 
                 <h4>Max Price</h4>
-                <input type="number" id="max_price" class="form-control" name="max_price" min="0" /> 
+                <input type="number" id="max_price" class="form-control" name="max_price" min="0" placeholder="Unlimited"/> 
 
               </div>
               <div class="col-md-2 text-center">
@@ -301,7 +299,7 @@
           </div>
       </section>
       
-      <h1 class="lined">Search Results</h1>
+      <h1 id="search-results" class="lined">Search Results</h1>
       
       <div class="row row-cols-1 row-cols-md-3 g-4" id="search">
 

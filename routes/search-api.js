@@ -12,17 +12,15 @@ router.get('/', (req, res) => {
   const searchParams = new URLSearchParams(url.search);
   //get search values
   console.log('searchParams', searchParams);
-  const makeQuery = searchParams.get('make');
-  const modelQuery = searchParams.get('model');
-  const minYearQuery = searchParams.get('min_year');
-  const maxYearQuery = searchParams.get('max_year');
-  const bodyTypeQuery = searchParams.get('body_type');
 
-  const searchOptions = {make : makeQuery,
-    model: modelQuery,
-    min_year: minYearQuery,
-    max_year: maxYearQuery,
-    body_type: bodyTypeQuery
+  const searchOptions = {
+    make : searchParams.get('make'),
+    model: searchParams.get('model'),
+    min_year: searchParams.get('min_year'),
+    max_year: searchParams.get('max_year'),
+    body_type: searchParams.get('body_type'),
+    min_price: searchParams.get('min_price'),
+    max_price: searchParams.get('max_price')
   };
 
   //pass in searchOptions for query
