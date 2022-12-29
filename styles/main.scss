@@ -16,7 +16,7 @@ a {
 }
 
 a:hover {
-  color: #f00;
+  color: #1de331;
   text-decoration: underline 1px #999;
 }
 
@@ -231,4 +231,14 @@ a.slide__next{
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   right: 5%;
+}
+
+.vehicleImage .img-top {
+  display: none;
+}
+.vehicleImage:hover .img-top {
+  display: inline;
+}
+.vehicleImage:hover .img-bottom {
+  display: none;
 }
