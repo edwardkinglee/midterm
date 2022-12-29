@@ -30,8 +30,8 @@
               <div class="col-md-3 col-home-srch-2">
                 <form role="search" method="get" class="form-search" action="/search#search" id="search-form">
                   <div class="form-group">
-                    <h4>Make</h4>
-                    <select name="make" id="make" class="form-control">
+                    <h5>Make</h5>
+                    <select name="make" id="make" class="form-control form-select">
                       <option value="">Any Make</option>
                       <option value="Acura">Acura</option>
                       <option value="Alfa Romeo">Alfa Romeo</option>
@@ -45,7 +45,6 @@
                       <option value="Ferrari">Ferrari</option>
                       <option value="Ford">Ford</option>
                       <option value="GMC">GMC</option>
-                      <option value="Honda">Honda</option>
                       <option value="Jaguar">Hyundai</option>
                       <option value="Hyundai">Hyundai</option>
                       <option value="Land Rover">Land Rover</option>
@@ -61,20 +60,36 @@
                       <option value="Tesla">Tesla</option>
                       <option value="Toyota">Toyota</option>
                     </select>
+
+                    <h5 class="search-line">Min Kms</h5>
+                  <select name="make" id="sort" class="form-control form-select">
+                    <option value="">By Make A-Z</option>
+                    <option value="low-price">Lowest Price</option>
+                    <option value="high-price">Highest Price</option>
+                    <option value="newest-year">Newest Year</option>
+                    <option value="oldest-year">Oldest Year</option>
+                  </select>
                   </div>
-                
               </div>
               <div class="col-md-3 col-home-srch-3">
                 <div class="form-group">
-                  <h4>Model</h4>
-                  <select name="model" id="model" class="form-control">
+                  <h5>Model</h5>
+                  <select name="model" id="model" class="form-control form-select">
                     <option value="">Any Model</option>
+                  </select>
+                  <h5 class="search-line">Max Kms</h5>
+                  <select name="make" id="sort" class="form-control form-select">
+                    <option value="">By Make A-Z</option>
+                    <option value="low-price">Lowest Price</option>
+                    <option value="high-price">Highest Price</option>
+                    <option value="newest-year">Newest Year</option>
+                    <option value="oldest-year">Oldest Year</option>
                   </select>
                 </div>
               </div>
               <div class="col-md-2 col-home-srch-4-1">
-                <h4>Min Year</h4>
-                <select name="min_year" id="min_year" class="form-control">
+                <h5>Min Year</h5>
+                <select name="min_year" id="min_year" class="form-control form-select">
                   <option value="">Min Year</option>
                   <option value="1963">1963</option>
                   <option value="1964">1964</option>
@@ -139,12 +154,12 @@
                   <option value="2022">2023</option>
                 </select>
 
-                <h4>Min Price</h4>
+                <h5 class="search-line">Min Price</h5>
                 <input type="number" id="min_price" class="form-control" name="min_price" min="0" placeholder="0"/>
               </div>
               <div class="col-md-2 col-home-srch-4-2">
-                <h4>Max Year</h4>
-                <select name="max_year" id="max_year" class="form-control">
+                <h5>Max Year</h5>
+                <select name="max_year" id="max_year" class="form-control form-select">
                   <option value="">Max Year</option>
                   <option value="1963">1963</option>
                   <option value="1964">1964</option>
@@ -208,14 +223,22 @@
                   <option value="2022">2023</option>
                 </select>
 
-                <h4>Max Price</h4>
+                <h5 class="search-line">Max Price</h5>
                 <input type="number" id="max_price" class="form-control" name="max_price" min="0" placeholder="Unlimited"/> 
 
               </div>
               <div class="col-md-2 text-center">
-                <h4 style="visibility: hidden">Search</h4>
+                <h5 style="visibility: hidden">Search</h5>
                 <button type="submit" class="btn btn-outline-dark" name="submit" id="search-submit" value="Search">
                   <span class="glyphicon glyphicon-search"></span> Search</button>
+                  <h5 class="search-line">Sort By</h5>
+                  <select name="make" id="sort" class="form-control form-select">
+                    <option value="">By Make A-Z</option>
+                    <option value="low-price">Lowest Price</option>
+                    <option value="high-price">Highest Price</option>
+                    <option value="newest-year">Newest Year</option>
+                    <option value="oldest-year">Oldest Year</option>
+                  </select>
               </div>
             </form>
             </div>
@@ -233,7 +256,7 @@
               <div class="row">
                       <div class="col-xs-3 col-sm-3 vehicleContainer">
                           <div class="body-item">
-                              <a href="/search?body_type=suv" >
+                              <a href="/search?body_type=suv#search" >
                                   <div class="vehicleImage">
                                     <img src="/images/suv-crossover.jpg" class="img-fluid img-bottom" />
                                     <img src="images/suv-crossover-green.jpg" class="img-fluid img-top" alt="green car">
@@ -244,7 +267,7 @@
                       </div>
                       <div class="col-xs-6 col-sm-3 vehicleContainer">
                           <div class="body-item">
-                              <a href="/search?body_type=truck" class="bodyTypeItem">
+                              <a href="/search?body_type=truck#search" class="bodyTypeItem">
                                   <div class="vehicleImage">
                                     <img src="/images/pickup.jpg" class="img-fluid img-bottom" />
                                     <img src="images/pickup-green.jpg" class="img-fluid img-top" alt="green car">
@@ -255,7 +278,7 @@
                       </div>
                       <div class="col-xs-6 col-sm-3 vehicleContainer">
                           <div class="body-item">
-                              <a href="/search?body_type=sedan" class="bodyTypeItem">
+                              <a href="/search?body_type=sedan#search" class="bodyTypeItem">
                                   <div class="vehicleImage">
                                     <img src="/images/sedan.jpg" class="img-fluid img-bottom" />
                                     <img src="images/sedan-green.jpg" class="img-fluid img-top" alt="green sedan car">
@@ -266,7 +289,7 @@
                       </div>
                       <div class="col-xs-6 col-sm-3 vehicleContainer">
                           <div class="body-item">
-                              <a href="/search?body_type=coupe" class="bodyTypeItem">
+                              <a href="/search?body_type=coupe#search" class="bodyTypeItem">
                                   <div class="vehicleImage">
                                     <img src="/images/coupe.jpg" class="img-fluid img-bottom" />
                                     <img src="images/coupe-green.jpg" class="img-fluid img-top" alt="green coupe car">
@@ -277,7 +300,7 @@
                       </div>
                       <div class="col-xs-6 col-sm-3 vehicleContainer">
                           <div class="body-item">
-                              <a href="/search?body_type=minivan" class="bodyTypeItem">
+                              <a href="/search?body_type=minivan#search" class="bodyTypeItem">
                                   <div class="vehicleImage">
                                     <img src="/images/minivan.jpg" class="img-fluid img-bottom" />
                                     <img src="images/minivan-green.jpg" class="img-fluid img-top" alt="green car">
@@ -288,7 +311,7 @@
                       </div>
                       <div class="col-xs-6 col-sm-3 vehicleContainer">
                           <div class="body-item">
-                              <a href="/search?body_type=hatchback" class="bodyTypeItem">
+                              <a href="/search?body_type=hatchback#search" class="bodyTypeItem">
                                   <div class="vehicleImage">
                                     <img src="/images/hatchback.jpg" class="img-fluid img-bottom" />
                                     <img src="images/hatchback-green.jpg" class="img-fluid img-top" alt="green car">
@@ -299,7 +322,7 @@
                       </div>
                       <div class="col-xs-6 col-sm-3 vehicleContainer">
                           <div class="body-item">
-                              <a href="/search?body_type=convertible" class="bodyTypeItem">
+                              <a href="/search?body_type=convertible#search" class="bodyTypeItem">
                                   <div class="vehicleImage">
                                     <img src="/images/convertible.jpg" class="img-fluid img-bottom" />
                                     <img src="images/convertible-green.jpg" class="img-fluid img-top" alt="green car">
@@ -310,7 +333,7 @@
                       </div>
                       <div class="col-xs-6 col-sm-3 vehicleContainer">
                           <div class="body-item">
-                              <a href="/search?body_type=wagon" class="bodyTypeItem">
+                              <a href="/search?body_type=wagon#search" class="bodyTypeItem">
                                   <div class="vehicleImage">
                                     <img src="/images/wagon.jpg" class="img-fluid img-bottom" />
                                     <img src="images/wagon-green.jpg" class="img-fluid img-top" alt="green car">
