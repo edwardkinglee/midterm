@@ -163,6 +163,7 @@ h2 {
 /*Main slider image*/
 .slider-container {
   /* background: linear-gradient(149deg, rgb(247, 0, 255) 0%, rgb(255, 145, 0) 100%); */
+  position:relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -247,6 +248,21 @@ a.slide__next{
   margin-top: 10px;
 }
 
-#search {
-  scroll-margin-top: 120px;
+.img-text {
+  position: absolute;
+  top: 60px;
+  left: 50px;
+  background-color: rgba(233, 203, 154, 0.3);
+  color: rgb(15, 29, 1);
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: "Trirong", serif;
+  height: 80px;
+  border: 2px ridge rgb(163, 155, 3);
+}
+
+.img-text img{
+  height: 100%; 
+  width: 100%; 
+  object-fit: contain;
 }
