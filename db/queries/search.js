@@ -10,12 +10,14 @@ const getSearch = (searchOptions) => {
   const bodyType = searchOptions.body_type;
   const minPrice = searchOptions.min_price;
   const maxPrice = searchOptions.max_price;
+  const minKms = searchOptions.min_kms;
+  const maxKms = searchOptions.max_kms;
 
   let searchQuery = 'SELECT * FROM cars ';
   let queryParams = [];
   
   //add 'WHERE' only if these values are not ''
-  if (make || model || minYear || maxYear || bodyType || minPrice || maxPrice) {
+  if (make || model || minYear || maxYear || bodyType || minPrice || maxPrice || minKms || maxKms) {
     searchQuery += `WHERE`;
   }
 
@@ -53,6 +55,16 @@ const getSearch = (searchOptions) => {
     if (key === 'max_price' && maxPrice) {
       queryParams.push(`${maxPrice}`);
       searchQuery += ` price <= $${queryParams.length} `;
+    }
+
+    if (key === 'min_kms' && minKms) {
+      queryParams.push(`${minKms}`);
+      searchQuery += ` kms >= $${queryParams.length} `;
+    }
+
+    if (key === 'max_kms' && maxKms) {
+      queryParams.push(`${maxKms}`);
+      searchQuery += ` kms <= $${queryParams.length} `;
     }
 
     if (key === 'body_type' && bodyType) {
