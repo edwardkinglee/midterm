@@ -12,7 +12,7 @@ const getSearch = (searchOptions) => {
   const maxPrice = searchOptions.max_price;
   const minKms = searchOptions.min_kms;
   const maxKms = searchOptions.max_kms;
-
+  const sort = searchOptions.sort;
   let searchQuery = 'SELECT * FROM cars ';
   let queryParams = [];
   
@@ -23,7 +23,7 @@ const getSearch = (searchOptions) => {
 
   //loop to add 'AND' only if there is more then 1 parameters
   for (const key in searchOptions) {
-    if (queryParams.length > 0 && searchOptions[key]) {
+    if (queryParams.length > 0 && searchOptions[key] && key !== 'sort') {
       searchQuery += `AND`;
     }
 
@@ -73,9 +73,32 @@ const getSearch = (searchOptions) => {
     }
 
   }
-
-  searchQuery += 'ORDER BY make;';
   
+  if (sort) {
+    if (sort === 'low-price') {
+      searchQuery += 'ORDER BY price;';
+    }
+  
+    if (sort === 'high-price') {
+      searchQuery += 'ORDER BY price DESC;';
+    }
+  
+    if (sort === 'newest-year') {
+      searchQuery += 'ORDER BY year DESC;';
+    }
+  
+    if (sort === 'oldest-year') {
+      searchQuery += 'ORDER BY year;';
+    }
+
+    if (sort === 'make-desc') {
+      searchQuery += 'ORDER BY make DESC;';
+    }
+  } else {
+    searchQuery += 'ORDER BY make;';
+  }
+  
+
   console.log(searchQuery);
   console.log('queryparams', queryParams);
   return db.query(searchQuery, queryParams)

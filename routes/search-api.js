@@ -22,7 +22,8 @@ router.get('/', (req, res) => {
     min_price: searchParams.get('min_price'),
     max_price: searchParams.get('max_price'),
     min_kms: searchParams.get('min_kms'),
-    max_kms: searchParams.get('max_kms')
+    max_kms: searchParams.get('max_kms'),
+    sort: searchParams.get('sort')
   };
 
   //pass in searchOptions for query
