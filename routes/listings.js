@@ -36,7 +36,15 @@ router.get('/mine', (req, res) => {
 
 // Post new car
 router.get('/new', (req, res) => {
-  res.render('listing-new');
+  const userId = req.cookies.user_id;
+
+  if (!userId) {
+    return res.redirect('/login');
+  }
+
+  const templateVars = { userId };
+
+  res.render('listing-new', templateVars);
 });
 
 // View single listing page
