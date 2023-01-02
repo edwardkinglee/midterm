@@ -42,19 +42,10 @@ $().ready(function() {
     })
       .done((response) => {
 
-        console.log('done');
-
-        // $('#new-post').trigger("reset");
-
-        // location.href = `/listings/${response.id}`;
+        $('#new-post').trigger("reset");
+        location.href = `/listings/${response.id}`;
 
       });
   });
-
-  // $.ajax({
-  //   method: 'GET',
-  //   url: `/api/search`
-  // })
-  //   .done((response) => {});
 
 });

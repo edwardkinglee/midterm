@@ -39,7 +39,7 @@ const addNewListing = (user, listingObj) => {
 
   return db.query('INSERT INTO cars (lister_id, year, make, model, color, description, price, photo, body_type, kms) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *;', [user, year, make, model, color, desc, price, photo, body, mileage])
     .then(data => {
-      return data.rows;
+      return data.rows[0];
     });
 };
 

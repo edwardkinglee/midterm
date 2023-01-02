@@ -48,11 +48,18 @@ router.get('/new', (req, res) => {
   res.render('listing-new', templateVars);
 });
 
-router.post('/new', (req, rest) => {
+router.post('/new', (req, res) => {
   const userId = req.cookies.user_id;
   const values = req.body;
-  console.log(values);
-  listingQueries.addNewListing(userId, values);
+
+  listingQueries.addNewListing(userId, values)
+    .then((response) => {
+      res.send(response);
+    })
+    .catch(console.log);
+
+
+
 });
 
 // View single listing page
