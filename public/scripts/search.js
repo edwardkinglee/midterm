@@ -21,19 +21,24 @@ $().ready(function() {
              </a>
             </div>
         
-            <div class="col-sm-7">
-              <div class="card-body-right">
-              <a href="/listings/${car.id}" class="btn">   
+            <div class="col-sm-5">
+              <div class="card-body text-start">
+              <a href="/listings/${car.id}" class="">   
               <h5 class="card-title">${car.year} ${car.make} ${car.model}</h5>
               </a>
-                 <h5 class="card-title">${car.color}</h5>
-                 <p class="card-text">${car.description}</p>
+                 <br>
+                 <p class="card-text">${car.description} <br>color: ${car.color} <br>${car.body_type}</p>
               </div>  
+            </div>
+
+            <div class="col-sm-2">
+              <h6>${Number(car.kms).toLocaleString('en')} kms</h6>
             </div>
              
             <div class="col-sm-3">
              <h5>$${Number(car.price).toLocaleString('en')}</h5>
-             <p><br><br><br>Posted: ${car.timestamp}</p>
+             <p><br><br>Posted: ${new Date(car.timestamp).toDateString()}<br>${new Date(car.timestamp).toLocaleTimeString('en-US')}</p>
+             
             </div
           </div>  
         </div>

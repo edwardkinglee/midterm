@@ -22,19 +22,23 @@ $().ready(function() {
                </a>
               </div>
           
-              <div class="col-sm-7">
-                <div class="card-body-right">
-                <a href="/listings/${listing.id}" class="btn">   
+              <div class="col-sm-5">
+                <div class="card-body-right text-start">
+                <a href="/listings/${listing.id}" class="">   
                 <h5 class="card-title">${listing.year} ${listing.make} ${listing.model}</h5>
                 </a>
-                   <h5 class="card-title">${listing.color}</h5>
+                   <p class="card-title">${listing.color}</p>
                    <p class="card-text">${listing.description}</p>
                 </div>
+              </div>
+
+              <div class="col-sm-2">
+              <h6>${Number(listing.kms).toLocaleString('en')} kms</h6>
               </div>
                
               <div class="col-sm-3">
               <h5>$${Number(listing.price).toLocaleString('en')}</h5>
-              <p><br><br>Posted: ${listing.timestamp}</p>
+              <p><br><br>Posted: ${new Date(listing.timestamp).toDateString()}<br>${new Date(listing.timestamp).toLocaleTimeString('en-US')}</p>
               </div
             </div> 
             
@@ -70,19 +74,23 @@ $().ready(function() {
              </a>
             </div>
         
-            <div class="col-sm-7">
-              <div class="card-body-right">
+            <div class="col-sm-5">
+              <div class="card-body-right text-start">
               <a href="/listings/${listing.id}" class="btn">   
               <h5 class="card-title">${listing.year} ${listing.make} ${listing.model}</h5>
               </a>
-                 <h5 class="card-title">${listing.color}</h5>
+                 <p class="card-title">${listing.color}</p>
                  <p class="card-text">${listing.description}</p>
               </div>
+            </div>
+
+            <div class="col-sm-2">
+              <h6>${Number(listing.kms).toLocaleString('en')} kms</h6>
             </div>
              
             <div class="col-sm-3">
             <h5>$${Number(listing.price).toLocaleString('en')}</h5>
-            <p><br><br>Posted: ${listing.timestamp}</p>
+            <p><br><br>Posted: ${new Date(listing.timestamp).toDateString()}<br>${new Date(listing.timestamp).toLocaleTimeString('en-US')}</p>
             </div
           </div> 
         </div>
