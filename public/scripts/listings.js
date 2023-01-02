@@ -16,13 +16,13 @@ $().ready(function() {
           let $listing = `
         <div class="card-body">
             <div class="row border-top border-bottom">
-              <div class="col-sm-3">
+              <div class="col-sm-2">
                <a href="/listings/${listing.id}" class="btn"> 
                 <img src="${listing.photo}" class="img-fluid img-thumbnail" alt="..."/>
                </a>
               </div>
           
-              <div class="col-sm-6">
+              <div class="col-sm-7">
                 <div class="card-body-right">
                 <a href="/listings/${listing.id}" class="btn">   
                 <h5 class="card-title">${listing.year} ${listing.make} ${listing.model}</h5>
@@ -30,13 +30,11 @@ $().ready(function() {
                    <h5 class="card-title">${listing.color}</h5>
                    <p class="card-text">${listing.description}</p>
                 </div>
-                <div class="card-footer text-muted">
-              Posted: ${listing.timestamp}
-            </div>
               </div>
                
               <div class="col-sm-3">
-              <h5>${listing.price}</h5>
+              <h5>$${Number(listing.price).toLocaleString('en')}</h5>
+              <p><br><br>Posted: ${listing.timestamp}</p>
               </div
             </div> 
             
@@ -66,13 +64,13 @@ $().ready(function() {
           let $listing = `
           <div class="card-body">
           <div class="row border-top border-bottom">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
              <a href="/listings/${listing.id}" class="btn"> 
               <img src="${listing.photo}" class="img-fluid img-thumbnail" alt="..."/>
              </a>
             </div>
         
-            <div class="col-sm-6">
+            <div class="col-sm-7">
               <div class="card-body-right">
               <a href="/listings/${listing.id}" class="btn">   
               <h5 class="card-title">${listing.year} ${listing.make} ${listing.model}</h5>
@@ -80,16 +78,13 @@ $().ready(function() {
                  <h5 class="card-title">${listing.color}</h5>
                  <p class="card-text">${listing.description}</p>
               </div>
-              <div class="card-footer text-muted">
-            Posted: ${listing.timestamp}
-          </div>
             </div>
              
             <div class="col-sm-3">
-            <h5>${listing.price}</h5>
+            <h5>$${Number(listing.price).toLocaleString('en')}</h5>
+            <p><br><br>Posted: ${listing.timestamp}</p>
             </div
           </div> 
-          
         </div>
         `;
 
