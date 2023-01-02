@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const listingQueries = require('../db/queries/listings');
 
 // All listings
 router.get('/', (req, res) => {
@@ -45,6 +46,13 @@ router.get('/new', (req, res) => {
   const templateVars = { userId };
 
   res.render('listing-new', templateVars);
+});
+
+router.post('/new', (req, rest) => {
+  const userId = req.cookies.user_id;
+  const values = req.body;
+  console.log(values);
+  listingQueries.addNewListing(userId, values);
 });
 
 // View single listing page
