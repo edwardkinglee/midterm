@@ -159,13 +159,13 @@
             </div>
 
             <div class="input-group mb-3">
-              <label for="customRange1" class="form-label">Mileage</label>
-              <input type="range" min="0" max="300000" class="form-range" id="mileage">
+              <label for="customRange1" class="form-label">Mileage</label>&emsp;<span class="float-end" id="mileage-label"></span>
+              <input type="range" min="0" max="300000" class="form-range" name="mileage" id="mileage">
             </div>
 
             <div class="input-group mb-3">
-              <label for="customRange1" class="form-label">Price</label>
-              <input type="range" min="0" max="5000000" class="form-range" id="mileage">
+              <label for="customRange1" class="form-label">Price</label>&emsp;<span class="float-end" id="price-label"></span>
+              <input type="range" min="0" max="5000000" class="form-range" name="price" id="price">
             </div>
 
             <div class="form-floating mb-3">
@@ -190,6 +190,36 @@
       </div>
 
       <%- include('partials/_footer.ejs') %>
+
+      <script>
+
+        $().ready(() => {
+          $('#mileage').on('input',()=> {
+            let value = $('#mileage').val();
+            const mileageFormat = new Intl.NumberFormat('en-US', {
+              style: 'decimal',
+              maximumFractionDigits: 0,
+              roundingIncrement: 100,
+              roundingMode: "ceil"
+            });
+            value = mileageFormat.format(value);
+            $('#mileage-label').text(`${value} kms`);
+          })
+          $('#price').on('input',()=> {
+            let value = $('#price').val();
+            const priceFormat = new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD',
+              maximumFractionDigits: 0,
+              roundingIncrement: 100,
+              roundingMode: "ceil"
+            });
+            value = priceFormat.format(value);
+            $('#price-label').text(`${value}`);
+          })
+        })
+
+      </script>
 
 </body>
 
