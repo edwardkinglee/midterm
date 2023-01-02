@@ -3,9 +3,11 @@
 
 <head>
 
-  <title>Midterm app - Login</title>
+  <title>Midterm app - New listing</title>
 
   <%- include('partials/_head.ejs') %>
+
+  <script defer src="/scripts/new-post.js"></script>
 
 </head>
 
@@ -17,12 +19,12 @@
       <h1>Add new listing</h1>
       <div class="card" style="margin: 0 auto; max-width: 36rem; border-radius: 0;">
         <div class="card-body form-group">
-          <form> <!-- action="/login" method="POST" -->
+          <form id="new-post">
 
             <div class="input-group mb-3">
               <span class="input-group-text" style="width: 5rem;" id="year-label">Year</span>
-              <select class="form-select" aria-label="Year" name="year">
-                <option selected>Select a year</option>
+              <select class="form-select" aria-label="Year" name="year" required>
+                <option value="" disabled selected>Vehicle year</option>
                 <option value="1963">1963</option>
                 <option value="1964">1964</option>
                 <option value="1965">1965</option>
@@ -89,8 +91,8 @@
 
             <div class="input-group mb-3">
               <span class="input-group-text" style="width: 5rem;" id="make-label">Make</span>
-              <select class="form-select" aria-label="Make" name="make">
-                <option selected>Select a make</option>
+              <select class="form-select" aria-label="Make" name="make" required>
+                <option value="" disabled selected>Vehicle make</option>
                 <option value="Acura">Acura</option>
                 <option value="Alfa Romeo">Alfa Romeo</option>
                 <option value="Aston Martin">Aston Martin</option>
@@ -122,14 +124,14 @@
 
             <div class="input-group mb-3">
               <span class="input-group-text" style="width: 5rem;" id="model-label">Model</span>
-              <input type="text" class="form-control" placeholder="Model" aria-label="Model"
-                aria-describedby="model-label">
+              <input type="text" class="form-control" placeholder="Vehicle model" aria-label="Model"
+                name="model" id="model" aria-describedby="model-label" required>
             </div>
 
             <div class="input-group mb-3">
               <span class="input-group-text" style="width: 5rem;" id="body-label">Type</span>
-              <select class="form-select" aria-label="Body" name="body">
-                <option selected>Select a body type</option>
+              <select class="form-select" aria-label="Body" name="body" required>
+                <option value="" disabled selected>Select body type</option>
                 <option value="suv">SUV/Crossover</option>
                 <option value="truck">Truck</option>
                 <option value="sedan">Sedan</option>
@@ -143,8 +145,8 @@
 
             <div class="input-group mb-3">
               <span class="input-group-text" style="width: 5rem;" id="color-label">Color</span>
-              <select class="form-select" aria-label="Color" name="color">
-                <option selected>Select a color</option>
+              <select class="form-select" aria-label="Color" name="color" required>
+                <option value="" disabled selected>Vehicle color</option>
                 <option value="black">Black</option>
                 <option value="white">White</option>
                 <option value="grey">Grey</option>
@@ -159,29 +161,29 @@
             </div>
 
             <div class="input-group mb-3">
-              <label for="customRange1" class="form-label">Mileage</label>&emsp;<span class="float-end" id="mileage-label"></span>
-              <input type="range" min="0" max="300000" class="form-range" name="mileage" id="mileage">
+              <label for="customRange1" class="form-label">Mileage</label>&emsp;<span class="float-end" id="mileage-label">0 kms</span>
+              <input type="range" min="0" max="300000" value="0" class="form-range" name="mileage" id="mileage">
             </div>
 
             <div class="input-group mb-3">
-              <label for="customRange1" class="form-label">Price</label>&emsp;<span class="float-end" id="price-label"></span>
-              <input type="range" min="0" max="5000000" class="form-range" name="price" id="price">
+              <label for="customRange1" class="form-label">Price</label>&emsp;<span class="float-end" id="price-label">$0</span>
+              <input type="range" min="0" max="5000000" value="0" class="form-range" name="price" id="price">
             </div>
 
             <div class="form-floating mb-3">
-              <textarea class="form-control" aria-label="Desc" name="desc" id="description" maxlength="500"></textarea>
+              <textarea class="form-control" aria-label="Desc" name="desc" id="description" maxlength="500" required></textarea>
               <label for="description">Description</label>
             </div>
 
             <div class="form-floating mb-3">
               <input type="text" class="form-control" placeholder="URL (http://...)"
                 pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)"
-                id="photo" aria-label="Photo" aria-describedby="photo-label">
+                name="photo" id="photo" aria-label="Photo" aria-describedby="photo-label" required>
               <label for="photo">Photo URL (.jpg, .png, or .gif only)</label>
             </div>
 
             <div class="mb-3 d-flex justify-content-evenly">
-              <button id="submitButton" type="submit" class="btn btn-primary" onclick="showWaiting()">Submit</button>
+              <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
               <input type="reset" class="btn btn-success" value="Reset" />
             </div>
           </form>
@@ -190,36 +192,6 @@
       </div>
 
       <%- include('partials/_footer.ejs') %>
-
-      <script>
-
-        $().ready(() => {
-          $('#mileage').on('input',()=> {
-            let value = $('#mileage').val();
-            const mileageFormat = new Intl.NumberFormat('en-US', {
-              style: 'decimal',
-              maximumFractionDigits: 0,
-              roundingIncrement: 100,
-              roundingMode: "ceil"
-            });
-            value = mileageFormat.format(value);
-            $('#mileage-label').text(`${value} kms`);
-          })
-          $('#price').on('input',()=> {
-            let value = $('#price').val();
-            const priceFormat = new Intl.NumberFormat('en-US', {
-              style: 'currency',
-              currency: 'USD',
-              maximumFractionDigits: 0,
-              roundingIncrement: 100,
-              roundingMode: "ceil"
-            });
-            value = priceFormat.format(value);
-            $('#price-label').text(`${value}`);
-          })
-        })
-
-      </script>
 
 </body>
 
