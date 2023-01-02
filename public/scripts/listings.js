@@ -27,8 +27,8 @@ $().ready(function() {
                 <a href="/listings/${listing.id}" class="">   
                 <h5 class="card-title">${listing.year} ${listing.make} ${listing.model}</h5>
                 </a>
-                   <p class="card-title">${listing.color}</p>
-                   <p class="card-text">${listing.description}</p>
+                <br>
+                <p class="card-text">${listing.description} <br>color: ${listing.color} <br>${listing.body_type}</p>
                 </div>
               </div>
 
@@ -79,8 +79,8 @@ $().ready(function() {
               <a href="/listings/${listing.id}" class="btn">   
               <h5 class="card-title">${listing.year} ${listing.make} ${listing.model}</h5>
               </a>
-                 <p class="card-title">${listing.color}</p>
-                 <p class="card-text">${listing.description}</p>
+              <br>
+              <p class="card-text">${listing.description} <br>color: ${listing.color} <br>${listing.body_type}</p>
               </div>
             </div>
 
