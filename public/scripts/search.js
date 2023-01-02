@@ -37,7 +37,7 @@ $().ready(function() {
              
             <div class="col-sm-3">
              <h5>$${Number(car.price).toLocaleString('en')}</h5>
-             <p><br><br>Posted: ${new Date(car.timestamp).toDateString()}<br>${new Date(car.timestamp).toLocaleTimeString('en-US')}</p>
+             <p><br><br>Posted: ${new Date(car.timestamp).toDateString()}<br>${new Date(car.timestamp).toLocaleTimeString([], { timeStyle: 'short' })}</p>
              
             </div
           </div>  
