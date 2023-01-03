@@ -55,7 +55,8 @@ const favouritesApiRoutes = require('./routes/favourites-api');
 const favouritesRoutes = require('./routes/favourites');
 const searchApiRoutes = require('./routes/search-api');
 const searchRoutes = require('./routes/search');
-// >>>> will need additional ApiRoutes and Routes for messages and favourites
+const messagesApiRoutes = require('./routes/messages-api');
+const messagesRoutes = require('./routes/messages');
 
 // Mount all resource routes
 // Note: Endpoints that return data (eg. JSON) start with `/api`
@@ -65,7 +66,8 @@ app.use('/api/favourites', favouritesApiRoutes);
 app.use('/favourites', favouritesRoutes);
 app.use('/api/search', searchApiRoutes);
 app.use('/search', searchRoutes);
-// >>>> will need additional ApiRoutes and Routes for messages and favourites
+app.use('/api/messages', messagesApiRoutes);
+app.use('/messages', messagesRoutes);
 
 // REGULAR ROUTES BEGIN HERE (home, login, register, logout, error page)
 
