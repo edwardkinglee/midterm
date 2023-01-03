@@ -28,18 +28,22 @@ $().ready(function() {
 
         let introText;
 
-        if (thread.reply) { // if the last message was a reply FROM SELLER to BUYER
-          if (Number(thread.lister_id) === userId) { // and you are the seller
-            introText = `<span class="text-black-50 fst-italic">Waiting for ${thread.buyer_username}'s response to your message.</span>`;
-          } else {
-            introText = `<span class="alert alert-warning fw-bolder" role="alert">${thread.lister_username} is waiting for a response from you about their listing.</span>`;
+        if (!thread.sold && !thread.is_deleted) {
+          if (thread.reply) { // if the last message was a reply FROM SELLER to BUYER
+            if (Number(thread.lister_id) === userId) { // and you are the seller
+              introText = `<span class="text-black-50 fst-italic">Waiting for ${thread.buyer_username}'s response to your message.</span>`;
+            } else {
+              introText = `<span class="alert alert-warning fw-bolder" role="alert">${thread.lister_username} is waiting for a response from you about their listing.</span>`;
+            }
+          } else { // if last message was sent TO the seller
+            if (Number(thread.lister_id) === userId) { // and you are the seller
+              introText = `<span class="alert alert-warning fw-bolder" role="alert">${thread.buyer_username} is waiting for a response from you about your car.</span>`;
+            } else {
+              introText = `<span class="text-black-50 fst-italic">Waiting for ${thread.lister_username}'s resposne to your message.</span>`;
+            }
           }
-        } else { // if last message was sent TO the seller
-          if (Number(thread.lister_id) === userId) { // and you are the seller
-            introText = `<span class="text-warning fw-bolder">${thread.buyer_username} is waiting for a response from you about your car.</span>`;
-          } else {
-            introText = `<span class="text-black-50 fst-italic">Waiting for ${thread.lister_username}'s resposne to your message.</span>`;
-          }
+        } else {
+          introText = '';
         }
 
         let $thread = `
@@ -62,7 +66,7 @@ $().ready(function() {
           </div>
         </a>`;
 
-        if (!thread.sold) {
+        if (!thread.sold && !thread.is_deleted) {
           if (Number(thread.lister_id) === userId) {
             $($thread).appendTo($inboxIncomingContainer);
           } else {
@@ -74,4 +78,49 @@ $().ready(function() {
 
       }
     });
+
+  $('#msg-all').click(() => {
+    $('#msg-all').addClass('active');
+    $('#msg-out').removeClass('active');
+    $('#msg-in').removeClass('active');
+    $('#msg-old').removeClass('active');
+
+    $('#outgoing-container').show();
+    $('#incoming-container').show();
+    $('#archive-container').show();
+  });
+
+  $('#msg-out').click(() => {
+    $('#msg-all').removeClass('active');
+    $('#msg-out').addClass('active');
+    $('#msg-in').removeClass('active');
+    $('#msg-old').removeClass('active');
+
+    $('#outgoing-container').show();
+    $('#incoming-container').hide();
+    $('#archive-container').hide();
+  });
+
+  $('#msg-in').click(() => {
+    $('#msg-all').removeClass('active');
+    $('#msg-out').removeClass('active');
+    $('#msg-in').addClass('active');
+    $('#msg-old').removeClass('active');
+
+    $('#outgoing-container').hide();
+    $('#incoming-container').show();
+    $('#archive-container').hide();
+  });
+
+  $('#msg-old').click(() => {
+    $('#msg-all').removeClass('active');
+    $('#msg-out').removeClass('active');
+    $('#msg-in').removeClass('active');
+    $('#msg-old').addClass('active');
+
+    $('#outgoing-container').hide();
+    $('#incoming-container').hide();
+    $('#archive-container').show();
+  });
+
 });

@@ -15,36 +15,51 @@
 
   <%- include('partials/_nav.ejs') %>
 
-    <div class="container">
+    <div class="container" id="outgoing">
       <h1>Messages Inbox</h1><span id="user-id" style="display: none;">
         <%= userId %>
       </span>
 
-      <h4>Outgoing messages</h4>
-      <p>Conversations started by you as a buyer</p>
-
-      <div class="d-flex flex-column" id="inbox-outgoing">
-
-        <!-- This is where AJAX loads in the listings -->
-
+      <div class="btn-group" role="group" aria-label="Message filter">
+        <a class="btn btn-outline-primary active" id="msg-all">All messages</a>
+        <a class="btn btn-outline-primary" id="msg-out">Outgoing</a>
+        <a class="btn btn-outline-primary" id="msg-in">Incoming</a>
+        <a class="btn btn-outline-primary" id="msg-old">Archived</a>
       </div>
 
-      <h4>Incoming messages</h4>
-      <p>Conversations sent to you as a lister</p>
+      <hr />
 
-      <div class="d-flex flex-column" id="inbox-incoming">
+      <div id="outgoing-container">
+        <h4>Outgoing messages</h4>
+        <p>Conversations started by <b>you as a buyer</b></p>
 
-        <!-- This is where AJAX loads in the listings -->
+        <div class="d-flex flex-column" id="inbox-outgoing">
 
+          <!-- This is where AJAX loads in the listings -->
+
+        </div>
       </div>
 
-      <h4>Inactive messages</h4>
-      <p>Conversations that have been archived due to listings being marked sold or deleted</p>
+      <div id="incoming-container">
+        <h4>Incoming messages</h4>
+        <p>Conversations sent to <b>you as the seller</b></p>
 
-      <div class="d-flex flex-column" id="inbox-archive">
+        <div class="d-flex flex-column" id="inbox-incoming">
 
-        <!-- This is where AJAX loads in the listings -->
+          <!-- This is where AJAX loads in the listings -->
 
+        </div>
+      </div>
+
+      <div id="archive-container">
+        <h4>Inactive messages</h4>
+        <p>Conversations that have been archived due to listings being marked sold or deleted</p>
+
+        <div class="d-flex flex-column" id="inbox-archive">
+
+          <!-- This is where AJAX loads in the listings -->
+
+        </div>
       </div>
 
     </div>
