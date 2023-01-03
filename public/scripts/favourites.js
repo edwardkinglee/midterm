@@ -42,7 +42,7 @@ $().ready(function() {
 
               <div class="col-sm-3">
               <h5>$${Number(favourite.price).toLocaleString('en')}</h5>
-              <p><br><br>Posted: ${new Date(favourite.timestamp).toDateString()}<br>${new Date(favourite.timestamp).toLocaleTimeString('en-US')}</p>
+              <p><br><br><br>Posted: ${new Date(favourite.timestamp).toLocaleDateString()} ${new Date(favourite.timestamp).toLocaleTimeString('en-US')}</p>
               </div
             </div>
 

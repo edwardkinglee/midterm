@@ -38,7 +38,7 @@ $().ready(function() {
                
               <div class="col-sm-3">
               <h5>$${Number(listing.price).toLocaleString('en')}</h5>
-              <p><br><br>Posted: ${new Date(listing.timestamp).toDateString()}<br>${new Date(listing.timestamp).toLocaleTimeString([], { timeStyle: 'short' })}</p>
+              <p><br><br><br>Posted: ${new Date(listing.timestamp).toLocaleDateString()} ${new Date(listing.timestamp).toLocaleTimeString([], { timeStyle: 'short' })}</p>
               </div
             </div> 
             
@@ -90,7 +90,7 @@ $().ready(function() {
              
             <div class="col-sm-3">
             <h5>$${Number(listing.price).toLocaleString('en')}</h5>
-            <p><br><br>Posted: ${new Date(listing.timestamp).toDateString()}<br>${new Date(listing.timestamp).toLocaleTimeString([], { timeStyle: 'short' })}</p>
+            <p><br><br><br>Posted: ${new Date(listing.timestamp).toLocaleDateString()} ${new Date(listing.timestamp).toLocaleTimeString([], { timeStyle: 'short' })}</p>
             </div
           </div> 
         </div>

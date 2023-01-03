@@ -24,7 +24,7 @@ $().ready(function() {
               <a href="/listings/${listing.id}" class="btn btn-primary stretched-link">View listing</a>
             </div>
             <div class="card-footer text-muted">
-              Posted: ${listing.timestamp}
+              Posted: ${new Date(listing.timestamp).toLocaleDateString()}
             </div>
           </div>
         </div>`;
