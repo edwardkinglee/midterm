@@ -64,11 +64,11 @@ router.post('/new', (req, res) => {
 
 // View single listing page
 router.get('/:id', (req, res) => {
+  const userId = req.cookies.user_id;
   const carId = req.params.id;
 
   // query the carId, get the info needed for the car listing page, add to templateVars
-  const templateVars = {carId};
-  console.log('carId',templateVars);
+  const templateVars = {userId, carId};
 
   res.render('listing-show', templateVars);
 });
