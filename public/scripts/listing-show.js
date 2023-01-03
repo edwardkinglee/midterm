@@ -1,10 +1,8 @@
 $().ready(function() {
 
-  const carId = Number($('#car-id')[0].innerText);
-
   $.ajax({
     method: 'GET',
-    url: `/api/listings/${carId}`
+    url: `/api${location.pathname}`
   })
     .done((response) => {
       const listing = response.listing;
