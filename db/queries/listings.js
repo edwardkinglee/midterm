@@ -12,7 +12,7 @@ const getListings = () => {
 const getListing = (carId) => {
   return db.query('SELECT * FROM cars WHERE id = $1;', [carId])
     .then(data => {
-      return data.rows;
+      return data.rows[0];
     });
 };
 

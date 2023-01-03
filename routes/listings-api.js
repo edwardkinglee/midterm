@@ -53,8 +53,8 @@ router.get('/featured', (req, res) => {
 router.get('/:id', (req, res) => {
   const carId = req.params.id;
   listingQueries.getListing(carId)
-    .then(listings => {
-      res.json({ listings });
+    .then(listing => {
+      res.json({ listing });
     })
     .catch(err => {
       res
