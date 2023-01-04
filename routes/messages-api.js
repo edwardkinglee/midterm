@@ -8,12 +8,13 @@ router.get('/car=:carid&buyer=:id', (req, res) => {
   const requestedUserId = req.params.id;
   const carId = req.params.carid;
 
-  if (userId !== requestedUserId) {
-    return res.redirect('/');
-  }
+  // if (userId !== requestedUserId) {
+  //   return res.redirect('/');
+  // }
 
-  messagesQueries.getMessages(userId, carId)
+  messagesQueries.getMessages(requestedUserId, carId)
     .then(messages => {
+      //could add something here to prevent unauth user from viewing api data
       res.json({ messages });
     })
     .catch(err => {
