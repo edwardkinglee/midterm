@@ -6,15 +6,45 @@ $().ready(function() {
   })
     .done((response) => {
       const listing = response.listing;
+      let interiorColor = listing.interior_color;
+      let fuelConsumption =  listing.fuel_consumption;
+      let engine =  listing.engine;
+      let fuelType = listing.fuel_type;
+      let transmission = listing.transmission;
+      let details = listing.details;
+
+      if(!interiorColor){
+        interiorColor= 'Unavailable';
+        }
+
+      if(!fuelConsumption){
+        fuelConsumption = 'Unavailable';
+      }
+
+      if(!engine){
+        engine = 'Unavailable';
+       }
+
+      if(!fuelType){
+        fuelType = 'Unavailable';
+      }
+
+      if(!transmission){
+        transmission = 'Unavailable';
+      }
+
+      if(!details){
+        details = 'Unavailable';
+      }
 
       const $listingsContainer = $('#listing-show');
-
+      console.log(response);
       $listingsContainer.empty();
       
       const $listing = `
-      <div style="width:70%">
+      <div id="listing-container">
       <div class="text-center" >
-      <h2 style="margin-top: 50px">
+      <h2 id="car-details-title">
            <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
           ${listing.year} ${listing.make} ${listing.model}
         </h2>
@@ -30,8 +60,8 @@ $().ready(function() {
   
         <div class="h-100 col-sm-7 row">
           <div class="" style="background-color: #13de0c1a">
-            <div class="h-75">
-              <img class="img-fluid" src="${listing.photo}"/> test image section
+            <div class="">
+              <img class="img-fluid" src="${listing.photo}"/>
             </div>
             <div class="h-25">
               <!--Placeholder for images-->
@@ -72,7 +102,7 @@ $().ready(function() {
                   <img class="img-fluid" src="/caricons/icon-interior-color.svg"/>
                 </div>
                 <div>
-                  <label><strong>Interior color</strong></label><p>Black</p>
+                  <label><strong>Interior color</strong></label><p>${interiorColor}</p>
                 </div>
               </div>
             </div>
@@ -82,7 +112,7 @@ $().ready(function() {
                   <img class="img-fluid" src="/caricons/icon-mpg.svg"/>
                 </div>
                 <div>
-                  <label><strong>Fuel Consumption</strong></label><p>9.94L/100km</p>
+                  <label><strong>Fuel Consumption</strong></label><p>${fuelConsumption}</p>
                 </div>
               </div>
               <div class="d-flex col-sm-6">
@@ -90,7 +120,7 @@ $().ready(function() {
                   <img class="img-fluid" src="/caricons/icon-engine.svg"/>
                 </div>
                 <div>
-                  <label><strong>Engine</strong></label><p>241hp 2L 14</p>
+                  <label><strong>Engine</strong></label><p>${engine}</p>
                 </div>
               </div>
             </div>
@@ -100,7 +130,7 @@ $().ready(function() {
                   <img class="img-fluid" src="/caricons/icon-fuel-type.svg"/>
                 </div>
                 <div>
-                  <label><strong>Fuel type</strong></label><p>Gasoline</p>
+                  <label><strong>Fuel type</strong></label><p>${fuelType}</p>
                 </div>
               </div>
               <div class="d-flex col-sm-6">
@@ -108,24 +138,14 @@ $().ready(function() {
                   <img class="img-fluid" src="/caricons/icon-transmission.svg"/>
                 </div>
                 <div>
-                  <label><strong>Transmission</strong></label><p>Automatic</p>
+                  <label><strong>Transmission</strong></label><p>${transmission}</p>
                 </div>
               </div>
             </div>
             <div class="" style="background-color: #dd1b8f1a">
               <h4>Description</h4>
-              <p>Other manufacturer options include:
-
-              - Power Seat Bolsters
-              - Black Wings Badges
-              - Ventilated Front Seats
-              - Headrest Embroidery - Aston Martin Wings
-              - Dark Chrome Jewellery Pack
-              - Heated Steering Wheel
-              - Technology Pack +
-              - Smoked Rear Lamps
-              - Trim Inlay - Satin Chopped Carbon
-  
+              <p>
+                ${details}
                 </p>
   
             </div>

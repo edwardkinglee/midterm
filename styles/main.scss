@@ -270,3 +270,20 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+#listing-container{
+  width:70%;
+}
+
+#car-details-title{
+  margin-top: 50px;
+}
+
+.fa-arrow-left{
+  position: relative;
+  left:-50px;
+}
+
+.fa-arrow-left:hover{
+  cursor: pointer;
+}

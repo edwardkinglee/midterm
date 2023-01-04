@@ -10,7 +10,8 @@ const getListings = () => {
 
 // Get specific car listing
 const getListing = (carId) => {
-  return db.query('SELECT * FROM cars WHERE id = $1;', [carId])
+  //return db.query('SELECT * FROM cars WHERE id = $1;', [carId])
+  return db.query('SELECT * FROM cars LEFT JOIN car_details ON cars.id = car_id WHERE cars.id = $1;', [carId])
     .then(data => {
       return data.rows[0];
     });
@@ -18,6 +19,7 @@ const getListing = (carId) => {
 
 // Get all cars for a user
 const getUserListings = (userId) => {
+  
   return db.query('SELECT * FROM cars WHERE lister_id = $1;', [userId])
     .then(data => {
       return data.rows;
