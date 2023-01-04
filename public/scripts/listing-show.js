@@ -94,7 +94,7 @@ $().ready(function() {
         </div>
   
         <div class="h-100 col-sm-7 row">
-          <div class="" style="background-color: #13de0c1a">
+          <div class="photo-gallery">
             <div class="simple-gallery">
 
              <img class="maxi img-fluid" src="${listing.photo}">
@@ -184,7 +184,7 @@ $().ready(function() {
                 </div>
               </div>
             </div>
-            <div class="" style="background-color: #dd1b8f1a">
+            <div class="car-description">
               <h4>Description</h4>
               <p>
                 ${details}
