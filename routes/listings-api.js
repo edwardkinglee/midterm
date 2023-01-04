@@ -52,9 +52,10 @@ router.get('/featured', (req, res) => {
 // Display specific listing as JSON
 router.get('/:id', (req, res) => {
   const carId = req.params.id;
+  
   listingQueries.getListing(carId)
     .then(listing => {
-      res.json({ listing });
+      res.json({listing});
     })
     .catch(err => {
       res
