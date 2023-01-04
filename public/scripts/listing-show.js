@@ -7,7 +7,13 @@ $().ready(function() {
     url: `/api${location.pathname}`
   })
     .done((response) => {
+
+      if (Object.keys(response).length < 1) {
+        location.href = `/listings`;
+      }
+
       const listing = response.listing;
+
       let interiorColor = listing.interior_color;
       let fuelConsumption = listing.fuel_consumption;
       let engine = listing.engine;

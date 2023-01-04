@@ -11,6 +11,11 @@ $().ready(function() {
     .done((response) => {
 
       const messages = response.messages;
+
+      if (messages.length < 1) {
+        location.href = `/messages`;
+      }
+
       const $convoHead = $('#convo-head');
       const $messageContainer = $('#messages');
 
