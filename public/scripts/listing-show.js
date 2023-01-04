@@ -1,5 +1,7 @@
 $().ready(function() {
 
+  const userId = Number($('#user-id')[0].innerText);
+
   $.ajax({
     method: 'GET',
     url: `/api${location.pathname}`
@@ -7,8 +9,8 @@ $().ready(function() {
     .done((response) => {
       const listing = response.listing;
       let interiorColor = listing.interior_color;
-      let fuelConsumption =  listing.fuel_consumption;
-      let engine =  listing.engine;
+      let fuelConsumption = listing.fuel_consumption;
+      let engine = listing.engine;
       let fuelType = listing.fuel_type;
       let transmission = listing.transmission;
       let details = listing.details;
@@ -20,62 +22,65 @@ $().ready(function() {
       let photo6 = listing.photo6;
       let photo7 = listing.photo7;
 
-      if(!interiorColor){
-        interiorColor= 'Unavailable';
-        }
+      if (!interiorColor) {
+        interiorColor = 'Unavailable';
+      }
 
-      if(!fuelConsumption){
+      if (!fuelConsumption) {
         fuelConsumption = 'Unavailable';
       }
 
-      if(!engine){
+      if (!engine) {
         engine = 'Unavailable';
-       }
+      }
 
-      if(!fuelType){
+      if (!fuelType) {
         fuelType = 'Unavailable';
       }
 
-      if(!transmission){
+      if (!transmission) {
         transmission = 'Unavailable';
       }
 
-      if(!details){
+      if (!details) {
         details = 'Unavailable';
       }
 
-      if(!photo1){
+      if (!photo1) {
         photo1 = '/images/car-icon.jpg';
       }
 
-      if(!photo2){
+      if (!photo2) {
         photo2 = '/images/car-icon.jpg';
       }
 
-      if(!photo3){
+      if (!photo3) {
         photo3 = '/images/car-icon.jpg';
       }
 
-      if(!photo4){
+      if (!photo4) {
         photo4 = '/images/car-icon.jpg';
       }
 
-      if(!photo5){
+      if (!photo5) {
         photo5 = '/images/car-icon.jpg';
       }
 
-      if(!photo6){
+      if (!photo6) {
         photo6 = '/images/car-icon.jpg';
       }
 
-      if(!photo7){
+      if (!photo7) {
         photo7 = '/images/car-icon.jpg';
       }
 
+      const $lister = `<span id="lister-id" style="display: none;">${listing.lister_id}</span>`;
+      $($lister).insertAfter($('#user-id'));
+
       const $listingsContainer = $('#listing-show');
-      console.log(response);
+
       $listingsContainer.empty();
-      
+
       const $listing = `
       <div id="listing-container">
       <div class="text-center" >
@@ -92,21 +97,21 @@ $().ready(function() {
           <div class="h-50 text-center" style="background-color: #656f771a">Email
             <p><i class="fa-regular fa-envelope"></i></p></div>
         </div>
-  
+
         <div class="h-100 col-sm-7 row">
           <div class="photo-gallery">
             <div class="simple-gallery">
 
              <img class="maxi img-fluid" src="${listing.photo}">
-            
-               <div class="mini">  
+
+               <div class="mini">
                 <img class="img-gallery" src="${photo1}">
                 <img class="img-gallery" src="${photo2}">
                 <img class="img-gallery" src="${photo3}">
                 <img class="img-gallery" src="${photo4}">
                 <img class="img-gallery" src="${photo5}">
                </div>
-        
+
              </div>
           </div>
           <div class="">
@@ -120,7 +125,7 @@ $().ready(function() {
                   <label><strong>Mileage</strong></label><p>${Number(listing.kms).toLocaleString('en')} kms</p>
                 </div>
               </div>
-  
+
               <div class="d-flex col-sm-6">
                 <div>
                   <img class="img-fluid" src="/caricons/icon-drivetrain.svg"/>
@@ -189,22 +194,22 @@ $().ready(function() {
               <p>
                 ${details}
                 </p>
-  
+
             </div>
           </div>
         </div>
-  
-        <div class="h-75 col-sm-4" style="background-color:   rgba(0,0,255,.1)">
+
+        <div class="h-75 col-sm-4" style="background-color:   rgba(0,0,255,.1)" id="listing-sidebar">
           <div class="h-25" style="background-color: #13de0c1a"></div>
           <div class="h-75" style="background-color: #8f53281a">
           <h5>Contact Seller</h5>
-          <form action="" method="">
+          <form id="send-message">
             <input class="w-75" type="text" id="message-name" name="message-name" placeholder="Name*" required><br><br>
             <input class="w-75" type="email" id="message-email" name="message-email" placeholder="Email*" required><br><br>
             <input class="w-75" type="tel" id="message-phone" name="message-phone" placeholder="Phone number-optional"><br><br>
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Message</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="11" style="overflow:auto;resize:none" placeholder="Hi, this looks interesting! Is it still available?"></textarea><br>
+              <textarea class="form-control" name="message-content" id="exampleFormControlTextarea1" rows="11" style="overflow:auto;resize:none" placeholder="Hi, this looks interesting! Is it still available?"></textarea><br>
             </div>
             <div class="text-center">
             <button type="submit" class="btn btn-outline-dark" name="submit" id="message-submit" value="Search"><span class="glyphicon glyphicon-search"></span> Send Message</button>
@@ -213,14 +218,64 @@ $().ready(function() {
           </div>
         </div>
       </div>
-      
+
     `;
-    $($listing).appendTo($listingsContainer);
+      $($listing).appendTo($listingsContainer);
+
+      let $loginPlease = `<h5>Contact Seller</h5>
+        <h6>Please login or register to contact the seller</h6>`;
+
+      let $ownListing = `<h6>This is your listing</h6>
+        <p>This is where we can put MARK SOLD or DELETE buttons</p>`;
+
+      if (!userId) {
+        $('#listing-sidebar').empty();
+        $($loginPlease).appendTo($('#listing-sidebar'));
+      }
+
+      if (userId === Number($('#lister-id')[0].innerText)) {
+        $('#listing-sidebar').empty();
+        $($ownListing).appendTo($('#listing-sidebar'));
+      }
+
+      $('#send-message').submit((e) => {
+        e.preventDefault();
+
+        const userId = Number($('#user-id')[0].innerText);
+        const carId = Number(location.pathname.split('/')[2]);
+        const listerId = Number($('#lister-id')[0].innerText);
+        const buyerId = userId;
+
+        const input = {};
+
+        $.each($('#send-message').serializeArray(), function(i, field) {
+          input[field.name] = field.value;
+        }); // input fields added using serializeArray
+
+
+        const values = {
+          userId, carId, listerId, buyerId,
+          message: `${input["message-name"]}, ${input["message-email"]}, ${input["message-phone"]}<br />${input["message-content"]}`
+        };
+
+        $.ajax({
+          method: 'POST',
+          url: '/messages',
+          data: values
+        })
+          .done((response) => {
+
+            $('#new-message').trigger("reset");
+            location.href = `/messages/${carId}/${buyerId}`;
+
+          });
+
+      });
 
     });
 
-    $(".mini img").click(function(){  
-      $(".maxi").attr("src",$(this).attr("src").replace("100x100","400x400"));
-    });
+  $(".mini img").click(function() {
+    $(".maxi").attr("src", $(this).attr("src").replace("100x100", "400x400"));
+  });
 
 });
