@@ -27,23 +27,44 @@ $().ready(function() {
         }
 
         let introText;
+        let username;
 
         if (!thread.sold && !thread.is_deleted) {
           if (thread.reply) { // if the last message was a reply FROM SELLER to BUYER
             if (Number(thread.lister_id) === userId) { // and you are the seller
               introText = `<span class="text-black-50 fst-italic">Waiting for ${thread.buyer_username}'s response to your message.</span>`;
+              username = 'you';
             } else {
               introText = `<span class="alert alert-warning fw-bolder" role="alert">${thread.lister_username} is waiting for a response from you about their listing.</span>`;
+              username = thread.lister_username;
             }
           } else { // if last message was sent TO the seller
             if (Number(thread.lister_id) === userId) { // and you are the seller
               introText = `<span class="alert alert-warning fw-bolder" role="alert">${thread.buyer_username} is waiting for a response from you about your car.</span>`;
+              username = thread.buyer_username;
             } else {
               introText = `<span class="text-black-50 fst-italic">Waiting for ${thread.lister_username}'s resposne to your message.</span>`;
+              username = 'you';
             }
           }
         } else {
-          introText = '';
+          if (thread.reply) { // if the last message was a reply FROM SELLER to BUYER
+            if (Number(thread.lister_id) === userId) { // and you are the seller
+              introText = '';
+              username = 'you';
+            } else {
+              introText = '';
+              username = thread.lister_username;
+            }
+          } else { // if last message was sent TO the seller
+            if (Number(thread.lister_id) === userId) { // and you are the seller
+              introText = '';
+              username = thread.buyer_username;
+            } else {
+              introText = '';
+              username = 'you';
+            }
+          }
         }
 
         let $thread = `
@@ -58,7 +79,7 @@ $().ready(function() {
             </div>
 
             <div class="col-sm-9">
-            <h6><b>Last message:</b> ${thread.message}</h6>
+            <h6><b>Last message from ${username}:</b> ${thread.message}</h6>
             <br />
             <h7>${introText}</h7>
             </div>
