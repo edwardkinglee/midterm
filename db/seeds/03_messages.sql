@@ -1,12 +1,12 @@
 INSERT INTO messages (car_id, lister_id, buyer_id, timestamp, message, reply)
- VALUES (1, 1, 3, '2022-10-31T08:07:00.000Z', 'Msg1: from buyer 3 to lister 1 about car 1', FALSE),
-        (1, 1, 3, '2022-10-31T08:07:10.000Z', 'Msg2: from buyer 3 to lister 1 about car 1', FALSE),
-        (1, 1, 3, '2022-10-31T08:07:15.000Z', 'Msg3: from lister 1 (replying to 3  about car 1)', TRUE),
+ VALUES (1, 1, 3, '2022-10-31T08:07:00.000Z', 'Hi Alice, this is Corey. I am messaging about your Ferrari', FALSE),
+        (1, 1, 3, '2022-10-31T08:08:10.000Z', 'I have some questions about the car', FALSE),
+        (1, 1, 3, '2022-10-31T08:17:15.000Z', 'Hi Corey, thank you. What else would you like to know?', TRUE),
 
-        (2, 2, 1, '2019-02-01T10:45:30.000Z', 'Msg1: from buyer 1 to lister 2 about car 2', FALSE),
-        (2, 2, 1, '2019-02-01T18:01:44.000Z', 'Msg2: from lister 2 (replying to 1 about car 2)', TRUE),
+        (2, 2, 1, '2019-02-01T10:45:30.000Z', 'Hi Bob, my name is Alice and I would like to buy your Lamborghini!', FALSE),
+        (2, 2, 1, '2019-02-01T18:01:44.000Z', 'Alice, that is great to hear! We should meet up.', TRUE),
 
-        (3, 3, 2, '2020-07-03T05:30:55.000Z', 'Msg1: from buyer 2 to lister 3 about car 3', FALSE),
+        (3, 3, 2, '2020-07-03T05:30:55.000Z', 'Hi Corey, Bob here. Lets talk about the Rolls-Royce!', FALSE),
 
         (4, 3, 9, '2020-07-03T05:30:55.000Z', 'Msg1: from buyer 9 to lister 3 about car 4', FALSE),
         (4, 3, 9, '2020-07-04T05:30:55.000Z', 'Msg2: from lister 3 (replying to 9 about car 4)', TRUE),
