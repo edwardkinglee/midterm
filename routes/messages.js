@@ -27,6 +27,8 @@ router.get('/', (req, res) => {
 // View specific message thread (based on car ID + messager ID)
 router.get('/:carid/:buyerid', (req, res) => {
   const userId = req.cookies.user_id;
+  const carId = req.params.carid;
+  const buyerId = req.params.buyerid;
 
   if (!userId) {
     const errorVars = {
@@ -41,7 +43,7 @@ router.get('/:carid/:buyerid', (req, res) => {
     res.render('error_template', errorVars);
   }
 
-  const templateVars = { userId };
+  const templateVars = { userId, carId, buyerId };
 
   res.render('messages-show', templateVars);
 });
