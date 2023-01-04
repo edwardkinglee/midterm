@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>Midterm app - Messages</title>
+
+  <%- include('partials/_head.ejs') %>
+
+    <script defer src="/scripts/messages-convo.js"></script>
+
+</head>
+
+<body>
+
+  <%- include('partials/_nav.ejs') %>
+
+    <div class="container">
+      <div id="convo-head">
+        <span id="user-id" style="display: none;">
+          <%= userId %>
+        </span>
+
+      </div>
+
+      <div class="container d-flex flex-column justify-content-between" id="messages">
+        <!-- This is where AJAX loads in the convo -->
+
+
+      </div>
+
+      <hr />
+
+      <div class="container d-flex flex-column align-items-center" id="reply">
+        <form id="new-message" class="d-flex flex-column align-items-center" style="width: 100%;">
+          <div class="mb-3 w-100" style="padding: 0 1rem;">
+            <center>
+              <textarea class="form-control" name="message" id="message" rows="3" style="max-width: 500px;"></textarea>
+            </center>
+          </div>
+          <div class="mb-3">
+            <button id="submitButton" type="submit" class="btn btn-primary">Send message</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+    <%- include('partials/_footer.ejs') %>
+
+</body>
+
+</html>
