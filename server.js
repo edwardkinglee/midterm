@@ -106,7 +106,7 @@ app.get('/login/:id', (req, res) => {
 });
 
 // Logout & clear cookie
-app.get('/logout', authorizeUser, (req, res) => {
+app.get('/logout', (req, res) => {
   const userId = req.params.id;
   res.clearCookie('user_id');
   res.redirect('/');
