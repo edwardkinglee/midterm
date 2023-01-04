@@ -1,10 +1,10 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const messagesQueries = require('../db/queries/messages');
 
 // Display all messages for a specific buyer & car (to get threaded messages)
 router.get('/car=:carid&buyer=:id', (req, res) => {
-  const userId = req.cookies.user_id;
+  const userId = Number(req.cookies.user_id);
   const requestedUserId = req.params.id;
   const carId = req.params.carid;
 
@@ -14,8 +14,15 @@ router.get('/car=:carid&buyer=:id', (req, res) => {
 
   messagesQueries.getMessages(requestedUserId, carId)
     .then(messages => {
-      //could add something here to prevent unauth user from viewing api data
-      res.json({ messages });
+
+      const listerId = Number(messages[0].lister_id);
+      const buyerId = Number(requestedUserId);
+
+      if (userId === buyerId || userId === listerId) {
+        return res.json({ messages });
+      } else {
+        return res.status(500).json({ error: 'Unauthorized' });
+      }
     })
     .catch(err => {
       res
