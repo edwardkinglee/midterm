@@ -7,7 +7,7 @@
 
   <%- include('partials/_head.ejs') %>
 
-  <script defer src="/scripts/new-post.js"></script>
+    <script defer src="/scripts/new-post.js"></script>
 
 </head>
 
@@ -17,184 +17,300 @@
 
     <div class="container" style="padding-top: 3em;">
       <h1>Add new listing</h1>
-      <div class="card" style="margin: 0 auto; max-width: 36rem; border-radius: 0;">
+      <div class="card" style="margin: 0 auto; max-width: 50vw; border-radius: 0;">
         <div class="card-body form-group">
           <form id="new-post">
+            <div class="d-flex justify-content-between">
+              <div class="p-2" style="width: 50%">
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" style="width: 4rem;" id="year-label">Year</span>
+                  <select class="form-select" aria-label="Year" name="year" required>
+                    <option value="" disabled selected>Vehicle year</option>
+                    <option value="1963">1963</option>
+                    <option value="1964">1964</option>
+                    <option value="1965">1965</option>
+                    <option value="1966">1966</option>
+                    <option value="1967">1967</option>
+                    <option value="1968">1968</option>
+                    <option value="1969">1969</option>
+                    <option value="1970">1970</option>
+                    <option value="1971">1971</option>
+                    <option value="1972">1972</option>
+                    <option value="1973">1973</option>
+                    <option value="1974">1974</option>
+                    <option value="1975">1975</option>
+                    <option value="1976">1976</option>
+                    <option value="1977">1977</option>
+                    <option value="1978">1978</option>
+                    <option value="1979">1979</option>
+                    <option value="1980">1980</option>
+                    <option value="1981">1981</option>
+                    <option value="1982">1982</option>
+                    <option value="1983">1983</option>
+                    <option value="1984">1984</option>
+                    <option value="1985">1985</option>
+                    <option value="1986">1986</option>
+                    <option value="1987">1987</option>
+                    <option value="1988">1988</option>
+                    <option value="1989">1989</option>
+                    <option value="1990">1990</option>
+                    <option value="1991">1991</option>
+                    <option value="1992">1992</option>
+                    <option value="1993">1993</option>
+                    <option value="1994">1994</option>
+                    <option value="1995">1995</option>
+                    <option value="1996">1996</option>
+                    <option value="1997">1997</option>
+                    <option value="1998">1998</option>
+                    <option value="1999">1999</option>
+                    <option value="2000">2000</option>
+                    <option value="2001">2001</option>
+                    <option value="2002">2002</option>
+                    <option value="2003">2003</option>
+                    <option value="2004">2004</option>
+                    <option value="2005">2005</option>
+                    <option value="2006">2006</option>
+                    <option value="2007">2007</option>
+                    <option value="2008">2008</option>
+                    <option value="2009">2009</option>
+                    <option value="2010">2010</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                  </select>
+                </div>
 
-            <div class="input-group mb-3">
-              <span class="input-group-text" style="width: 5rem;" id="year-label">Year</span>
-              <select class="form-select" aria-label="Year" name="year" required>
-                <option value="" disabled selected>Vehicle year</option>
-                <option value="1963">1963</option>
-                <option value="1964">1964</option>
-                <option value="1965">1965</option>
-                <option value="1966">1966</option>
-                <option value="1967">1967</option>
-                <option value="1968">1968</option>
-                <option value="1969">1969</option>
-                <option value="1970">1970</option>
-                <option value="1971">1971</option>
-                <option value="1972">1972</option>
-                <option value="1973">1973</option>
-                <option value="1974">1974</option>
-                <option value="1975">1975</option>
-                <option value="1976">1976</option>
-                <option value="1977">1977</option>
-                <option value="1978">1978</option>
-                <option value="1979">1979</option>
-                <option value="1980">1980</option>
-                <option value="1981">1981</option>
-                <option value="1982">1982</option>
-                <option value="1983">1983</option>
-                <option value="1984">1984</option>
-                <option value="1985">1985</option>
-                <option value="1986">1986</option>
-                <option value="1987">1987</option>
-                <option value="1988">1988</option>
-                <option value="1989">1989</option>
-                <option value="1990">1990</option>
-                <option value="1991">1991</option>
-                <option value="1992">1992</option>
-                <option value="1993">1993</option>
-                <option value="1994">1994</option>
-                <option value="1995">1995</option>
-                <option value="1996">1996</option>
-                <option value="1997">1997</option>
-                <option value="1998">1998</option>
-                <option value="1999">1999</option>
-                <option value="2000">2000</option>
-                <option value="2001">2001</option>
-                <option value="2002">2002</option>
-                <option value="2003">2003</option>
-                <option value="2004">2004</option>
-                <option value="2005">2005</option>
-                <option value="2006">2006</option>
-                <option value="2007">2007</option>
-                <option value="2008">2008</option>
-                <option value="2009">2009</option>
-                <option value="2010">2010</option>
-                <option value="2011">2011</option>
-                <option value="2012">2012</option>
-                <option value="2013">2013</option>
-                <option value="2014">2014</option>
-                <option value="2015">2015</option>
-                <option value="2016">2016</option>
-                <option value="2017">2017</option>
-                <option value="2018">2018</option>
-                <option value="2019">2019</option>
-                <option value="2020">2020</option>
-                <option value="2021">2021</option>
-                <option value="2022">2022</option>
-                <option value="2023">2023</option>
-              </select>
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" style="width: 4rem;" id="make-label">Make</span>
+                  <select class="form-select" aria-label="Make" name="make" required>
+                    <option value="" disabled selected>Vehicle make</option>
+                    <option value="Acura">Acura</option>
+                    <option value="Alfa Romeo">Alfa Romeo</option>
+                    <option value="Aston Martin">Aston Martin</option>
+                    <option value="Audi">Audi</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Bugatti">Bugatti</option>
+                    <option value="Buick">Buick</option>
+                    <option value="Cadillac">Cadillac</option>
+                    <option value="Chevrolet">Chevrolet</option>
+                    <option value="Chrysler">Chrysler</option>
+                    <option value="Dodge">Dodge</option>
+                    <option value="Ferrari">Ferrari</option>
+                    <option value="Ford">Ford</option>
+                    <option value="GMC">GMC</option>
+                    <option value="Honda">Honda</option>
+                    <option value="Hyundai">Hyundai</option>
+                    <option value="Infiniti">Infiniti</option>
+                    <option value="Jaguar">Jaguar</option>
+                    <option value="Jeep">Jeep</option>
+                    <option value="Kia">Kia</option>
+                    <option value="Lamborghini">Lamborghini</option>
+                    <option value="Land Rover">Land Rover</option>
+                    <option value="Lexus">Lexus</option>
+                    <option value="Lincoln">Lincoln</option>
+                    <option value="Maserati">Maserati</option>
+                    <option value="Mazda">Mazda</option>
+                    <option value="Mercedes-Benz">Mercedes-Benz</option>
+                    <option value="MINI">MINI</option>
+                    <option value="Mitsubishi">Mitsubishi</option>
+                    <option value="Nissan">Nissan</option>
+                    <option value="Pontiac">Pontiac</option>
+                    <option value="Porsche">Porsche</option>
+                    <option value="Ram">Ram</option>
+                    <option value="Rolls-Royce">Rolls-Royce</option>
+                    <option value="Subaru">Subaru</option>
+                    <option value="Tesla">Tesla</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Volkswagen">Volkswagen</option>
+                    <option value="Volvo">Volvo</option>
+                  </select>
+                </div>
+
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" style="width: 4rem;" id="model-label">Model</span>
+                  <input type="text" class="form-control" placeholder="Vehicle model" aria-label="Model" name="model"
+                    id="model" aria-describedby="model-label" required>
+                </div>
+
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" style="width: 4rem;" id="body-label">Type</span>
+                  <select class="form-select" aria-label="Body" name="body" required>
+                    <option value="" disabled selected>Select body type</option>
+                    <option value="suv">SUV/Crossover</option>
+                    <option value="truck">Truck</option>
+                    <option value="sedan">Sedan</option>
+                    <option value="coupe">Coupe</option>
+                    <option value="van">Minivan</option>
+                    <option value="hatchback">Hatchback</option>
+                    <option value="convertible">Convertible</option>
+                    <option value="wagon">Wagon</option>
+                  </select>
+                </div>
+
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" style="width: 4rem;" id="color-label">Exterior</span>
+                  <select class="form-select" aria-label="Color" name="color" required>
+                    <option value="" disabled selected>Body color</option>
+                    <option value="Black">Black</option>
+                    <option value="White">White</option>
+                    <option value="Grey">Grey</option>
+                    <option value="Silver">Silver</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Red">Red</option>
+                    <option value="Yellow">Yellow</option>
+                    <option value="Green">Green</option>
+                    <option value="Orange">Orange</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" style="width: 4rem;" id="color-label">Interior</span>
+                  <select class="form-select" aria-label="InteriorColor" name="interior" required>
+                    <option value="" disabled selected>Interior color</option>
+                    <option value="Black">Black</option>
+                    <option value="Beige">Beige</option>
+                    <option value="White">White</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="input-group mb-3">
+                  <label for="customRange1" class="form-label">Mileage</label>&emsp;<span class="float-end"
+                    id="mileage-label">0 kms</span>
+                  <input type="range" min="0" max="300000" value="0" class="form-range" name="mileage" id="mileage">
+                </div>
+
+                <div class="input-group mb-3">
+                  <label for="customRange1" class="form-label">Price</label>&emsp;<span class="float-end"
+                    id="price-label">$0</span>
+                  <input type="range" min="0" max="5000000" value="0" class="form-range" name="price" id="price">
+                </div>
+
+                <div class="mb-3">
+                  <label for="description">Short description for search results (50 char)</label>
+                  <textarea class="form-control" aria-label="Desc" name="desc" id="description" maxlength="50"
+                    required></textarea>
+                </div>
+
+                <div class="mb-3">
+                  <label for="description">Details (500 char) - e.g. additional features, warranty info,
+                    condition/status, etc.</label>
+                  <textarea class="form-control" aria-label="Details" name="details" id="details" maxlength="500"
+                    required></textarea>
+                </div>
+
+              </div>
+
+              <div class="p-2" style="width: 50%">
+
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" style="width: 6rem;" id="model-label">Engine</span>
+                  <input type="text" class="form-control" placeholder="e.g. 3.9L V8, 710hp" maxlength="25"
+                    aria-label="Engine" name="engine" id="model" aria-describedby="engine-label" required>
+                </div>
+
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" style="width: 6rem;" id="color-label">Transmission</span>
+                  <select class="form-select" aria-label="Transmission" name="transmission" required>
+                    <option value="" disabled selected>Transmission</option>
+                    <option value="automatic">Automatic</option>
+                    <option value="manual">Manual</option>
+                  </select>
+                </div>
+
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" style="width: 6rem;" id="color-label">Drivetrain</span>
+                  <select class="form-select" aria-label="Drivetrain" name="drivetrain" required>
+                    <option value="" disabled selected>Drivetrain</option>
+                    <option value="fwd">Front-wheel drive</option>
+                    <option value="rwd">Rear-wheel drive</option>
+                    <option value="awd">All-wheel drive</option>
+                    <option value="4wd">4-wheel drive</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" style="width: 6rem;" id="color-label">Fuel type</span>
+                  <select class="form-select" aria-label="FuelType" name="fuel" required>
+                    <option value="" disabled selected>Fuel type</option>
+                    <option value="gasoline">Gasoline</option>
+                    <option value="electric">Electric</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div class="input-group mb-3">
+                  <label for="customRange1" class="form-label">Fuel consumption</label>&emsp;<span class="float-end"
+                    id="consumption-label">N/A</span>
+                  <input type="range" min="0" max="20" step="0.1" value="0" class="form-range" name="consumption"
+                    id="consumption">
+                </div>
+
+                <div class="mb-3">
+                  <label for="photo0">Photos (.jpg, .png, or .gif only)</label>
+                  <input type="text" class="form-control form-control-sm"
+                    placeholder="URL (http://...) *1 photo required"
+                    pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)"
+                    name="photo0" id="photo0" aria-label="Photo" aria-describedby="photo-label" required>
+                </div>
+
+                <div class="mb-3">
+                  <input type="text" class="form-control form-control-sm" placeholder="URL (http://...)"
+                    pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)"
+                    name="photo1" id="photo1" aria-label="Photo" aria-describedby="photo-label">
+                </div>
+
+                <div class="mb-3">
+                  <input type="text" class="form-control form-control-sm" placeholder="URL (http://...)"
+                    pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)"
+                    name="photo2" id="photo2" aria-label="Photo" aria-describedby="photo-label">
+                </div>
+
+                <div class="mb-3">
+                  <input type="text" class="form-control form-control-sm" placeholder="URL (http://...)"
+                    pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)"
+                    name="photo3" id="photo3" aria-label="Photo" aria-describedby="photo-label">
+                </div>
+
+                <div class="mb-3">
+                  <input type="text" class="form-control form-control-sm" placeholder="URL (http://...)"
+                    pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)"
+                    name="photo4" id="photo4" aria-label="Photo" aria-describedby="photo-label">
+                </div>
+
+                <div class="mb-3">
+                  <input type="text" class="form-control form-control-sm" placeholder="URL (http://...)"
+                    pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)"
+                    name="photo5" id="photo5" aria-label="Photo" aria-describedby="photo-label">
+                </div>
+
+                <div class="mb-3">
+                  <input type="text" class="form-control form-control-sm" placeholder="URL (http://...)"
+                    pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)"
+                    name="photo6" id="photo6" aria-label="Photo" aria-describedby="photo-label">
+                </div>
+
+                <div class="mb-3">
+                  <input type="text" class="form-control form-control-sm" placeholder="URL (http://...)"
+                    pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)"
+                    name="photo7" id="photo7" aria-label="Photo" aria-describedby="photo-label">
+                </div>
+
+              </div>
+
             </div>
-
-            <div class="input-group mb-3">
-              <span class="input-group-text" style="width: 5rem;" id="make-label">Make</span>
-              <select class="form-select" aria-label="Make" name="make" required>
-                <option value="" disabled selected>Vehicle make</option>
-                <option value="Acura">Acura</option>
-                <option value="Alfa Romeo">Alfa Romeo</option>
-                <option value="Aston Martin">Aston Martin</option>
-                <option value="Audi">Audi</option>
-                <option value="BMW">BMW</option>
-                <option value="Bugatti">Bugatti</option>
-                <option value="Buick">Buick</option>
-                <option value="Cadillac">Cadillac</option>
-                <option value="Chevrolet">Chevrolet</option>
-                <option value="Chrysler">Chrysler</option>
-                <option value="Dodge">Dodge</option>
-                <option value="Ferrari">Ferrari</option>
-                <option value="Ford">Ford</option>
-                <option value="GMC">GMC</option>
-                <option value="Honda">Honda</option>
-                <option value="Hyundai">Hyundai</option>
-                <option value="Infiniti">Infiniti</option>
-                <option value="Jaguar">Jaguar</option>
-                <option value="Jeep">Jeep</option>
-                <option value="Kia">Kia</option>
-                <option value="Lamborghini">Lamborghini</option>
-                <option value="Land Rover">Land Rover</option>
-                <option value="Lexus">Lexus</option>
-                <option value="Lincoln">Lincoln</option>
-                <option value="Maserati">Maserati</option>
-                <option value="Mazda">Mazda</option>
-                <option value="Mercedes-Benz">Mercedes-Benz</option>
-                <option value="MINI">MINI</option>
-                <option value="Mitsubishi">Mitsubishi</option>
-                <option value="Nissan">Nissan</option>
-                <option value="Pontiac">Pontiac</option>
-                <option value="Porsche">Porsche</option>
-                <option value="Ram">Ram</option>
-                <option value="Rolls-Royce">Rolls-Royce</option>
-                <option value="Subaru">Subaru</option>
-                <option value="Tesla">Tesla</option>
-                <option value="Toyota">Toyota</option>
-                <option value="Volkswagen">Volkswagen</option>
-                <option value="Volvo">Volvo</option>
-              </select>
-            </div>
-
-            <div class="input-group mb-3">
-              <span class="input-group-text" style="width: 5rem;" id="model-label">Model</span>
-              <input type="text" class="form-control" placeholder="Vehicle model" aria-label="Model"
-                name="model" id="model" aria-describedby="model-label" required>
-            </div>
-
-            <div class="input-group mb-3">
-              <span class="input-group-text" style="width: 5rem;" id="body-label">Type</span>
-              <select class="form-select" aria-label="Body" name="body" required>
-                <option value="" disabled selected>Select body type</option>
-                <option value="suv">SUV/Crossover</option>
-                <option value="truck">Truck</option>
-                <option value="sedan">Sedan</option>
-                <option value="coupe">Coupe</option>
-                <option value="van">Minivan</option>
-                <option value="hatchback">Hatchback</option>
-                <option value="convertible">Convertible</option>
-                <option value="wagon">Wagon</option>
-              </select>
-            </div>
-
-            <div class="input-group mb-3">
-              <span class="input-group-text" style="width: 5rem;" id="color-label">Color</span>
-              <select class="form-select" aria-label="Color" name="color" required>
-                <option value="" disabled selected>Vehicle color</option>
-                <option value="black">Black</option>
-                <option value="white">White</option>
-                <option value="grey">Grey</option>
-                <option value="silver">Silver</option>
-                <option value="blue">Blue</option>
-                <option value="red">Red</option>
-                <option value="yellow">Yellow</option>
-                <option value="green">Green</option>
-                <option value="orange">Orange</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            <div class="input-group mb-3">
-              <label for="customRange1" class="form-label">Mileage</label>&emsp;<span class="float-end" id="mileage-label">0 kms</span>
-              <input type="range" min="0" max="300000" value="0" class="form-range" name="mileage" id="mileage">
-            </div>
-
-            <div class="input-group mb-3">
-              <label for="customRange1" class="form-label">Price</label>&emsp;<span class="float-end" id="price-label">$0</span>
-              <input type="range" min="0" max="5000000" value="0" class="form-range" name="price" id="price">
-            </div>
-
-            <div class="form-floating mb-3">
-              <textarea class="form-control" aria-label="Desc" name="desc" id="description" maxlength="500" required></textarea>
-              <label for="description">Description</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" placeholder="URL (http://...)"
-                pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)"
-                name="photo" id="photo" aria-label="Photo" aria-describedby="photo-label" required>
-              <label for="photo">Photo URL (.jpg, .png, or .gif only)</label>
-            </div>
-
             <div class="mb-3 d-flex justify-content-evenly">
               <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
               <input type="reset" class="btn btn-success" value="Reset" />

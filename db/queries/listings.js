@@ -19,7 +19,7 @@ const getListing = (carId) => {
 
 // Get all cars for a user
 const getUserListings = (userId) => {
-  
+
   return db.query('SELECT * FROM cars WHERE lister_id = $1;', [userId])
     .then(data => {
       return data.rows;
@@ -37,10 +37,14 @@ const getMostPopular = () => {
 // Add new listing
 const addNewListing = (user, listingObj) => {
 
-  const { year, make, model, body, color, mileage, price, desc, photo} = listingObj;
+  const { year, make, model, body, color, mileage, price, desc, photo0,
+    interior, consumption, engine, fuel, transmission, details,
+    photo1, photo2, photo3, photo4, photo5, photo6, photo7
+  } = listingObj;
 
-  return db.query('INSERT INTO cars (lister_id, year, make, model, color, description, price, photo, body_type, kms) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *;', [user, year, make, model, color, desc, price, photo, body, mileage])
+  return db.query('INSERT INTO cars (lister_id, year, make, model, color, description, price, photo, body_type, kms) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *;', [user, year, make, model, color, desc, price, photo0, body, mileage])
     .then(data => {
+      db.query('INSERT INTO car_details (car_id, interior_color, fuel_consumption, engine, fuel_type, transmission, details, photo1, photo2, photo3, photo4, photo5, photo6, photo7) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14);', [data.rows[0].id, interior, consumption, engine, fuel, transmission, details, photo1, photo2, photo3, photo4, photo5, photo6, photo7]);
       return data.rows[0];
     });
 };

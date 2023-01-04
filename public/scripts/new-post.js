@@ -25,6 +25,16 @@ $().ready(function() {
     $('#price-label').text(`${value}`);
   });
 
+  $('#consumption').on('input', () => {
+    let value = $('#consumption').val();
+    if (Number(value) === 0) {
+      value = 'N/A';
+    } else {
+      value += ' L/100km';
+    }
+    $('#consumption-label').text(`${value}`);
+  });
+
   $('#new-post').submit((e) => {
     e.preventDefault();
 
@@ -34,6 +44,12 @@ $().ready(function() {
     $.each($('#new-post').serializeArray(), function(i, field) {
       values[field.name] = field.value;
     }); // input fields added using serializeArray
+
+    if (Number(values.consumption) !== 0) {
+      values.consumption += ' L/100km';
+    } else {
+      values.consumption = 'N/A';
+    }
 
     $.ajax({
       method: 'POST',
