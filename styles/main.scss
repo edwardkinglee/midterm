@@ -281,9 +281,41 @@ input::-webkit-inner-spin-button {
 
 .fa-arrow-left{
   position: relative;
-  left:-50px;
+  left:-70px;
 }
 
 .fa-arrow-left:hover{
   cursor: pointer;
 }
+
+//Styles for car details
+
+.simple-gallery {
+  width: 100%;
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+  box-shadow: 5px 20px 30px 10px Gray;
+}
+
+.img-gallery {
+  border-top: 1px solid Gainsboro;
+  border-left: 1px solid Gainsboro;
+}
+
+.mini img {
+  width: 19%;
+  /* height: 98px; */
+  float: left;
+  margin: 4px 4px 0px 0px;
+  cursor: pointer;
+}
+
+.mini img:nth-of-type(4) {
+  margin-right: 0px;
+}
+
+.maxi {
+  // width: 100%;
+  display: block;
+} 

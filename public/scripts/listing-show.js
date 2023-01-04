@@ -12,6 +12,13 @@ $().ready(function() {
       let fuelType = listing.fuel_type;
       let transmission = listing.transmission;
       let details = listing.details;
+      let photo1 = listing.photo1;
+      let photo2 = listing.photo2;
+      let photo3 = listing.photo3;
+      let photo4 = listing.photo4;
+      let photo5 = listing.photo5;
+      let photo6 = listing.photo6;
+      let photo7 = listing.photo7;
 
       if(!interiorColor){
         interiorColor= 'Unavailable';
@@ -37,6 +44,34 @@ $().ready(function() {
         details = 'Unavailable';
       }
 
+      if(!photo1){
+        photo1 = '/images/car-icon.jpg';
+      }
+
+      if(!photo2){
+        photo2 = '/images/car-icon.jpg';
+      }
+
+      if(!photo3){
+        photo3 = '/images/car-icon.jpg';
+      }
+
+      if(!photo4){
+        photo4 = '/images/car-icon.jpg';
+      }
+
+      if(!photo5){
+        photo5 = '/images/car-icon.jpg';
+      }
+
+      if(!photo6){
+        photo6 = '/images/car-icon.jpg';
+      }
+
+      if(!photo7){
+        photo7 = '/images/car-icon.jpg';
+      }
+
       const $listingsContainer = $('#listing-show');
       console.log(response);
       $listingsContainer.empty();
@@ -60,12 +95,19 @@ $().ready(function() {
   
         <div class="h-100 col-sm-7 row">
           <div class="" style="background-color: #13de0c1a">
-            <div class="">
-              <img class="img-fluid" src="${listing.photo}"/>
-            </div>
-            <div class="h-25">
-              <!--Placeholder for images-->
-            </div>
+            <div class="simple-gallery">
+
+             <img class="maxi img-fluid" src="${listing.photo}">
+            
+               <div class="mini">  
+                <img class="img-gallery" src="${photo1}">
+                <img class="img-gallery" src="${photo2}">
+                <img class="img-gallery" src="${photo3}">
+                <img class="img-gallery" src="${photo4}">
+                <img class="img-gallery" src="${photo5}">
+               </div>
+        
+             </div>
           </div>
           <div class="">
             <h4>Features</h4>
@@ -175,6 +217,10 @@ $().ready(function() {
     `;
     $($listing).appendTo($listingsContainer);
 
+    });
+
+    $(".mini img").click(function(){  
+      $(".maxi").attr("src",$(this).attr("src").replace("100x100","400x400"));
     });
 
 });
