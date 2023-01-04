@@ -16,12 +16,27 @@ const getMessages = (userId, carId) => {
       });
   }
 
+};
 
+// Add message to DB
+const addMessage = (userId, carId, listerId, buyerId, message) => {
+
+  let reply;
+
+  if (userId === listerId) {
+    reply = true;
+  } else {
+    reply = false;
+  }
+
+  return db.query('INSERT INTO messages (car_id, lister_id, buyer_id, timestamp, message, reply) VALUES ($1, $2, $3, NOW(), $4, $5) RETURNING *;', [carId, listerId, buyerId, message, reply])
+    .then(data => {
+      return data.rows[0];
+    });
 
 };
 
-
-
 module.exports = {
-  getMessages
+  getMessages,
+  addMessage
 };

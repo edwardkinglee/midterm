@@ -10,13 +10,14 @@ $().ready(function() {
   })
     .done((response) => {
 
-      console.log(response);
-
       const messages = response.messages;
       const $convoHead = $('#convo-head');
       const $messageContainer = $('#messages');
 
       $messageContainer.empty();
+
+      const $lister = `<span id="lister-id" style="display: none;">${messages[0].lister_id}</span>`;
+      $($lister).appendTo($convoHead);
 
       // if user id = buyer id, align right
       // if not, align left (as the buyer is the other person)
@@ -29,7 +30,7 @@ $().ready(function() {
         username = messages[0].buyer_username;
       }
 
-      const $header = `<h1>Conversation with ${username}</h1>`
+      const $header = `<h1>Conversation with ${username}</h1>`;
 
       const $car = `      <div class="card-body mb-3">
       <div class="row border-top border-bottom">
@@ -56,14 +57,14 @@ $().ready(function() {
         <div class="col-sm-3">
           <h5>$${Number(messages[0].price).toLocaleString('en')}</h5>
           <p><br><br><br>Posted: ${new Date(messages[0].car_timestamp).toLocaleDateString()} ${new
-            Date(messages[0].car_timestamp).toLocaleTimeString([], { timeStyle: 'short' })}</p>
+          Date(messages[0].car_timestamp).toLocaleTimeString([], { timeStyle: 'short' })}</p>
 
         </div>
       </div>
     </div>`;
 
-    $($header).appendTo($convoHead);
-    $($car).appendTo($convoHead);
+      $($header).appendTo($convoHead);
+      $($car).appendTo($convoHead);
 
       for (const message of messages) {
 
@@ -107,5 +108,27 @@ $().ready(function() {
       }
 
     });
+
+  $('#new-message').submit((e) => {
+    e.preventDefault();
+
+    const message = $('#message').val();
+    const listerId = Number($('#lister-id')[0].innerText);
+
+    const values = { userId, carId, listerId, buyerId, message };
+
+    $.ajax({
+      method: 'POST',
+      url: '/messages',
+      data: values
+    })
+      .done((response) => {
+
+        $('#new-message').trigger("reset");
+        location.href = `/messages/${carId}/${buyerId}`;
+
+      });
+
+  });
 });
 
