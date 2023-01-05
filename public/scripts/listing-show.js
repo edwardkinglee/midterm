@@ -111,11 +111,11 @@ $().ready(function() {
              <img class="maxi img-fluid" src="${listing.photo}">
 
                <div class="mini">
-                <img class="img-gallery" src="${photo1}">
-                <img class="img-gallery" src="${photo2}">
-                <img class="img-gallery" src="${photo3}">
-                <img class="img-gallery" src="${photo4}">
-                <img class="img-gallery" src="${photo5}">
+                <img class="img-gallery" src="${photo1}" onclick=' const tempUrl = $(".maxi").attr("src"); $(".maxi").attr("src", $(this).attr("src")); $(this).attr("src", tempUrl);'>
+                <img class="img-gallery" src="${photo2}" onclick=' const tempUrl = $(".maxi").attr("src"); $(".maxi").attr("src", $(this).attr("src")); $(this).attr("src", tempUrl);'>
+                <img class="img-gallery" src="${photo3}" onclick=' const tempUrl = $(".maxi").attr("src"); $(".maxi").attr("src", $(this).attr("src")); $(this).attr("src", tempUrl);'>
+                <img class="img-gallery" src="${photo4}" onclick=' const tempUrl = $(".maxi").attr("src"); $(".maxi").attr("src", $(this).attr("src")); $(this).attr("src", tempUrl);'>
+                <img class="img-gallery" src="${photo5}" onclick=' const tempUrl = $(".maxi").attr("src"); $(".maxi").attr("src", $(this).attr("src")); $(this).attr("src", tempUrl);'>
                </div>
 
              </div>
@@ -288,8 +288,11 @@ $().ready(function() {
 
     });
 
-  $(".mini img").click(function() {
-    $(".maxi").attr("src", $(this).attr("src").replace("100x100", "400x400"));
-  });
+  // $(".mini img").on('click', function() {
+  //   console.log('in mini img');
+  //   $(".maxi").attr("src", $(this).attr("src"));
+  // });
+
+  
 
 });
