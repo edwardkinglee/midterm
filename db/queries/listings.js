@@ -2,7 +2,7 @@ const db = require('../connection');
 
 // Get all car listings
 const getListings = () => {
-  return db.query('SELECT * FROM cars;')
+  return db.query('SELECT * FROM cars ORDER BY timestamp DESC;')
     .then(data => {
       return data.rows;
     });
@@ -20,7 +20,7 @@ const getListing = (carId) => {
 // Get all cars for a user
 const getUserListings = (userId) => {
 
-  return db.query('SELECT * FROM cars WHERE lister_id = $1;', [userId])
+  return db.query('SELECT * FROM cars WHERE lister_id = $1 ORDER BY timestamp DESC;', [userId])
     .then(data => {
       return data.rows;
     });
@@ -49,10 +49,46 @@ const addNewListing = (user, listingObj) => {
     });
 };
 
+// Mark as sold
+const markAsSold = (carId) => {
+  return db.query('UPDATE cars SET sold = TRUE WHERE id = $1 RETURNING *;', [carId])
+    .then((data) => {
+      return data.rows;
+    });
+};
+
+// Mark as available/not sold
+const markAsUnsold = (carId) => {
+  return db.query('UPDATE cars SET sold = FALSE WHERE id = $1 RETURNING *;', [carId])
+    .then((data) => {
+      return data.rows;
+    });
+};
+
+// Mark as deleted
+const markAsDeleted = (carId) => {
+  return db.query('UPDATE cars SET is_deleted = TRUE WHERE id = $1 RETURNING *;', [carId])
+    .then((data) => {
+      return data.rows;
+    });
+};
+
+// Mark as active/undelete
+const markAsUndeleted = (carId) => {
+  return db.query('UPDATE cars SET is_deleted = FALSE WHERE id = $1 RETURNING *;', [carId])
+    .then((data) => {
+      return data.rows;
+    });
+};
+
 module.exports = {
   getListings,
   getListing,
   getUserListings,
   getMostPopular,
-  addNewListing
+  addNewListing,
+  markAsSold,
+  markAsUnsold,
+  markAsDeleted,
+  markAsUndeleted
 };

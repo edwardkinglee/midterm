@@ -73,4 +73,44 @@ router.get('/:id', (req, res) => {
   res.render('listing-show', templateVars);
 });
 
+// Update listing
+router.put('/:id', (req, res) => {
+  const userId = req.cookies.user_id;
+  const carId = req.params.id;
+  const values = req.body;
+
+  if (values.sold === 'true') {
+    listingQueries.markAsSold(carId)
+      .then((response) => {
+        return res.send(response);
+      })
+      .catch(console.log);
+  }
+
+  if (values.sold === 'false') {
+    listingQueries.markAsUnsold(carId)
+      .then((response) => {
+        return res.send(response);
+      })
+      .catch(console.log);
+  }
+
+  if (values.delete === 'true') {
+    listingQueries.markAsDeleted(carId)
+      .then((response) => {
+        return res.send(response);
+      })
+      .catch(console.log);
+  }
+
+  if (values.delete === 'false') {
+    listingQueries.markAsUndeleted(carId)
+      .then((response) => {
+        return res.send(response);
+      })
+      .catch(console.log);
+  }
+
+});
+
 module.exports = router;

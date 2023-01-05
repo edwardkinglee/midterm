@@ -95,21 +95,29 @@ $().ready(function() {
            <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
           ${listing.year} ${listing.make} ${listing.model}
         </h2>
-            <h4>$${Number(price).toLocaleString('en')}</h4>
+            <h4 id="price-container">$${Number(price).toLocaleString('en')}</h4>
       </div>
-      <div class="row" style="height: 1400px;">
-        <div class="col-sm-1" style="height:200px;">
-          <div id="send-to-phone" class="h-50 text-center">Send to phone
-            <p><i class="fa-solid fa-mobile-screen-button"></i></p></div>
-          <div id="send-to-email" class="h-50 text-center">Email
-            <p><i class="fa-regular fa-envelope"></i></p></div>
-          <div id="add-favorite" class="favorite-icon">
-            <label>Add to favorites</label>
-            <i class="fa-regular fa-heart favorite-icon"></i>
+      <div class="row">
+        <div class="col-sm-1">
+
+        <div class="mt-2 border-bottom border-dark border-opacity-75">
+            <a href="" class="h-50 text-center">Send to phone
+            <p><i class="fa-solid fa-mobile-screen-button"></i></p></a>
           </div>
+
+          <div class="mt-2 border-bottom border-dark border-opacity-75">
+            <a href="" class="h-50 text-center">Email
+            <p><i class="fa-regular fa-envelope"></i></p></a>
+          </div>
+
+          <div class="mt-2">
+            <a href="" onclick="" class="h-50 text-center">Add to favorites
+            <p><i class="fa-regular fa-heart favorite-icon"></i></p></a>
+          </div>
+
         </div>
 
-        <div class="h-100 col-sm-7 row">
+        <div class="col-sm-7 row">
           <div class="photo-gallery">
             <div class="simple-gallery">
 
@@ -125,9 +133,9 @@ $().ready(function() {
 
              </div>
           </div>
-          <div class="">
+          <div>
             <h4 id="features-title">Features</h4>
-    
+
             <div class="row">
               <div class="d-flex col-sm-6">
                 <div>
@@ -201,7 +209,7 @@ $().ready(function() {
                 </div>
               </div>
             </div>
-            <div class="car-description">
+            <div class="car-description pt-2 pb-2">
               <h4>Description</h4>
               <p>
                 ${details}
@@ -211,23 +219,8 @@ $().ready(function() {
           </div>
         </div>
 
-        <div class="h-75 col-sm-4" style="background-color:   rgba(0,0,255,.1)" id="listing-sidebar">
-          <div class="h-25" style="background-color: #13de0c1a"></div>
-          <div class="h-75" style="background-color: #8f53281a">
-          <h5>Contact Seller</h5>
-          <form id="send-message">
-            <input class="w-75" type="text" id="message-name" name="message-name" placeholder="Name*" required><br><br>
-            <input class="w-75" type="email" id="message-email" name="message-email" placeholder="Email*" required><br><br>
-            <input class="w-75" type="tel" id="message-phone" name="message-phone" placeholder="Phone number-optional"><br><br>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Message</label>
-              <textarea class="form-control" name="message-content" id="exampleFormControlTextarea1" rows="11" style="overflow:auto;resize:none" placeholder="Hi, this looks interesting! Is it still available?"></textarea><br>
-            </div>
-            <div class="text-center">
-            <button type="submit" class="btn btn-outline-dark" name="submit" id="message-submit" value="Search"><span class="glyphicon glyphicon-search"></span> Send Message</button>
-            </div>
-          </form>
-          </div>
+        <div class="col-sm-4" style="background-color:   rgba(0,0,255,.1)" id="listing-sidebar">
+
         </div>
       </div>
 
@@ -237,25 +230,130 @@ $().ready(function() {
       let $loginPlease = `<h5>Contact Seller</h5>
         <h6>Please login or register to contact the seller</h6>`;
 
-      let $ownListing = `<h5 class="active-listing">Active Listing</h5>
-      <div class="d-flex justify-content-around">
-          <div></div>
-          <label class="edit-icon"><i class="fa-solid fa-pen"></i>Edit</label>
-        
-        
-          <label class="delete-icon"><i class="fa-solid fa-trash-can"></i>Delete</label>
-          <div></div>
-      </div>  
-          `;
-          
-      if (!userId) {
+      let $contactSeller = `
+      <div class="p-2" style="background-color: #8f53281a">
+      <h5>Contact Seller</h5>
+      <form id="send-message">
+        <input class="w-75" type="text" id="message-name" name="message-name" placeholder="Name*" required><br><br>
+        <input class="w-75" type="email" id="message-email" name="message-email" placeholder="Email*" required><br><br>
+        <input class="w-75" type="tel" id="message-phone" name="message-phone" placeholder="Phone number-optional"><br><br>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Message</label>
+          <textarea class="form-control" name="message-content" id="exampleFormControlTextarea1" rows="11" style="overflow:auto;resize:none" placeholder="Hi, this looks interesting! Is it still available?"></textarea><br>
+        </div>
+        <div class="text-center">
+        <button type="submit" class="btn btn-outline-dark" name="submit" id="message-submit" value="Search"><span class="glyphicon glyphicon-search"></span> Send Message</button>
+        </div>
+      </form>
+      </div>`;
+
+      // Sold header for public/regular users
+      let $listingSold = `
+      <h5>SOLD!</h5>
+      <h6>This car has been sold.</h6>
+      `;
+
+      // Timestamp for car posted date
+      let $timestamp = `
+      <h7>Posted: ${new Date(listing.timestamp).toLocaleDateString()} ${new Date(listing.timestamp).toLocaleTimeString([], { timeStyle: 'short' })}</h7><hr>
+      `;
+
+      // Active or Sold header
+      let $ActiveHeader = `<h5 class="active-listing fw-bold">Active Listing</h5>`;
+      let $InactiveHeader = `<h5 class="active-listing fw-bold">Sold Listing</h5>`;
+
+      // TEMPLATES FOR OWN LISTING
+
+      // Container for buttons
+      let $ownListingContainer = `
+        <div class="d-flex flex-column justify-content-around" id="edit-listing-buttons">
+        </div>
+      `;
+
+      // Edit listing or Mark as sold buttons (edit or sold)
+      let $ownListingAvailable = `
+      <a role="button" id="edit-listing"><label class="edit-icon mb-4"><i class="fa-solid fa-pen me-2"></i>Edit listing</label></a>
+      <a role="button" id="sold-listing" onclick="markSold()"><label class="edit-icon mb-4"><i class="fa-regular fa-circle-check me-2"></i>Mark as sold</label></a>
+      `;
+
+      // Mark inactive button (delete)
+      let $ownListingActive = `
+      <a role="button" id="delete-listing" onclick="markDelete()"><label class="delete-icon"><i class="fa-solid fa-trash-can me-2"></i>Mark inactive</label></a>
+      `;
+
+      // Mark as available button (un-sold)
+      let $ownListingSold = `
+      <a role="button" id="unsold-listing" onclick="markUnsold()"><label class="edit-icon mb-4"><i class="fa-solid fa-cart-shopping me-2"></i>Mark as available</label></a>
+      `;
+
+      // Mark as active button (un-delete)
+      let $ownListingInactive = `
+      <a role="button" id="undelete-listing" onclick="markUndelete()"><label class="delete-icon"><i class="fa-solid fa-car me-2"></i>Mark active</label></a>
+      `;
+
+      // If the car belongs to me:
+      if (userId === Number($('#lister-id')[0].innerText)) {
+
         $('#listing-sidebar').empty();
+
+        if (!listing.sold && !listing.is_deleted) {
+          $($ActiveHeader).appendTo($('#listing-sidebar'));
+          $($timestamp).appendTo($('#listing-sidebar'));
+          $($ownListingContainer).appendTo($('#listing-sidebar'));
+        } else {
+          $($InactiveHeader).appendTo($('#listing-sidebar'));
+          $($timestamp).appendTo($('#listing-sidebar'));
+          $($ownListingContainer).appendTo($('#listing-sidebar'));
+        }
+
+        if (listing.sold) { // IF LISTING IS SOLD
+          $($ownListingSold).appendTo($('#edit-listing-buttons'));
+          $('#price-container').append("<span class='badge text-bg-success ms-2'>Sold</span>");
+        } else {
+          $($ownListingAvailable).appendTo($('#edit-listing-buttons'));
+        }
+
+        if (listing.is_deleted) { // IF LISTING IS INACTIVE
+          $('.active-listing').text('Inactive Listing');
+          $('#edit-listing-buttons').empty();
+          $($ownListingInactive).appendTo($('#edit-listing-buttons'));
+          $('#price-container').append("<span class='badge text-bg-warning ms-2'>Inactive</span>");
+        } else {
+          $($ownListingActive).appendTo($('#edit-listing-buttons'));
+        }
+
+        return;
+      };
+
+      // Car doesn't belong to the user, BELOW:
+
+      // Not logged in & listing is not sold/deleted
+      if (!userId && (!listing.sold || !listing.is_deleted)) {
+        $('#listing-sidebar').empty();
+        $($ActiveHeader).appendTo($('#listing-sidebar'));
+        $($timestamp).appendTo($('#listing-sidebar'));
         $($loginPlease).appendTo($('#listing-sidebar'));
       }
 
-      if (userId === Number($('#lister-id')[0].innerText)) {
+      // Listing is sold
+      if (listing.sold) {
         $('#listing-sidebar').empty();
-        $($ownListing).appendTo($('#listing-sidebar'));
+        $($timestamp).appendTo($('#listing-sidebar'));
+        $($listingSold).appendTo($('#listing-sidebar'));
+        return;
+      }
+
+      // Listing is deleted
+      if (listing.is_deleted && (userId !== Number($('#lister-id')[0].innerText))) {
+        location.href = `/listings`;
+      }
+
+      // Otherwise, show contact form
+      if (userId && (!listing.sold || !listing.is_deleted)) {
+        $('#listing-sidebar').empty();
+        $($ActiveHeader).appendTo($('#listing-sidebar'));
+        $($timestamp).appendTo($('#listing-sidebar'));
+        $($contactSeller).appendTo($('#listing-sidebar'));
       }
 
       $('#send-message').submit((e) => {
@@ -294,4 +392,57 @@ $().ready(function() {
 
     });
 
+
 });
+
+const markSold = function() {
+
+  $.ajax({
+    method: 'PUT',
+    url: location.pathname,
+    data: { sold: true }
+  })
+    .done((response) => {
+      location.reload();
+    });
+
+};
+
+const markUnsold = function() {
+
+  $.ajax({
+    method: 'PUT',
+    url: location.pathname,
+    data: { sold: false }
+  })
+    .done((response) => {
+      location.reload();
+    });
+
+};
+
+const markDelete = function() {
+
+  $.ajax({
+    method: 'PUT',
+    url: location.pathname,
+    data: { delete: true }
+  })
+    .done((response) => {
+      location.reload();
+    });
+
+};
+
+const markUndelete = function() {
+
+  $.ajax({
+    method: 'PUT',
+    url: location.pathname,
+    data: { delete: false }
+  })
+    .done((response) => {
+      location.reload();
+    });
+
+};

@@ -23,7 +23,7 @@ $().ready(function() {
             <div class="card-body">
               <h5 class="card-title d-flex justify-content-between">$${Number(listing.price).toLocaleString('en')} <i class="fa-regular fa-heart favorite-icon"></i></h5>
               <p class="card-text">${listing.description}<br>color: ${listing.color} <br> ${listing.body_type}</p>
-            
+
               <a href="/listings/${listing.id}" class="btn btn-primary">View listing</a>
             </div>
             <div class="card-footer text-muted">
