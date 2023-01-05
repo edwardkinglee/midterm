@@ -2,7 +2,7 @@ const db = require('../connection');
 
 // Get all car listings
 const getListings = () => {
-  return db.query('SELECT * FROM cars ORDER BY timestamp DESC;')
+  return db.query('SELECT * FROM cars ORDER BY is_deleted, sold, timestamp DESC;')
     .then(data => {
       return data.rows;
     });
@@ -20,7 +20,7 @@ const getListing = (carId) => {
 // Get all cars for a user
 const getUserListings = (userId) => {
 
-  return db.query('SELECT * FROM cars WHERE lister_id = $1 ORDER BY timestamp DESC;', [userId])
+  return db.query('SELECT * FROM cars WHERE lister_id = $1 ORDER BY is_deleted, sold, timestamp DESC;', [userId])
     .then(data => {
       return data.rows;
     });
