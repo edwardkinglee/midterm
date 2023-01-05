@@ -105,12 +105,12 @@ $().ready(function() {
             <p><i class="fa-solid fa-mobile-screen-button"></i></p></a>
           </div>
 
-          <div class="mt-2 border-bottom border-dark border-opacity-75">
+          <div class="mt-2">
             <a href="" class="h-50 text-center">Email
             <p><i class="fa-regular fa-envelope"></i></p></a>
           </div>
 
-          <div class="mt-2">
+          <div class="mt-2 border-top border-dark border-opacity-75" id="add-to-fav">
             <a href="" onclick="" class="h-50 text-center">Add to favorites
             <p><i class="fa-regular fa-heart favorite-icon"></i></p></a>
           </div>
@@ -333,6 +333,7 @@ $().ready(function() {
         $($ActiveHeader).appendTo($('#listing-sidebar'));
         $($timestamp).appendTo($('#listing-sidebar'));
         $($loginPlease).appendTo($('#listing-sidebar'));
+        $('#add-to-fav').remove();
       }
 
       // Listing is sold
