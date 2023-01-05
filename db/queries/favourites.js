@@ -28,8 +28,22 @@ const addUserFavorite = (carId, userId) => {
     });
 };
 
+
+// Remove favourite car listing
+const removeUserFavorite = (carId, userId) => {
+
+  return db.query('DELETE FROM user_favs WHERE car_id = $1 AND user_id = $2;', [carId, userId])
+    .then(data => {
+      return data.rows[0];
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
 module.exports = {
   getFavourites,
   getUserFavourites,
-  addUserFavorite
+  addUserFavorite,
+  removeUserFavorite
 };

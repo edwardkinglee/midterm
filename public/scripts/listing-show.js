@@ -13,7 +13,6 @@ $().ready(function() {
       }
 
       const listing = response.listing;
-
       let interiorColor = listing.interior_color;
       let fuelConsumption = listing.fuel_consumption;
       let engine = listing.engine;
@@ -111,7 +110,7 @@ $().ready(function() {
           </div>
 
           <div class="mt-2 border-top border-dark border-opacity-75" id="add-to-fav">
-            <a href="" onclick="" class="h-50 text-center">Add to favorites
+            <a onclick="addFav()" class="h-50 text-center">Add to favorites
             <p><i class="fa-regular fa-heart favorite-icon"></i></p></a>
           </div>
 
@@ -391,8 +390,30 @@ $().ready(function() {
 
       });
 
-    });
+      // Check if car is fav'd already
 
+      $.ajax({
+        method: 'GET',
+        url: `/api/favourites/user/${userId}`
+      })
+        .done((response) => {
+
+          const listingId = Number(location.pathname.split('/')[2]);
+
+          const $removeFav = `<a href="" onclick="removeFav()" class="h-50 text-center">Remove from favorites
+          <p><i class="fa-solid fa-heart favorite-icon"></i></p></a>`;
+
+          for (const fav of response.Favourites) {
+            if (Number(fav.car_id) === listingId) {
+
+              $('#add-to-fav').html($removeFav);
+
+            }
+          }
+
+        });
+
+    });
 
 });
 
@@ -447,3 +468,42 @@ const markUndelete = function() {
     });
 
 };
+
+const addFav = function() {
+
+  const userId = Number($('#user-id')[0].innerText);
+  const listingId = Number(location.pathname.split('/')[2]);
+
+  $.ajax({
+    method: 'POST',
+    url: `/favourites`,
+    data: {
+      'user': userId,
+      'car': listingId
+    }
+  })
+    .done((response) => {
+      location.reload();
+    });
+
+};
+
+const removeFav = function() {
+
+  const userId = Number($('#user-id')[0].innerText);
+  const listingId = Number(location.pathname.split('/')[2]);
+
+  $.ajax({
+    method: 'DELETE',
+    url: `/favourites`,
+    data: {
+      'user': userId,
+      'car': listingId
+    }
+  })
+    .done((response) => {
+      location.reload();
+    });
+
+};
+
