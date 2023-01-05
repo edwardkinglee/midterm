@@ -334,23 +334,40 @@ input::-webkit-inner-spin-button {
   margin: 20px 0px 20px 0px ;
 }
 
-.edit-icon{
+.edit-icon:hover{
   cursor: pointer;
+  color:#eba91b;
 }
 
-.delete-icon{
+.delete-icon:hover{
   cursor: pointer;
+  color:#eba91b;
 }
 
 #send-to-phone{
+  border-bottom: 1px solid black;
+}
+
+#send-to-phone:hover{
   cursor: pointer;
+  color:#eba91b;
 }
 
 #send-to-email{
-  cursor: pointer;
+  border-bottom: 1px solid black;
+  margin-top: 10px;
 }
 
-#favorite-icon:hover{
+#send-to-email:hover{
   cursor: pointer;
-  color:#eba91b ;
+  color:#eba91b;
+}
+
+#add-favorite{
+  margin-top: 10px;
+}
+
+.favorite-icon:hover{
+  cursor: pointer;
+  color:#eba91b;
 }

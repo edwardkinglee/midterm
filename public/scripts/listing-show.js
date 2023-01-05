@@ -98,10 +98,14 @@ $().ready(function() {
       </div>
       <div class="row" style="height: 1300px;">
         <div class="col-sm-1" style="height:200px;">
-          <div id="send-to-phone" class="h-50 text-center" style="background-color: #656f771a; border-bottom: 1px solid black;">Send to phone
+          <div id="send-to-phone" class="h-50 text-center">Send to phone
             <p><i class="fa-solid fa-mobile-screen-button"></i></p></div>
-          <div id="send-to-email" class="h-50 text-center" style="background-color: #656f771a">Email
+          <div id="send-to-email" class="h-50 text-center">Email
             <p><i class="fa-regular fa-envelope"></i></p></div>
+          <div id="add-favorite" class="favorite-icon">
+            <label>Add to favorites</label>
+            <i class="fa-regular fa-heart favorite-icon"></i>
+          </div>
         </div>
 
         <div class="h-100 col-sm-7 row">

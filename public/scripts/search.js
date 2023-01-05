@@ -42,7 +42,7 @@ $().ready(function() {
                 $${Number(car.price).toLocaleString('en')}
              </div>
              <div>
-               <i id="favorite-icon" class="fa-regular fa-heart"></i>
+               <i class="fa-regular fa-heart favorite-icon"></i>
              </div>
              </h5>
              <p><br><br><br>Posted: ${new Date(car.timestamp).toLocaleDateString()} ${new Date(car.timestamp).toLocaleTimeString([], { timeStyle: 'short' })}</p>
