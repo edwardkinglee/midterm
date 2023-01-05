@@ -37,7 +37,15 @@ $().ready(function() {
               </div>
                
               <div class="col-sm-3">
-              <h5>$${Number(listing.price).toLocaleString('en')}</h5>
+              <h5 class="d-flex justify-content-between">
+                 <div></div>  
+                 <div>
+                  $${Number(listing.price).toLocaleString('en')}
+                </div>
+                <div>
+                  <i id="favorite-icon" class="fa-regular fa-heart"></i>
+                </div>
+              </h5>
               <p><br><br><br>Posted: ${new Date(listing.timestamp).toLocaleDateString()} ${new Date(listing.timestamp).toLocaleTimeString([], { timeStyle: 'short' })}</p>
               </div
             </div> 
