@@ -49,10 +49,46 @@ const addNewListing = (user, listingObj) => {
     });
 };
 
+// Mark as sold
+const markAsSold = (carId) => {
+  return db.query('UPDATE cars SET sold = TRUE WHERE id = $1 RETURNING *;', [carId])
+    .then((data) => {
+      return data.rows;
+    });
+};
+
+// Mark as available/not sold
+const markAsUnsold = (carId) => {
+  return db.query('UPDATE cars SET sold = FALSE WHERE id = $1 RETURNING *;', [carId])
+    .then((data) => {
+      return data.rows;
+    });
+};
+
+// Mark as deleted
+const markAsDeleted = (carId) => {
+  return db.query('UPDATE cars SET is_deleted = TRUE WHERE id = $1 RETURNING *;', [carId])
+    .then((data) => {
+      return data.rows;
+    });
+};
+
+// Mark as active/undelete
+const markAsUndeleted = (carId) => {
+  return db.query('UPDATE cars SET is_deleted = FALSE WHERE id = $1 RETURNING *;', [carId])
+    .then((data) => {
+      return data.rows;
+    });
+};
+
 module.exports = {
   getListings,
   getListing,
   getUserListings,
   getMostPopular,
-  addNewListing
+  addNewListing,
+  markAsSold,
+  markAsUnsold,
+  markAsDeleted,
+  markAsUndeleted
 };

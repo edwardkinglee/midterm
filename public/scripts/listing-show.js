@@ -265,27 +265,30 @@ $().ready(function() {
       // TEMPLATES FOR OWN LISTING
 
       // Container for buttons
-      let $ownListingContainer = `<div class="d-flex flex-column justify-content-around" id="edit-listing-buttons"></div>`;
+      let $ownListingContainer = `
+        <div class="d-flex flex-column justify-content-around" id="edit-listing-buttons">
+        </div>
+      `;
 
       // Edit listing or Mark as sold buttons (edit or sold)
       let $ownListingAvailable = `
-      <a role="button"><label class="edit-icon mb-4"><i class="fa-solid fa-pen me-2"></i>Edit listing</label></a>
-      <a role="button"><label class="edit-icon mb-4"><i class="fa-regular fa-circle-check me-2"></i>Mark as sold</label></a>
+      <a role="button" id="edit-listing"><label class="edit-icon mb-4"><i class="fa-solid fa-pen me-2"></i>Edit listing</label></a>
+      <a role="button" id="sold-listing" onclick="markSold()"><label class="edit-icon mb-4"><i class="fa-regular fa-circle-check me-2"></i>Mark as sold</label></a>
       `;
 
       // Mark inactive button (delete)
       let $ownListingActive = `
-      <a role="button"><label class="delete-icon"><i class="fa-solid fa-trash-can me-2"></i>Mark inactive</label></a>
+      <a role="button" id="delete-listing" onclick="markDelete()"><label class="delete-icon"><i class="fa-solid fa-trash-can me-2"></i>Mark inactive</label></a>
       `;
 
       // Mark as available button (un-sold)
       let $ownListingSold = `
-      <a role="button"><label class="edit-icon mb-4"><i class="fa-solid fa-cart-shopping me-2"></i>Mark as available</label></a>
+      <a role="button" id="unsold-listing" onclick="markUnsold()"><label class="edit-icon mb-4"><i class="fa-solid fa-cart-shopping me-2"></i>Mark as available</label></a>
       `;
 
       // Mark as active button (un-delete)
       let $ownListingInactive = `
-      <a role="button"><label class="delete-icon"><i class="fa-solid fa-car me-2"></i>Mark active</label></a>
+      <a role="button" id="undelete-listing" onclick="markUndelete()"><label class="delete-icon"><i class="fa-solid fa-car me-2"></i>Mark active</label></a>
       `;
 
       // If the car belongs to me:
@@ -389,4 +392,57 @@ $().ready(function() {
 
     });
 
+
 });
+
+const markSold = function() {
+
+  $.ajax({
+    method: 'PUT',
+    url: location.pathname,
+    data: { sold: true }
+  })
+    .done((response) => {
+      location.reload();
+    });
+
+};
+
+const markUnsold = function() {
+
+  $.ajax({
+    method: 'PUT',
+    url: location.pathname,
+    data: { sold: false }
+  })
+    .done((response) => {
+      location.reload();
+    });
+
+};
+
+const markDelete = function() {
+
+  $.ajax({
+    method: 'PUT',
+    url: location.pathname,
+    data: { delete: true }
+  })
+    .done((response) => {
+      location.reload();
+    });
+
+};
+
+const markUndelete = function() {
+
+  $.ajax({
+    method: 'PUT',
+    url: location.pathname,
+    data: { delete: false }
+  })
+    .done((response) => {
+      location.reload();
+    });
+
+};
