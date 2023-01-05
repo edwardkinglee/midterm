@@ -280,7 +280,7 @@ input::-webkit-inner-spin-button {
 }
 
 .photo-gallery{
-  background-color: #d8bce049;
+  background-color: #746c7649;
 }
 
 .car-description{
@@ -294,6 +294,10 @@ input::-webkit-inner-spin-button {
 
 .fa-arrow-left:hover{
   cursor: pointer;
+}
+
+#features-title{
+  margin: 10px 0px 20px 0px;
 }
 
 //Styles for car details

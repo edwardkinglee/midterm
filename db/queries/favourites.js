@@ -16,7 +16,20 @@ const getUserFavourites = (userId) => {
     });
 };
 
+// Add favourite car listing to a user
+const addUserFavorite = (carId, userId) => {
+
+  return db.query('INSERT INTO user_favs (car_id, user_id) VALUES ($1, $2);', [carId, userId])
+    .then(data => {
+      return data.rows[0];
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
 module.exports = {
   getFavourites,
-  getUserFavourites
+  getUserFavourites,
+  addUserFavorite
 };

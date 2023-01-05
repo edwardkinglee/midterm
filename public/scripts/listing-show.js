@@ -96,7 +96,7 @@ $().ready(function() {
         </h2>
             <label>Toronto, ON 9km away  Home delivery available</label>
       </div>
-      <div class="row" style="height: 1300px;">
+      <div class="row" style="height: 1400px;">
         <div class="col-sm-1" style="height:200px;">
           <div id="send-to-phone" class="h-50 text-center">Send to phone
             <p><i class="fa-solid fa-mobile-screen-button"></i></p></div>
@@ -125,7 +125,7 @@ $().ready(function() {
              </div>
           </div>
           <div class="">
-            <h4>Features</h4>
+            <h4 id="features-title">Features</h4>
             <div class="row">
               <div class="d-flex col-sm-6">
                 <div>
