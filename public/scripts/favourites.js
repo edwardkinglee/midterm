@@ -13,12 +13,14 @@ $().ready(function() {
 
       $favouritesContainer.empty();
 
-      console.log(response);
-
       for (const favourite of response.Favourites) {
 
+        if (favourite.is_deleted) {
+          continue;
+        }
+
         let $favourite = `
-        <div class="card-body">
+        <div class="card-body" id="${favourite.id}">
             <div class="row border-top border-bottom">
               <div class="col-sm-2">
                <a href="/listings/${favourite.id}" class="btn">
@@ -41,7 +43,7 @@ $().ready(function() {
               </div>
 
               <div class="col-sm-3">
-              <h5>$${Number(favourite.price).toLocaleString('en')}</h5>
+              <h5 id="price-head">$${Number(favourite.price).toLocaleString('en')}</h5>
               <p><br><br><br>Posted: ${new Date(favourite.timestamp).toLocaleDateString()} ${new Date(favourite.timestamp).toLocaleTimeString('en-US')}</p>
               </div
             </div>
@@ -50,6 +52,13 @@ $().ready(function() {
         `;
 
         $($favourite).appendTo($favouritesContainer);
+
+        const $listing = $(`#${favourite.id}`);
+        const $listingTitle = $(`#${favourite.id} .card-title`);
+
+        if (favourite.sold) {
+          $($listingTitle).append("<span class='badge text-bg-success ms-2'>Sold</span>");
+        }
 
       }
     });

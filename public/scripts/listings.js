@@ -13,18 +13,22 @@ $().ready(function() {
 
         for (const listing of response.listings) {
 
+          if (listing.is_deleted) {
+            continue;
+          }
+
           let $listing = `
         <div class="card-body">
             <div class="row border-top border-bottom">
               <div class="col-sm-2">
-               <a href="/listings/${listing.id}" class="btn"> 
+               <a href="/listings/${listing.id}" class="btn">
                 <img src="${listing.photo}" class="img-fluid img-thumbnail" alt="..."/>
                </a>
               </div>
-          
+
               <div class="col-sm-5">
                 <div class="card-body-right text-start">
-                <a href="/listings/${listing.id}" class="">   
+                <a href="/listings/${listing.id}" class="">
                 <h5 class="card-title">${listing.year} ${listing.make} ${listing.model}</h5>
                 </a>
                 <br>
@@ -35,10 +39,10 @@ $().ready(function() {
               <div class="col-sm-2">
               <h6>${Number(listing.kms).toLocaleString('en')} kms</h6>
               </div>
-               
+
               <div class="col-sm-3">
               <h5 class="d-flex justify-content-between">
-                 <div></div>  
+                 <div></div>
                  <div>
                   $${Number(listing.price).toLocaleString('en')}
                 </div>
@@ -48,8 +52,8 @@ $().ready(function() {
               </h5>
               <p><br><br><br>Posted: ${new Date(listing.timestamp).toLocaleDateString()} ${new Date(listing.timestamp).toLocaleTimeString([], { timeStyle: 'short' })}</p>
               </div
-            </div> 
-            
+            </div>
+
           </div>
         `;
 
@@ -74,17 +78,17 @@ $().ready(function() {
         for (const listing of response.listings) {
 
           let $listing = `
-          <div class="card-body">
+          <div class="card-body" id="${listing.id}">
           <div class="row border-top border-bottom">
             <div class="col-sm-2">
-             <a href="/listings/${listing.id}" class="btn"> 
+             <a href="/listings/${listing.id}" class="btn">
               <img src="${listing.photo}" class="img-fluid img-thumbnail" alt="..."/>
              </a>
             </div>
-        
+
             <div class="col-sm-5">
               <div class="card-body-right text-start">
-              <a href="/listings/${listing.id}" class="btn">   
+              <a href="/listings/${listing.id}" class="btn">
               <h5 class="card-title">${listing.year} ${listing.make} ${listing.model}</h5>
               </a>
               <br>
@@ -95,16 +99,26 @@ $().ready(function() {
             <div class="col-sm-2">
               <h6>${Number(listing.kms).toLocaleString('en')} kms</h6>
             </div>
-             
+
             <div class="col-sm-3">
             <h5>$${Number(listing.price).toLocaleString('en')}</h5>
             <p><br><br><br>Posted: ${new Date(listing.timestamp).toLocaleDateString()} ${new Date(listing.timestamp).toLocaleTimeString([], { timeStyle: 'short' })}</p>
             </div
-          </div> 
+          </div>
         </div>
         `;
 
           $($listing).appendTo($listingsContainer);
+
+          const $listingTitle = $(`#${listing.id} .card-title`);
+
+          if (listing.sold) {
+            $($listingTitle).append("<span class='badge text-bg-success ms-2'>Sold</span>");
+          }
+
+          if (listing.is_deleted) {
+            $($listingTitle).append("<span class='badge text-bg-warning ms-2'>Inactive</span>");
+          }
 
         }
       });
