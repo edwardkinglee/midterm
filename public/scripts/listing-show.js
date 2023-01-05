@@ -27,6 +27,7 @@ $().ready(function() {
       let photo5 = listing.photo5;
       let photo6 = listing.photo6;
       let photo7 = listing.photo7;
+      const price = listing.price;
 
       if (!interiorColor) {
         interiorColor = 'Unavailable';
@@ -94,7 +95,7 @@ $().ready(function() {
            <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
           ${listing.year} ${listing.make} ${listing.model}
         </h2>
-            <label>Home delivery available</label>
+            <h4>$${Number(price).toLocaleString('en')}</h4>
       </div>
       <div class="row" style="height: 1400px;">
         <div class="col-sm-1" style="height:200px;">
@@ -126,6 +127,7 @@ $().ready(function() {
           </div>
           <div class="">
             <h4 id="features-title">Features</h4>
+    
             <div class="row">
               <div class="d-flex col-sm-6">
                 <div>
