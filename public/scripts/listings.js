@@ -18,7 +18,7 @@ $().ready(function() {
           }
 
           let $listing = `
-        <div class="card-body">
+        <div class="card-body" id="${listing.id}">
             <div class="row border-top border-bottom">
               <div class="col-sm-2">
                <a href="/listings/${listing.id}" class="btn">
@@ -58,6 +58,12 @@ $().ready(function() {
         `;
 
           $($listing).appendTo($listingsContainer);
+
+          const $listingTitle = $(`#${listing.id} .card-title`);
+
+          if (listing.sold) {
+            $($listingTitle).append("<span class='badge text-bg-success ms-2'>Sold</span>");
+          }
 
         }
       });
