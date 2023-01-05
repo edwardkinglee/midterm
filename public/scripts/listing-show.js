@@ -98,9 +98,9 @@ $().ready(function() {
       </div>
       <div class="row" style="height: 1300px;">
         <div class="col-sm-1" style="height:200px;">
-          <div class="h-50 text-center" style="background-color: #656f771a; border-bottom: 1px solid black;">Send to phone
+          <div id="send-to-phone" class="h-50 text-center" style="background-color: #656f771a; border-bottom: 1px solid black;">Send to phone
             <p><i class="fa-solid fa-mobile-screen-button"></i></p></div>
-          <div class="h-50 text-center" style="background-color: #656f771a">Email
+          <div id="send-to-email" class="h-50 text-center" style="background-color: #656f771a">Email
             <p><i class="fa-regular fa-envelope"></i></p></div>
         </div>
 
@@ -231,9 +231,17 @@ $().ready(function() {
       let $loginPlease = `<h5>Contact Seller</h5>
         <h6>Please login or register to contact the seller</h6>`;
 
-      let $ownListing = `<h6>This is your listing</h6>
-        <p>This is where we can put MARK SOLD or DELETE buttons</p>`;
-
+      let $ownListing = `<h5 class="active-listing">Active Listing</h5>
+      <div class="d-flex justify-content-around">
+          <div></div>
+          <label class="edit-icon"><i class="fa-solid fa-pen"></i>Edit</label>
+        
+        
+          <label class="delete-icon"><i class="fa-solid fa-trash-can"></i>Delete</label>
+          <div></div>
+      </div>  
+          `;
+          
       if (!userId) {
         $('#listing-sidebar').empty();
         $($loginPlease).appendTo($('#listing-sidebar'));

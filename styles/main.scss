@@ -327,3 +327,25 @@ input::-webkit-inner-spin-button {
   // width: 100%;
   display: block;
 } 
+
+//Styles for Active listing section
+
+.active-listing{
+  margin: 20px 0px 20px 0px ;
+}
+
+.edit-icon{
+  cursor: pointer;
+}
+
+.delete-icon{
+  cursor: pointer;
+}
+
+#send-to-phone{
+  cursor: pointer;
+}
+
+#send-to-email{
+  cursor: pointer;
+}
