@@ -226,6 +226,28 @@ $().ready(function() {
     `;
       $($listing).appendTo($listingsContainer);
 
+      // Update favourites button to 'REMOVE' if already faved
+      $.ajax({
+        method: 'GET',
+        url: `/api/favourites/user/${userId}`
+      })
+        .done((response) => {
+
+          const listingId = Number(location.pathname.split('/')[2]);
+
+          const $removeFav = `<a href="" onclick="removeFav()" class="h-50 text-center">Remove from favorites
+                <p><i class="fa-solid fa-heart favorite-icon"></i></p></a>`;
+
+          for (const fav of response.Favourites) {
+            if (Number(fav.car_id) === listingId) {
+
+              $('#add-to-fav').html($removeFav);
+
+            }
+          }
+
+        });
+
       let $loginPlease = `<h5>Contact Seller</h5>
         <h6>Please login or register to contact the seller</h6>`;
 
@@ -389,29 +411,6 @@ $().ready(function() {
           });
 
       });
-
-      // Check if car is fav'd already
-
-      $.ajax({
-        method: 'GET',
-        url: `/api/favourites/user/${userId}`
-      })
-        .done((response) => {
-
-          const listingId = Number(location.pathname.split('/')[2]);
-
-          const $removeFav = `<a href="" onclick="removeFav()" class="h-50 text-center">Remove from favorites
-          <p><i class="fa-solid fa-heart favorite-icon"></i></p></a>`;
-
-          for (const fav of response.Favourites) {
-            if (Number(fav.car_id) === listingId) {
-
-              $('#add-to-fav').html($removeFav);
-
-            }
-          }
-
-        });
 
     });
 
