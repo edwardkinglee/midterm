@@ -94,7 +94,7 @@ $().ready(function() {
            <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
           ${listing.year} ${listing.make} ${listing.model}
         </h2>
-            <label>Toronto, ON 9km away  Home delivery available</label>
+            <label>Home delivery available</label>
       </div>
       <div class="row" style="height: 1400px;">
         <div class="col-sm-1" style="height:200px;">

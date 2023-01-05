@@ -11,7 +11,8 @@ INSERT INTO cars (lister_id, year, make, model, color, description, price, photo
         (8, 2017, 'Mercedes Benz', 'G550 Squared', 'White', 'Automatic, 8-Cylinder, AWD', 298000, 'https://img.jamesedition.com/listing_images/2019/01/08/19/17/45/ad6bdf7d-4001-4743-8f4c-449aef19004f/je/1100xxs.jpg', '2020-02-27T05:30:55.000Z', 'suv', 4000),
         (8, 2019, 'Ferrari', 'GTC4 Lusso', 'Red', 'Automatic, 8-Cylinder, Rwd', 240000, 'https://d2blhp03rkvfi4.cloudfront.net/cache/width_916/car/car-18546/photo/2019-Ferrari-GTC4Lusso-249988-1560814567.jpg', '2020-02-27T05:30:55.000Z', 'hatchback', 8000),
         (2, 1965, 'Citroen', 'F-Van', 'Silver', 'Manual, 4-Cylinder, Awd', 67900, 'https://img.jamesedition.com/listing_images/2019/12/13/08/16/08/596dfb58-e142-42c4-b11b-b85b31e7a4e2/je/1900xxs.jpg', '2020-02-27T05:30:55.000Z', 'minivan', 54000),
-        (8, 2019, 'Jaguar', 'F-Type R', 'White', 'beep beep', 125000, 'https://cdn.carbuzz.com/gallery-images/840x560/639000/200/639225.jpg', '2020-02-27T05:30:55.000Z', 'coupe', 14000);
+        (8, 2019, 'Jaguar', 'F-Type R', 'White', 'beep beep', 125000, 'https://cdn.carbuzz.com/gallery-images/840x560/639000/200/639225.jpg', '2020-02-27T05:30:55.000Z', 'coupe', 14000),
+        (2, 2020, 'Lamborghini', 'Aventador', 'Green', 'Automatic, 12-Cylinder, Rwd', 4500000, 'https://img.jamesedition.com/listing_images/2022/09/02/14/50/46/3dcc61d2-b5bb-4e2e-bf23-b971265b6f61/je/1900xxs.jpg', '2020-02-27T05:30:55.000Z', 'coupe', 941);
 
 
 -- user: 1 => listed car: 1

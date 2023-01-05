@@ -176,4 +176,13 @@ Black',
   'https://img.jamesedition.com/listing_images/2019/01/08/16/18/56/c8f7fff3-bb7e-436d-8cfc-820ff6758cdd/je/1900xxs.jpg',
   'https://img.jamesedition.com/listing_images/2019/01/08/16/18/58/cd3ba1f1-edaf-4048-be0c-06e90bf9b7f9/je/1900xxs.jpg',
   'https://img.jamesedition.com/listing_images/2019/01/08/19/17/45/ad6bdf7d-4001-4743-8f4c-449aef19004f/je/1900xxs.jpg',
-  'https://img.jamesedition.com/listing_images/2019/01/08/16/18/58/cd3ba1f1-edaf-4048-be0c-06e90bf9b7f9/je/1900xxs.jpg');
+  'https://img.jamesedition.com/listing_images/2019/01/08/16/18/58/cd3ba1f1-edaf-4048-be0c-06e90bf9b7f9/je/1900xxs.jpg'),
+  
+  (14, 'Brown', '29L/100km', '6.5L V12 819 hp', 'Gasoline', 'Automatic', 'MAX. POWER 785 CV (577 kW) @ 8,500 rpm MAX. TORQUE 720 Nm @ 6,750 rpm LUBRIFICATION SYSTEM Dry sump EMISSION CLASS Euro 6 - LEV 3 ELECTRIC MOTOR SUPERCAPACITOR TENSION SUPPLY 48V SUPERCAPACITOR POWER DENSITY 2,400 W/kg MAX OPERATING CURRENT 600A MAX. POWER 34 CV MAX. TORQUE 35 Nm E-MACHINE WEIGHT + SUPERCAPACITOR 34 kg ENGINE COMBINED POWER 819 CV TRANSMISSION TRANSMISSION Electronically controlled all-wheel drive system (Haldex gen. IV) with rear mechanical self-locking differential GEARBOX ISR (Independent Shifting Rods) gearbox with 7 speeds, shifting characteristic depending on drive select mode, electric motor works during the shifting and as boost PERFORMANCE MAX. SPEED 350 km/h (217 mph) ACCELERATION 0-100 KM/H (0-62 MPH) ACCELERATION 0-200 KM/H (0-124 MPH) BRAKING 100-0 KM/H (62-0 MPH) BODY AND CHASSIS CHASSIS Carbon fiber monocoque with aluminum front and rear frames BODY Full carbon fiber body TOP ROOF Electrochromic glass fixed on the monocoque roof MIRRORS Electrically operated, heated and foldable AERODYNAMICS New active areo electrically powered ',
+ 'https://img.jamesedition.com/listing_images/2022/09/02/14/50/46/abb39796-6346-4217-a281-833d4b91ac5e/je/1900xxs.jpg',
+  'https://img.jamesedition.com/listing_images/2022/09/02/14/50/46/861f8ca2-8cf7-4e3c-9963-87cd727e4e8c/je/1900xxs.jpg',
+  'https://img.jamesedition.com/listing_images/2022/09/02/14/50/46/1538cb29-01da-45cb-84f1-5e3d24a66e2f/je/1900xxs.jpg',
+  'https://img.jamesedition.com/listing_images/2022/09/02/14/50/46/5578bb9c-9f2b-4abb-a94c-8cb3053f083e/je/1900xxs.jpg',
+  'https://img.jamesedition.com/listing_images/2022/09/02/14/50/46/6ea8a9a0-467d-45d9-8fb6-be9ab32d0e01/je/1900xxs.jpg',
+  'https://img.jamesedition.com/listing_images/2022/09/02/14/50/46/861f8ca2-8cf7-4e3c-9963-87cd727e4e8c/je/1900xxs.jpg',
+  'https://img.jamesedition.com/listing_images/2022/09/02/14/50/46/8dfd15b8-18e0-4832-8360-5ecd200e00fd/je/1900xxs.jpg');
