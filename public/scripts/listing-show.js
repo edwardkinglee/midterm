@@ -288,11 +288,4 @@ $().ready(function() {
 
     });
 
-  // $(".mini img").on('click', function() {
-  //   console.log('in mini img');
-  //   $(".maxi").attr("src", $(this).attr("src"));
-  // });
-
-  
-
 });

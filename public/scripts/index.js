@@ -16,12 +16,15 @@ $().ready(function() {
         let $listing = `
           <div class="col">
           <div class="card">
+          <a href="/listings/${listing.id}">
             <img src="${listing.photo}" class="card-img-top" alt="...">
+          </a>
             <h5 class="card-header">${listing.year} ${listing.make} ${listing.model}</h5>
             <div class="card-body">
-              <h5 class="card-title">$${Number(listing.price).toLocaleString('en')}</h5>
+              <h5 class="card-title d-flex justify-content-between">$${Number(listing.price).toLocaleString('en')} <i id="favorite-icon" class="fa-regular fa-heart"></i></h5>
               <p class="card-text">${listing.description}<br>color: ${listing.color} <br> ${listing.body_type}</p>
-              <a href="/listings/${listing.id}" class="btn btn-primary stretched-link">View listing</a>
+            
+              <a href="/listings/${listing.id}" class="btn btn-primary">View listing</a>
             </div>
             <div class="card-footer text-muted">
               Posted: ${new Date(listing.timestamp).toLocaleDateString()}
