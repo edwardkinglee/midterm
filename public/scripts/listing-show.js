@@ -100,12 +100,12 @@ $().ready(function() {
         <div class="col-sm-1">
 
         <div class="mt-2 border-bottom border-dark border-opacity-75">
-            <a href="" class="h-50 text-center">Send to phone
+            <a href="/listings/phone" class="h-50 text-center">Send to phone
             <p><i class="fa-solid fa-mobile-screen-button"></i></p></a>
           </div>
 
           <div class="mt-2">
-            <a href="" class="h-50 text-center">Email
+            <a href="/listings/email" class="h-50 text-center">Email
             <p><i class="fa-regular fa-envelope"></i></p></a>
           </div>
 

@@ -388,3 +388,13 @@ input::-webkit-inner-spin-button {
   width: 50%;
   margin:auto;
 }
+
+//Styles for email.ejs and phone.ejs
+
+.email-text{
+  margin-top: 5px;
+  background-color: #fff; 
+  height:350px; width:600px;
+  resize:none; 
+}
+

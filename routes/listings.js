@@ -57,8 +57,45 @@ router.post('/new', (req, res) => {
       res.send(response);
     })
     .catch(console.log);
+});
 
+//send listing to phone
+router.get('/phone', (req, res) => {
+  const userId = req.cookies.user_id;
+  const url = req.headers.referer;
+  //gets the number from the URL
+  const listingNum = url.split('/').pop();
+  
+  listingQueries.getListing(listingNum)
+  .then((response) => {
+    const year = response.year;
+    const make = response.make;
+    const model = response.model;
+    const price = Number(response.price).toLocaleString('en');
+    const templateVars = { userId, url, year, make, model, price};
+    res.render('phone',templateVars);
+  })
+  .catch(console.log);
 
+});
+
+//send listing to email
+router.get('/email', (req, res) => {
+  const userId = req.cookies.user_id;
+  const url = req.headers.referer;
+  //gets the number from the URL
+  const listingNum = url.split('/').pop();
+  
+  listingQueries.getListing(listingNum)
+  .then((response) => {
+    const year = response.year;
+    const make = response.make;
+    const model = response.model;
+    const price = Number(response.price).toLocaleString('en');
+    const templateVars = { userId, url, year, make, model, price};
+    res.render('email',templateVars);
+  })
+  .catch(console.log);
 
 });
 
