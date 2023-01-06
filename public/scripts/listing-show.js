@@ -419,14 +419,12 @@ $().ready(function() {
 const editPrice = function() {
   const currentPrice = $('#price-container').text().replace('$', '').replace(',', '');
 
-  let price = Number(prompt(`Current price: ${$('#price-container').text()}\nPlease enter a new price:`, `${currentPrice}`));
+  let price = Number(prompt(`Current price: ${$('#price-container').text()}\n\nPlease enter a new price:`, `${currentPrice}`));
 
-  if (price == null || price == "") {
-    alert("Request cancelled.");
-  } else if (price > 5000000) {
-    alert("Requested price is too high.");
+  if (price === 0 || price > 5000000) {
+    alert("Price must be greater than $0 and less than $5m.");
   } else if (!Number.isInteger(price)) {
-    alert("Price must be a number.\nPlease do not include the dollar sign, spaces, or commas.");
+    alert("Price must be a number.\n\nPlease do not include the dollar sign, spaces, or commas.");
   } else {
     $.ajax({
       method: 'PUT',
@@ -434,7 +432,7 @@ const editPrice = function() {
       data: {price: price}
     })
       .done((response) => {
-        alert(`Price has been updated to: ${price}`);
+        alert(`Price has been updated to: $${Number(price).toLocaleString('en')}`);
         location.reload();
       })
   }
