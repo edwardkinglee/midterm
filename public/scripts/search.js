@@ -9,7 +9,7 @@ $().ready(function() {
       const $searchContainer = $('#search');
 
       $searchContainer.empty();
-
+      
       for (const car of response.search) {
 
         let $search = `
@@ -52,6 +52,12 @@ $().ready(function() {
         </div>
         `;
 
+        $($search).appendTo($searchContainer);
+      }
+
+      //if there are no search results
+      if(response.search.length === 0){
+        let $search = `<div id="no-results">No results found</div>`;
         $($search).appendTo($searchContainer);
       }
       

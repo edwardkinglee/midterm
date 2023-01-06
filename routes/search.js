@@ -16,8 +16,6 @@ router.get('/', (req, res) => {
   let sort = req.query.sort;
   let bodyType = req.query.body_type;
 
-  console.log('search query',req.query);
-
   if(!make){
      make = 'Any Make'; 
   }
