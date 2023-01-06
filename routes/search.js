@@ -63,6 +63,26 @@ router.get('/', (req, res) => {
   if(!sort){
     sort = 'By Make A-Z';
   }
+
+  if(sort === 'make-desc'){
+    sort = 'By Make Z-A';
+  }
+
+  if(sort === 'low-price'){
+    sort = 'By Lowest Price';
+  }
+
+  if(sort === 'high-price'){
+    sort = 'By Highest Price';
+  }
+
+  if(sort === 'newest-year'){
+    sort = 'By Newest Year';
+  }
+
+  if(sort === 'oldest-year'){
+    sort = 'By Oldest Year';
+  }
   
   const searchOptions = {
     make,
