@@ -65,7 +65,7 @@ router.get('/phone', (req, res) => {
   const url = req.headers.referer;
   //gets the number from the URL
   const listingNum = url.split('/').pop();
-  
+
   listingQueries.getListing(listingNum)
   .then((response) => {
     const year = response.year;
@@ -85,7 +85,7 @@ router.get('/email', (req, res) => {
   const url = req.headers.referer;
   //gets the number from the URL
   const listingNum = url.split('/').pop();
-  
+
   listingQueries.getListing(listingNum)
   .then((response) => {
     const year = response.year;
@@ -112,7 +112,6 @@ router.get('/:id', (req, res) => {
 
 // Update listing
 router.put('/:id', (req, res) => {
-  const userId = req.cookies.user_id;
   const carId = req.params.id;
   const values = req.body;
 
@@ -142,6 +141,15 @@ router.put('/:id', (req, res) => {
 
   if (values.delete === 'false') {
     listingQueries.markAsUndeleted(carId)
+      .then((response) => {
+        return res.send(response);
+      })
+      .catch(console.log);
+  }
+
+  if (values.price) {
+    const price = Number(values.price.trim());
+    listingQueries.updatePrice(carId, price)
       .then((response) => {
         return res.send(response);
       })

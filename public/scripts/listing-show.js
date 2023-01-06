@@ -293,7 +293,7 @@ $().ready(function() {
 
       // Edit listing or Mark as sold buttons (edit or sold)
       let $ownListingAvailable = `
-      <a role="button" id="edit-listing"><label class="edit-icon mb-4"><i class="fa-solid fa-pen me-2"></i>Edit listing</label></a>
+      <a role="button" id="edit-listing" onclick="editPrice()"><label class="edit-icon mb-4"><i class="fa-solid fa-pen me-2"></i>Edit price</label></a>
       <a role="button" id="sold-listing" onclick="markSold()"><label class="edit-icon mb-4"><i class="fa-regular fa-circle-check me-2"></i>Mark as sold</label></a>
       `;
 
@@ -415,6 +415,30 @@ $().ready(function() {
     });
 
 });
+
+const editPrice = function() {
+  const currentPrice = $('#price-container').text().replace('$', '').replace(',', '');
+
+  let price = Number(prompt(`Current price: ${$('#price-container').text()}\nPlease enter a new price:`, `${currentPrice}`));
+
+  if (price == null || price == "") {
+    alert("Request cancelled.");
+  } else if (price > 5000000) {
+    alert("Requested price is too high.");
+  } else if (!Number.isInteger(price)) {
+    alert("Price must be a number.\nPlease do not include the dollar sign, spaces, or commas.");
+  } else {
+    $.ajax({
+      method: 'PUT',
+      url: location.pathname,
+      data: {price: price}
+    })
+      .done((response) => {
+        alert(`Price has been updated to: ${price}`);
+        location.reload();
+      })
+  }
+};
 
 const markSold = function() {
 

@@ -81,6 +81,15 @@ const markAsUndeleted = (carId) => {
     });
 };
 
+// Update price
+const updatePrice = (carId, price) => {
+  console.log(price);
+  return db.query('UPDATE cars SET price = $1 WHERE id = $2 RETURNING *;', [price, carId])
+    .then((data) => {
+      return data.rows;
+    });
+};
+
 module.exports = {
   getListings,
   getListing,
@@ -90,5 +99,6 @@ module.exports = {
   markAsSold,
   markAsUnsold,
   markAsDeleted,
-  markAsUndeleted
+  markAsUndeleted,
+  updatePrice
 };
