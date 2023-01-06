@@ -6,8 +6,8 @@ Contributors: Edward Lee & Tai Delisle
 Lighthouse Labs Cohort: Nov14 TELUS
 ```
 
-## Project Details
 ---
+## Project Details
 
 ### Buy/Sell Listing Website
 - An app where you can put different types of things up for sale.
@@ -25,8 +25,8 @@ Lighthouse Labs Cohort: Nov14 TELUS
 - Sellers can mark items as sold
 - Sellers can reply to messages sent to them
 
-## Freedom Auto Market
 ---
+## Freedom Auto Market
 
 Freedom Auto Market is a buy/sell platform for the private sale of cars, catered towards quality vehicles, including luxury brands.
 
@@ -72,12 +72,11 @@ Freedom Auto Market is a buy/sell platform for the private sale of cars, catered
 !["New listing"](./screenshots/buysell_listingnew.png)
 
 ## Planning docs/files
----
 
 Files related to planning (ERD, wireframe, working log) can be found in the [planning directory](./planning).
 
-## Getting Started
 ---
+## Getting Started
 
 1. Download or clone this repo
 2. Set up a local database on your machine called `midterm` and ensure there is a user role/pass of `labber`
