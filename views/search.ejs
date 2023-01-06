@@ -386,6 +386,13 @@
         <div class ="w-25"><label><strong>Max Price:&nbsp</strong></label>
           $<%=searchOptions.maxPrice%></div>
       </div>
+      <div>
+        <%if(searchOptions.bodyType){ %>
+           <div class="search-options"><label><strong>Body Type:&nbsp</strong></label><%=searchOptions.bodyType%></div>
+        <%}%>
+
+      </div>
+
       <div class="d-flex justify-content-center search-options">
         <div><label><strong>Sort By:&nbsp</strong></label><%=searchOptions.sort%></div>
       </div>

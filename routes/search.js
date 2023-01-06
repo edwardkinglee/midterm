@@ -14,6 +14,9 @@ router.get('/', (req, res) => {
   let minPrice = req.query.min_price;
   let maxPrice = req.query.max_price;
   let sort = req.query.sort;
+  let bodyType = req.query.body_type;
+
+  console.log('search query',req.query);
 
   if(!make){
      make = 'Any Make'; 
@@ -71,7 +74,8 @@ router.get('/', (req, res) => {
     maxKms,
     minPrice,
     maxPrice,
-    sort
+    sort,
+    bodyType
  };
 
   const templateVars = { display: 'All', userId, searchOptions};
