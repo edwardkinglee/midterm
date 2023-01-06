@@ -71,6 +71,11 @@ Freedom Auto Market is a buy/sell platform for the private sale of cars, catered
 > New listing
 !["New listing"](./screenshots/buysell_listingnew.png)
 
+## Planning docs/files
+---
+
+Files related to planning (ERD, wireframe, working log) can be found in the [planning directory](./planning).
+
 ## Getting Started
 ---
 
