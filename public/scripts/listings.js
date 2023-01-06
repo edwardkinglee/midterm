@@ -7,15 +7,27 @@ $().ready(function() {
     })
       .done((response) => {
 
+        const userId = Number($('#user-id')[0].innerText);
         const $listingsContainer = $('#listings');
 
         $listingsContainer.empty();
 
         for (const listing of response.listings) {
 
+
           if (listing.is_deleted) {
             continue;
           }
+
+          let favHeart = `<i onclick="addFav('${listing.id}')" class="fa-regular fa-heart favorite-icon"></i>`;
+
+          if (!userId) {
+            favHeart = '';
+          }
+
+          // if (userFavs) {
+          //   favHeart = `<i onclick="removeFav('${listing.id}')" class="fa-solid fa-heart favorite-icon"></i>`;
+          // }
 
           let $listing = `
         <div class="card-body" id="${listing.id}">
@@ -32,7 +44,7 @@ $().ready(function() {
                 <h5 class="card-title">${listing.year} ${listing.make} ${listing.model}</h5>
                 </a>
                 <br>
-                <p class="card-text">${listing.description} <br>color: ${listing.color} <br>${listing.body_type}</p>
+                <p class="card-text">${listing.description} <br>Color: ${listing.color} <br>Body type: ${listing.body_type}</p>
                 </div>
               </div>
 
@@ -46,8 +58,8 @@ $().ready(function() {
                  <div>
                   $${Number(listing.price).toLocaleString('en')}
                 </div>
-                <div>
-                  <i class="fa-regular fa-heart favorite-icon"></i>
+                <div id="fav-heart">
+                  ${favHeart}
                 </div>
               </h5>
               <p><br><br><br>Posted: ${new Date(listing.timestamp).toLocaleDateString()} ${new Date(listing.timestamp).toLocaleTimeString([], { timeStyle: 'short' })}</p>
@@ -66,6 +78,18 @@ $().ready(function() {
           }
 
         }
+      })
+      .then(()=> {
+        const userId = Number($('#user-id')[0].innerText);
+        $.ajax({
+          method: 'GET',
+          url: `/api/favourites/user/${userId}`
+        })
+          .then((response) => {
+            for (const fav of response.Favourites) {
+              $(`#${fav.car_id}`).find('#fav-heart').html(`<i onclick="removeFav('${fav.car_id}')" class="fa-solid fa-heart favorite-icon"></i>`);
+            }
+          });
       });
   } else {
     // Display only 'My listings' based on the logged in user
@@ -130,3 +154,39 @@ $().ready(function() {
       });
   }
 });
+
+const addFav = function(listingId) {
+
+  const userId = Number($('#user-id')[0].innerText);
+
+  $.ajax({
+    method: 'POST',
+    url: `/favourites`,
+    data: {
+      'user': userId,
+      'car': listingId
+    }
+  })
+    .done((response) => {
+      location.reload();
+    });
+
+};
+
+const removeFav = function(listingId) {
+
+  const userId = Number($('#user-id')[0].innerText);
+
+  $.ajax({
+    method: 'DELETE',
+    url: `/favourites`,
+    data: {
+      'user': userId,
+      'car': listingId
+    }
+  })
+    .done((response) => {
+      location.reload();
+    });
+
+};
