@@ -394,7 +394,15 @@ input::-webkit-inner-spin-button {
 .email-text{
   margin-top: 5px;
   background-color: #fff; 
-  height:350px; width:600px;
+  height:100%; 
   resize:none; 
 }
 
+.email-listing-container{
+  font-family: Roboto; 
+  border-radius: 5px; 
+  padding: 1px 30px; 
+  width: 50%;
+  background-color: #0000ff1a;
+  padding-bottom: 1.5em;
+}
