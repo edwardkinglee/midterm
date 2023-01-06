@@ -373,6 +373,7 @@
 
       <h1 id="search-results">Search Results</h1>
       <!--This is where the users search options show-->
+    <div id="search-options-container">
       <div class="d-flex justify-content-around search-options">
         <div class ="w-25"><label><strong>Make:&nbsp</strong></label><%=searchOptions.make%></div>
         <div class ="w-25"><label><strong>Model:&nbsp</strong></label>Any Model</div>
@@ -390,13 +391,11 @@
         <%if(searchOptions.bodyType){ %>
            <div class="search-options"><label><strong>Body Type:&nbsp</strong></label><%=searchOptions.bodyType%></div>
         <%}%>
-
       </div>
-
       <div class="d-flex justify-content-center search-options">
         <div><label><strong>Sort By:&nbsp</strong></label><%=searchOptions.sort%></div>
       </div>
-      
+    </div>
       <!-- <label id="search-options"><%=searchOptions%></label> -->
     
       <div class="d-flex flex-column" id="search">
